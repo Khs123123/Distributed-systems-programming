@@ -1,5 +1,5 @@
 package com.example;
 
-public class Localapplication {
+public class LocalApplication {
     
 }
