@@ -1,0 +1,3 @@
+POS    https://pastebin.com/raw/5Yw3FJpG
+CONSTITUENCY    https://pastebin.com/raw/ZP5gEPDN
+DEPENDENCY    https://pastebin.com/raw/T1JQYVg8
