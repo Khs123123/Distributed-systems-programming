@@ -63,7 +63,7 @@ public class Manager {
         }
     }
 
-    private static void runManager(String[] args) throws IOException {
+    public static void runManager(String[] args) throws IOException {
         if (args.length < 3) {
             System.out.println("Usage: java com.example.Manager inputFileName outputSummary.html n");
             return;
