@@ -5,9 +5,37 @@
 <p><b>Parameter n (max per worker):</b> 5</p>
 <table border="1" cellpadding="5" cellspacing="0">
 <tr><th>#</th><th>Type</th><th>URL</th><th>Result</th><th>Error</th></tr>
-<tr><td>1</td><td>POS</td><td><a href="https://pastebin.com/raw/5Yw3FJpG">https://pastebin.com/raw/5Yw3FJpG</a></td><td><pre></pre></td><td>Exception: FileNotFoundException - https://pastebin.com/raw/5Yw3FJpG</td></tr>
-<tr><td>2</td><td>CONSTITUENCY</td><td><a href="https://pastebin.com/raw/ZP5gEPDN">https://pastebin.com/raw/ZP5gEPDN</a></td><td><pre></pre></td><td>Exception: FileNotFoundException - https://pastebin.com/raw/ZP5gEPDN</td></tr>
-<tr><td>3</td><td>DEPENDENCY</td><td><a href="https://pastebin.com/raw/T1JQYVg8">https://pastebin.com/raw/T1JQYVg8</a></td><td><pre></pre></td><td>Exception: FileNotFoundException - https://pastebin.com/raw/T1JQYVg8</td></tr>
+<tr><td>1</td><td>POS</td><td><a href="https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/pos.txt">https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/pos.txt</a></td><td><pre>The[DT] quick[JJ] brown[JJ] fox[NN] jumps[VBZ] over[IN] the[DT] lazy[JJ] dog[NN] .[.] 
+</pre></td><td></td></tr>
+<tr><td>2</td><td>CONSTITUENCY</td><td><a href="https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/const.txt">https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/const.txt</a></td><td><pre>(ROOT
+  (S
+    (VP
+      (NP
+        (INTJ (UH Hello))
+        (NP (NN world))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT This))
+    (VP (VBZ is)
+      (NP
+        (NP (DT a) (JJ simple) (NN sentence))
+        (PP (IN for)
+          (NP (NN parsing)))))
+    (. .)))
+
+</pre></td><td></td></tr>
+<tr><td>3</td><td>DEPENDENCY</td><td><a href="https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/dep.txt">https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/dep.txt</a></td><td><pre>root(ROOT-0, fun-4)
+amod(systems-2, Distributed-1)
+nsubj(fun-4, systems-2)
+cop(fun-4, are-3)
+mark(analyze-6, to-5)
+xcomp(fun-4, analyze-6)
+punct(fun-4, .-7)
+
+
+</pre></td><td></td></tr>
 </table>
 <p><i>This is a LOCAL test version of the Manager. Later, this summary will be based on real Worker results from S3.</i></p>
 </body></html>

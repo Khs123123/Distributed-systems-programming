@@ -63,19 +63,55 @@ public class Workers {
     /**
      * Download text from the given URL.
      */
+    // private String downloadText(String urlString) throws IOException {
+    //     StringBuilder sb = new StringBuilder();
+    //     URL url = new URL(urlString);
+
+    //     try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()))) {
+    //         String line;
+    //         while ((line = in.readLine()) != null) {
+    //             sb.append(line).append("\n");
+    //         }
+    //     }
+
+    //     return sb.toString();
+    // }
+
     private String downloadText(String urlString) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        URL url = new URL(urlString);
+    StringBuilder sb = new StringBuilder();
+    URL url = new URL(urlString);
 
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()))) {
-            String line;
-            while ((line = in.readLine()) != null) {
-                sb.append(line).append("\n");
+    // Only read a prefix of the file to avoid OutOfMemoryError.
+    final int MAX_LINES = 80;      // at most 80 lines
+    final int MAX_CHARS = 8000;    // and at most 8000 characters
+
+    try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()))) {
+        String line;
+        int lineCount = 0;
+
+        while ((line = in.readLine()) != null) {
+            if (lineCount >= MAX_LINES || sb.length() >= MAX_CHARS) {
+                sb.append("\n[TRUNCATED]\n");
+                break;
             }
-        }
 
-        return sb.toString();
+            if (sb.length() + line.length() + 1 > MAX_CHARS) {
+                int remaining = MAX_CHARS - sb.length();
+                if (remaining > 0) {
+                    sb.append(line, 0, remaining);
+                }
+                sb.append("\n[TRUNCATED]\n");
+                break;
+            }
+
+            sb.append(line).append("\n");
+            lineCount++;
+        }
     }
+
+    return sb.toString();
+}
+
 
     /**
      * Run POS / Constituency / Dependency parsing on the given text.

@@ -1,0 +1,8 @@
+mvn clean package
+& 'C:\Users\Haled\.vscode\extensions\redhat.java-1.47.0-win32-x64\jre\21.0.8-win32-x86_64\bin\java.exe' -cp target\demo-1.0-SNAPSHOT.jar com.example.Localapplication input.txt output.html 5
+
+
+& 'C:\Users\Haled\.vscode\extensions\redhat.java-1.47.0-win32-x64\jre\21.0.8-win32-x86_64\bin\java.exe' -cp target\demo-1.0-SNAPSHOT.jar com.example.Manager input.txt manager-summary.html 5
+  
+
+mvn exec:java "-Dexec.mainClass=com.example.Manager" "-Dexec.args=input.txt manager-summary.html 5"
