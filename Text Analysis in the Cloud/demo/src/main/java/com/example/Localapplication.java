@@ -318,6 +318,13 @@ public class Localapplication {
             System.out.println("=== LocalApplication (LOCAL HOOK VERSION) FINISHED ===");
         } else {
             // Placeholder for future AWS version
+            // ----- AWS VERSION -----
+            // 1. Check if Manager EC2 is running
+            // 2. Upload input file to S3
+            // 3. Send SQS message to Manager
+            // 4. Wait for summary message
+            // 5. Download summary from S3
+            // 6. If terminate → send terminate message
             System.out.println("[LocalApplication] AWS mode not implemented yet.");
         }
     }

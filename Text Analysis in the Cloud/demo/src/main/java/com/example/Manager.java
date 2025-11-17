@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.text.html.HTML;
+
 /**
  * Local-only Manager implementation (NO AWS YET).
  *
@@ -31,7 +33,7 @@ import java.util.List;
 public class Manager {
 
     /** Represents one task (one line from input). */
-    private static class Task {
+    private static class Task {  //this becomes the body of an SQS message to workers.
         String type; // POS / CONSTITUENCY / DEPENDENCY
         String url;
 
@@ -42,7 +44,7 @@ public class Manager {
     }
 
     /** Represents the result of processing a task. */
-    private static class TaskResult {
+    private static class TaskResult { //This will later come from: Worker → SQS → Manager
         Task task;
         String resultText; // What Worker produced (fake for now)
         String errorText;  // Non-null if there was an error
@@ -94,11 +96,16 @@ public class Manager {
         }
 
         // 2. "Process" tasks (simulate Worker)
-        List<TaskResult> results = processTasksLocally(tasks);
+        List<TaskResult> results = processTasksLocally(tasks); //In AWS mode: Manager will not analyze anything in Java Instead it will: Send each task to SQS Wait for workers to respond Aggregate results But your local simulation is perfect for testing before moving to AWS.
 
         // 3. Build summary HTML
         File outputFile = new File(outputSummaryName);
         writeSummaryHtml(outputFile, results, n);
+        //In AWS mode:
+        //Manager will upload this file to S3
+        //Send SQS message to LocalApplication
+        //LocalApplication downloads it
+        //Saves it as output HTML
 
         System.out.println("Summary HTML written to: " + outputFile.getAbsolutePath());
         System.out.println("=== Manager (LOCAL VERSION) FINISHED ===");
@@ -232,3 +239,41 @@ public class Manager {
     }
 
 }
+// public static void runManager(String[] args) throws IOException {
+
+//     // 1. Parse arguments (same for local & AWS)
+//     String inputFileName = args[0];
+//     String outputSummaryName = args[1];
+//     int n = Integer.parseInt(args[2]);
+
+//     if (LOCAL_TEST_NO_AWS) {
+//         // ======================================
+//         //   🔵 LOCAL VERSION (WHAT YOU HAVE NOW)
+//         // ======================================
+
+//         File inputFile = new File(inputFileName);
+//         List<Task> tasks = readTasks(inputFile);
+
+//         List<TaskResult> results = processTasksLocally(tasks);
+
+//         File outputFile = new File(outputSummaryName);
+//         writeSummaryHtml(outputFile, results, n);
+
+//         return;
+//     }
+
+//     // ==========================================
+//     //   🟩 AWS VERSION (WHAT YOU WILL ADD)
+//     // ==========================================
+
+//     // 1. Download input file from S3
+//     // 2. Read tasks using readTasks()
+//     // 3. For each task, send SQS message to worker queue
+//     // 4. Start EC2 Workers based on n (scaling logic)
+//     // 5. Collect Worker results from SQS "results queue"
+//     // 6. Build summary HTML (same function: writeSummaryHtml)
+//     // 7. Upload summary to S3
+//     // 8. Send SQS message to LocalApplication
+//     // 9. If terminate flag -> shut down workers and self-terminate
+
+// }
