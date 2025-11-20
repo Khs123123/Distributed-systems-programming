@@ -14,81 +14,100 @@ import java.nio.file.*;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.*;
-
 import software.amazon.awssdk.core.sync.RequestBody;
 
 /**
- * Manager – Full AWS Implementation (Assignment-Compliant)
+ * ============================
+ *       MANAGER (FINAL)
+ * ============================
  *
- * Responsibilities:
- *  - Receives SQS messages from LocalApplications.
- *  - For each NEW_JOB:
- *      → Downloads input file from S3.
- *      → Splits into URL tasks.
- *      → Sends tasks to worker queue.
- *      → Spawns EC2 workers (1 per n tasks, max 19 total).
- *      → Waits for Worker results on results queue.
- *      → Builds summary HTML file.
- *      → Uploads to S3.
- *      → Sends SUMMARY_READY message to LocalApp.
- *  - For TERMINATE:
- *      → Waits for workers to finish, then terminates all EC2 workers.
- *      → Shuts down gracefully.
+ * Responsibilities according to assignment:
+ *  ---------------------------------------
+ *  ✔ Receives NEW_JOB messages from LocalApplications
+ *  ✔ Downloads input file from S3
+ *  ✔ Splits into URL tasks (n defines worker-per-job ratio)
+ *  ✔ Sends tasks to Workers via worker-queue
+ *  ✔ Spawns EC2 workers dynamically
+ *  ✔ Collects results from workers via worker-results queue
+ *  ✔ Builds summary.html file
+ *  ✔ Uploads summary to S3
+ *  ✔ Sends SUMMARY_READY;<bucket>;<key> back to LocalApplication
+ *  ✔ Handles TERMINATE: shutdown workers + exit
  */
 
 public class Manager {
 
-    // ======== AWS CONFIGURATION ========
+    // ===============================
+    // AWS CONFIGURATION
+    // ===============================
     private static final Region AWS_REGION = Region.EU_CENTRAL_1;
+
     private static final String S3_BUCKET = "khaled-text-analysis-bucket";
-    private static final String MANAGER_QUEUE_URL = "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/manager-queue";
-    private static final String WORKER_QUEUE_URL = "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/worker-queue";
-    private static final String WORKER_RESULTS_QUEUE_URL = "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/worker-results-queue";
+
+    private static final String MANAGER_QUEUE_URL =
+            "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/manager-queue";
+
+    private static final String WORKER_QUEUE_URL =
+            "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/worker-queue";
+
+    private static final String WORKER_RESULTS_QUEUE_URL =
+            "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/worker-results-queue";
+
     private static final String WORKER_AMI_ID = "ami-xxxxxxxxxxxxxx";
 
-    // Limit AWS cost & comply with assignment
     private static final int MAX_WORKERS = 19;
 
-    // 🧠 Automatically scale Manager concurrency based on instance size
-    private static final int THREAD_COUNT = Math.min(
-            10,  // cap
-            Math.max(2, Runtime.getRuntime().availableProcessors() * 2)
+    // Thread pool for processing multiple NEW_JOB messages simultaneously
+    private static final int THREADS = Math.min(
+            10, Math.max(2, Runtime.getRuntime().availableProcessors() * 2)
     );
 
-    private final ExecutorService executor = Executors.newFixedThreadPool(THREAD_COUNT);
+    private final ExecutorService executor = Executors.newFixedThreadPool(THREADS);
 
     public static void main(String[] args) {
-        System.out.println("=== Manager (AWS VERSION - Dynamic Thread Pool, " + THREAD_COUNT + " threads) ===");
-        new Manager().runManagerLoop();
+        System.out.println("\n=== Manager Started (" + THREADS + " threads) ===");
+        new Manager().run();
     }
 
-    // === Main Manager Loop ===
-    private void runManagerLoop() {
+
+    // ===============================
+    // MAIN MANAGER LOOP
+    // ===============================
+    private void run() {
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
 
-            boolean running = true;
-            while (running) {
-                ReceiveMessageResponse response = sqs.receiveMessage(ReceiveMessageRequest.builder()
-                        .queueUrl(MANAGER_QUEUE_URL)
-                        .waitTimeSeconds(15)
-                        .maxNumberOfMessages(1)
-                        .build());
+            boolean alive = true;
 
-                for (Message msg : response.messages()) {
+            while (alive) {
+
+                ReceiveMessageResponse resp = sqs.receiveMessage(
+                        ReceiveMessageRequest.builder()
+                                .queueUrl(MANAGER_QUEUE_URL)
+                                .waitTimeSeconds(15)       // long polling
+                                .maxNumberOfMessages(1)
+                                .build()
+                );
+
+                for (Message msg : resp.messages()) {
+
                     String body = msg.body();
                     System.out.println("[Manager] Received: " + body);
 
+                    // NEW JOB
                     if (body.startsWith("NEW_JOB")) {
                         executor.submit(() -> handleNewJob(body));
-                    } else if (body.equals("TERMINATE")) {
-                        System.out.println("[Manager] Terminate signal received.");
-                        running = false;
                     }
 
-                    // delete message to prevent reprocessing
+                    // TERMINATE
+                    else if (body.equals("TERMINATE")) {
+                        System.out.println("[Manager] TERMINATE received");
+                        alive = false;
+                    }
+
+                    // Acknowledge (delete)
                     sqs.deleteMessage(DeleteMessageRequest.builder()
                             .queueUrl(MANAGER_QUEUE_URL)
                             .receiptHandle(msg.receiptHandle())
@@ -96,213 +115,288 @@ public class Manager {
                 }
             }
 
-            System.out.println("[Manager] Shutting down gracefully...");
+            System.out.println("[Manager] Graceful shutdown...");
             executor.shutdown();
             executor.awaitTermination(10, TimeUnit.MINUTES);
-            terminateAllWorkers();
 
-            System.out.println("[Manager] Terminated. Goodbye 👋");
+            terminateAllWorkers();
+            System.out.println("[Manager] Terminated all workers. Exiting.");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    // === Handle a new job from a LocalApplication ===
-    private void handleNewJob(String body) {
+
+    // ===============================
+    // HANDLE NEW JOB
+    // ===============================
+    private void handleNewJob(String message) {
         try {
-            String[] parts = body.split(";");
-            String s3Bucket = parts[1];
+            String[] parts = message.split(";");
+
+            String bucket = parts[1];
             String inputKey = parts[2];
             int n = Integer.parseInt(parts[3]);
-            String localAppQueueUrl = parts[4];
+            String localAppQueueURL = parts[4];
 
-            System.out.println("[Manager] Starting job for " + inputKey);
+            System.out.println("[Manager] Handling job for: " + inputKey);
 
-            // 1️⃣ Download input file from S3
-            Path localInputPath = Paths.get("/tmp/" + UUID.randomUUID() + "_input.txt");
-            downloadFromS3(s3Bucket, inputKey, localInputPath);
+            // 1) Download input
+            Path inputPath = Paths.get("/tmp/" + UUID.randomUUID() + "_input.txt");
+            downloadFromS3(bucket, inputKey, inputPath);
 
-            // 2️⃣ Read URLs
-            List<String[]> tasks = readInputTasks(localInputPath);
-            System.out.println("[Manager] Found " + tasks.size() + " URLs to process.");
+            // 2) Parse input file (URL + type)
+            List<String[]> tasks = parseInput(inputPath);
+            int totalTasks = tasks.size();
+            System.out.println("[Manager] Total URLs: " + totalTasks);
 
-            // 3️⃣ Send task messages to worker queue
-            sendTasksToWorkers(tasks);
+            // 3) Push tasks to worker queue
+            sendTasksToWorkerQueue(tasks);
 
-            // 4️⃣ Scale up workers based on n
-            int needed = (int) Math.ceil((double) tasks.size() / n);
-            ensureWorkerCount(needed);
+            // 4) Ensure enough workers
+            ensureWorkerCount((int) Math.ceil((double) totalTasks / n));
 
-            // 5️⃣ Collect results from workers
-            List<String[]> results = collectWorkerResults(tasks.size());
+            // 5) Collect worker results
+            List<String[]> results = collectResults(totalTasks);
 
-            // 6️⃣ Build HTML summary
-            String summaryFile = "/tmp/summary_" + System.currentTimeMillis() + ".html";
-            buildSummaryHtml(results, summaryFile);
+            // 6) Build HTML summary
+            String localSummaryFile = "/tmp/summary_" + System.currentTimeMillis() + ".html";
+            writeSummaryHTML(results, localSummaryFile);
 
-            // 7️⃣ Upload summary to S3
+            // 7) Upload summary to S3
             String summaryKey = "summaries/" + UUID.randomUUID() + "_summary.html";
-            uploadToS3(S3_BUCKET, summaryKey, summaryFile);
+            uploadToS3(S3_BUCKET, summaryKey, localSummaryFile);
 
-            // 8️⃣ Notify LocalApplication
-            sendSummaryMessage(localAppQueueUrl, summaryKey);
+            // 8) Notify LocalApplication
+            sendSummaryMessage(localAppQueueURL, summaryKey);
 
-            System.out.println("[Manager] Completed job for " + inputKey);
+            System.out.println("[Manager] DONE for job: " + inputKey);
 
         } catch (Exception e) {
-            System.err.println("[Manager] ERROR handling job: " + e.getMessage());
+            System.err.println("[Manager] JOB ERROR: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    // === AWS Utility Methods ===
 
-    private void downloadFromS3(String bucket, String key, Path outputPath) throws IOException {
+    // ===============================
+    // DOWNLOAD FROM S3
+    // ===============================
+    private void downloadFromS3(String bucket, String key, Path outFile) {
         try (S3Client s3 = S3Client.builder()
                 .region(AWS_REGION)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
-            s3.getObject(GetObjectRequest.builder().bucket(bucket).key(key).build(), outputPath);
-            System.out.println("[S3] Downloaded " + key);
+
+            s3.getObject(GetObjectRequest.builder()
+                            .bucket(bucket)
+                            .key(key)
+                            .build(),
+                    outFile);
+
+            System.out.println("[S3] Downloaded: " + key);
         }
     }
 
-    private void uploadToS3(String bucket, String key, String filePath) throws IOException {
+
+    // ===============================
+    // UPLOAD TO S3
+    // ===============================
+    private void uploadToS3(String bucket, String key, String filePath) {
         try (S3Client s3 = S3Client.builder()
                 .region(AWS_REGION)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
-            s3.putObject(PutObjectRequest.builder().bucket(bucket).key(key).build(),
+
+            s3.putObject(PutObjectRequest.builder()
+                            .bucket(bucket)
+                            .key(key)
+                            .build(),
                     RequestBody.fromFile(Paths.get(filePath)));
-            System.out.println("[S3] Uploaded summary to s3://" + bucket + "/" + key);
+
+            System.out.println("[S3] Uploaded summary: " + key);
         }
     }
 
-    private List<String[]> readInputTasks(Path inputFile) throws IOException {
+
+    // ===============================
+    // PARSE INPUT FILE
+    // ===============================
+    private List<String[]> parseInput(Path path) throws IOException {
         List<String[]> list = new ArrayList<>();
-        try (BufferedReader reader = Files.newBufferedReader(inputFile)) {
+
+        try (BufferedReader br = Files.newBufferedReader(path)) {
             String line;
-            while ((line = reader.readLine()) != null) {
+
+            while ((line = br.readLine()) != null) {
                 line = line.trim();
                 if (line.isEmpty()) continue;
-                String[] parts = line.split("\\s+", 2);
-                if (parts.length == 2) list.add(parts);
+
+                String[] p = line.split("\\s+", 2);
+                if (p.length == 2) list.add(p);
             }
         }
+
         return list;
     }
 
-    private void sendTasksToWorkers(List<String[]> tasks) {
+
+    // ===============================
+    // SEND TASKS TO WORKERS
+    // ===============================
+    private void sendTasksToWorkerQueue(List<String[]> tasks) {
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
+
             for (String[] task : tasks) {
-                String type = task[0];
-                String url = task[1];
-                String msg = type + ";" + url;
                 sqs.sendMessage(SendMessageRequest.builder()
                         .queueUrl(WORKER_QUEUE_URL)
-                        .messageBody(msg)
+                        .messageBody(task[0] + ";" + task[1])
                         .build());
             }
-            System.out.println("[SQS] Sent " + tasks.size() + " messages to Worker queue");
+
+            System.out.println("[SQS] Sent " + tasks.size() + " tasks to workers");
         }
     }
 
+
+    // ===============================
+    // SCALE WORKERS
+    // ===============================
     private void ensureWorkerCount(int needed) {
         try (Ec2Client ec2 = Ec2Client.builder()
                 .region(AWS_REGION)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
 
-            DescribeInstancesResponse resp = ec2.describeInstances(DescribeInstancesRequest.builder()
-                    .filters(Filter.builder().name("instance-state-name").values("running", "pending").build())
-                    .build());
+            // count current workers
+            DescribeInstancesResponse resp = ec2.describeInstances();
 
-            long currentCount = resp.reservations().stream()
+            long current = resp.reservations().stream()
                     .flatMap(r -> r.instances().stream())
                     .filter(i -> i.imageId().equals(WORKER_AMI_ID))
+                    .filter(i -> i.state().name().equals(InstanceStateName.RUNNING)
+                            || i.state().name().equals(InstanceStateName.PENDING))
                     .count();
 
-            int toLaunch = Math.min(MAX_WORKERS - (int) currentCount, Math.max(0, needed - (int) currentCount));
+            int toLaunch = Math.min(MAX_WORKERS - (int) current, Math.max(0, needed - (int) current));
+
             if (toLaunch <= 0) {
-                System.out.println("[EC2] No new workers needed. Current=" + currentCount);
+                System.out.println("[EC2] Worker count OK: " + current);
                 return;
             }
 
-            System.out.println("[EC2] Launching " + toLaunch + " new worker(s)...");
+            System.out.println("[EC2] Launching " + toLaunch + " Workers");
+
             ec2.runInstances(RunInstancesRequest.builder()
                     .imageId(WORKER_AMI_ID)
                     .instanceType(InstanceType.T3_MICRO)
                     .minCount(1)
                     .maxCount(toLaunch)
                     .iamInstanceProfile(IamInstanceProfileSpecification.builder()
-                            .name("WorkerInstanceProfile").build())
+                            .name("WorkerInstanceProfile")
+                            .build())
                     .build());
         }
     }
 
-    private List<String[]> collectWorkerResults(int expectedCount) {
+
+    // ===============================
+    // COLLECT WORKER RESULTS
+    // ===============================
+    
+    private List<String[]> collectResults(int expected) {
         List<String[]> results = new ArrayList<>();
+
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
 
-            System.out.println("[Manager] Waiting for worker results...");
+            System.out.println("[Manager] Waiting for " + expected + " worker results...");
 
-            while (results.size() < expectedCount) {
-                ReceiveMessageResponse resp = sqs.receiveMessage(ReceiveMessageRequest.builder()
-                        .queueUrl(WORKER_RESULTS_QUEUE_URL)
-                        .maxNumberOfMessages(10)
-                        .waitTimeSeconds(15)
-                        .build());
+            while (results.size() < expected) {
 
-                for (Message msg : resp.messages()) {
-                    String[] parts = msg.body().split(";", 3);
+                ReceiveMessageResponse resp = sqs.receiveMessage(
+                        ReceiveMessageRequest.builder()
+                                .queueUrl(WORKER_RESULTS_QUEUE_URL)
+                                .maxNumberOfMessages(10)
+                                .waitTimeSeconds(15)
+                                .build()
+                );
+
+                for (Message m : resp.messages()) {
+                    String[] parts = m.body().split(";", 3);
                     results.add(parts);
+
                     sqs.deleteMessage(DeleteMessageRequest.builder()
                             .queueUrl(WORKER_RESULTS_QUEUE_URL)
-                            .receiptHandle(msg.receiptHandle())
+                            .receiptHandle(m.receiptHandle())
                             .build());
                 }
             }
 
-        } catch (SqsException e) {
-            System.err.println("[Manager] Error collecting results: " + e.awsErrorDetails().errorMessage());
+            System.out.println("[Manager] Received all worker results.");
+
+        } catch (Exception e) {
+            System.err.println("[Manager] Error collecting results: " + e.getMessage());
         }
+
         return results;
     }
 
-    private void buildSummaryHtml(List<String[]> results, String filePath) throws IOException {
-        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath))) {
-            writer.write("<html><head><title>Summary</title></head><body>");
-            writer.write("<h1>Analysis Results</h1>");
-            writer.write("<table border='1'><tr><th>Type</th><th>URL</th><th>Result S3 URL</th></tr>");
-            for (String[] res : results) {
-                writer.write("<tr><td>" + res[0] + "</td><td>" + res[1] + "</td><td>" + res[2] + "</td></tr>");
+
+    // ===============================
+    // BUILD SUMMARY HTML
+    // ===============================
+    private void writeSummaryHTML(List<String[]> results, String filePath) throws IOException {
+        try (BufferedWriter w = Files.newBufferedWriter(Paths.get(filePath))) {
+
+            w.write("<html><head><title>Summary</title></head><body>");
+            w.write("<h1>Analysis Summary</h1>");
+            w.write("<table border='1'>");
+            w.write("<tr><th>Type</th><th>URL</th><th>Result</th></tr>");
+
+            for (String[] r : results) {
+                w.write("<tr>");
+                w.write("<td>" + r[0] + "</td>");
+                w.write("<td>" + r[1] + "</td>");
+                w.write("<td>" + r[2] + "</td>");
+                w.write("</tr>");
             }
-            writer.write("</table></body></html>");
+
+            w.write("</table></body></html>");
         }
     }
 
-    private void sendSummaryMessage(String localAppQueueUrl, String summaryKey) {
+
+    // ===============================
+    // SEND SUMMARY BACK TO LOCALAPP
+    // ===============================
+    private void sendSummaryMessage(String localQueue, String key) {
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
 
-            String msg = "SUMMARY_READY;" + S3_BUCKET + ";" + summaryKey;
+            String msg = "SUMMARY_READY;" + S3_BUCKET + ";" + key;
+
             sqs.sendMessage(SendMessageRequest.builder()
-                    .queueUrl(localAppQueueUrl)
+                    .queueUrl(localQueue)
                     .messageBody(msg)
                     .build());
-            System.out.println("[SQS] Sent SUMMARY_READY to " + localAppQueueUrl);
+
+            System.out.println("[SQS] Sent SUMMARY_READY to LocalApp.");
         }
     }
 
+
+    // ===============================
+    // TERMINATE ALL WORKERS
+    // ===============================
     private void terminateAllWorkers() {
         try (Ec2Client ec2 = Ec2Client.builder()
                 .region(AWS_REGION)
@@ -310,26 +404,30 @@ public class Manager {
                 .build()) {
 
             DescribeInstancesResponse resp = ec2.describeInstances();
-            List<String> workerIds = new ArrayList<>();
+
+            List<String> toKill = new ArrayList<>();
+
             for (Reservation r : resp.reservations()) {
                 for (Instance i : r.instances()) {
-                    if (i.imageId().equals(WORKER_AMI_ID)
-                            && (i.state().name().equals(InstanceStateName.RUNNING)
-                            || i.state().name().equals(InstanceStateName.PENDING))) {
-                        workerIds.add(i.instanceId());
+
+                    if (i.imageId().equals(WORKER_AMI_ID) &&
+                            (i.state().name().equals(InstanceStateName.RUNNING)
+                                    || i.state().name().equals(InstanceStateName.PENDING))) {
+                        toKill.add(i.instanceId());
                     }
                 }
             }
 
-            if (!workerIds.isEmpty()) {
+            if (!toKill.isEmpty()) {
                 ec2.terminateInstances(TerminateInstancesRequest.builder()
-                        .instanceIds(workerIds)
+                        .instanceIds(toKill)
                         .build());
-                System.out.println("[EC2] Terminated workers: " + workerIds.size());
+
+                System.out.println("[EC2] Terminated workers: " + toKill.size());
             }
 
         } catch (Exception e) {
-            System.err.println("[Manager] Error terminating workers: " + e.getMessage());
+            System.err.println("[Manager] Worker termination error: " + e.getMessage());
         }
     }
 }
