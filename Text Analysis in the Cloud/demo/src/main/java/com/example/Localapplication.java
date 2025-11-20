@@ -226,134 +226,284 @@
 
 package com.example;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.*;
+import java.nio.file.*;
+import java.time.*;
+import java.util.List;
+
+import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.ec2.*;
+import software.amazon.awssdk.services.ec2.model.*;
+import software.amazon.awssdk.services.s3.*;
+import software.amazon.awssdk.services.s3.model.*;
+import software.amazon.awssdk.services.sqs.*;
+import software.amazon.awssdk.services.sqs.model.*;
 
 /**
- * LocalApplication - LOCAL HOOK VERSION (no AWS).
+ * LocalApplication – FULL AWS VERSION (Final)
+ *
+ * Assignment responsibilities:
+ *  1. Check/start Manager EC2.
+ *  2. Upload input file to S3.
+ *  3. Send message to Manager via SQS.
+ *  4. Wait for summary message from Manager.
+ *  5. Download summary file from S3.
+ *  6. Optionally send terminate message.
  *
  * Usage:
- *   java Localapplication input.txt output.html 5 [terminate]
- *
- * In this local version:
- *   - We check the input file exists.
- *   - We call Manager.runManager(...) directly (no SQS, no S3, no EC2).
- *   - Manager creates manager-summary.html with the real analysis.
- *   - We create output.html that links to manager-summary.html.
+ *   java com.example.Localapplication input.txt output.html n [terminate]
  */
 public class Localapplication {
 
-    private static final boolean LOCAL_TEST_NO_AWS = true;
+    private static final Region AWS_REGION = Region.EU_CENTRAL_1;
 
-    public static void main(String[] args) {
+    // 🪣 Replace with your actual S3 bucket
+    private static final String S3_BUCKET = "khaled-text-analysis-bucket";
+
+    // 📬 Replace with your real SQS queue URLs
+    private static final String MANAGER_QUEUE_URL = "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/manager-queue";
+    private static final String LOCALAPP_QUEUE_URL = "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/localapp-queue";
+
+    // ⚙️ EC2 config for Manager
+    private static final String MANAGER_AMI_ID = "ami-xxxxxxxxxxxxxxx";
+    private static final String MANAGER_TAG_KEY = "Project";
+    private static final String MANAGER_TAG_VALUE = "TextAnalysisManager";
+
+    public static void main(String[] args) throws Exception {
+
         if (args.length < 3 || args.length > 4) {
-            printUsage();
+            System.out.println("Usage: java com.example.Localapplication input.txt output.html n [terminate]");
             return;
         }
 
-        String inputFileName  = args[0];
+        String inputFileName = args[0];
         String outputFileName = args[1];
-        int n;
+        int n = Integer.parseInt(args[2]);
+        boolean terminate = args.length == 4 && args[3].equalsIgnoreCase("terminate");
 
-        try {
-            n = Integer.parseInt(args[2]);
-        } catch (NumberFormatException e) {
-            System.err.println("ERROR: n must be an integer.");
-            printUsage();
-            return;
-        }
-
-        boolean terminate = (args.length == 4 &&
-                             "terminate".equalsIgnoreCase(args[3]));
-
-        System.out.println("=== LocalApplication (LOCAL HOOK VERSION, NO AWS) ===");
+        System.out.println("=== LocalApplication (FULL AWS VERSION) ===");
         System.out.println("inputFileName  = " + inputFileName);
         System.out.println("outputFileName = " + outputFileName);
         System.out.println("n              = " + n);
         System.out.println("terminate      = " + terminate);
 
-        // 1) Check input file
-        Path inputPath = Paths.get(inputFileName);
-        if (!Files.exists(inputPath)) {
-            System.err.println("ERROR: Input file not found at: " + inputPath.toAbsolutePath());
+        // 1️⃣ Ensure Manager EC2 is running
+        ensureManagerRunning();
+
+        // 2️⃣ Upload input file to S3
+        String s3Key = "inputs/" + new File(inputFileName).getName();
+        uploadToS3(inputFileName, s3Key);
+
+        // 3️⃣ Send job message to Manager
+        sendJobMessageToManager(s3Key, n);
+
+        // 4️⃣ Wait for summary message (with timeout)
+        String summaryKey = waitForSummaryMessage();
+
+        if (summaryKey == null) {
+            System.err.println("[LocalApp] Timeout: no summary received after 30 minutes. Exiting.");
             return;
         }
-        System.out.println("Input file found at: " + inputPath.toAbsolutePath());
 
-        if (LOCAL_TEST_NO_AWS) {
-            // 2) LOCAL ONLY: call Manager.runManager(String[] args)
-            String managerSummaryFile = "manager-summary.html";
+        // 5️⃣ Download summary file from S3
+        downloadFromS3(summaryKey, outputFileName);
 
-            String[] managerArgs = new String[] {
-                inputFileName,
-                managerSummaryFile,
-                String.valueOf(n)
-            };
+        // 6️⃣ Optionally send terminate message
+        if (terminate) {
+            sendTerminateMessage();
+        }
 
-            System.out.println("[LocalApplication] LOCAL TEST MODE: calling Manager.runManager(...)");
-            try {
-                Manager.runManager(managerArgs);  // <-- your existing method
-                System.out.println("[LocalApplication] Manager finished. Summary is in: "
-                        + managerSummaryFile);
-            } catch (IOException e) {
-                System.err.println("ERROR: Manager.runManager threw IOException: " + e.getMessage());
-                e.printStackTrace();
+        System.out.println("=== LocalApplication finished successfully ✅ ===");
+    }
+
+    // ------------------------------------------------------
+    // Step 1: Ensure Manager EC2 is running (with waiter)
+    // ------------------------------------------------------
+    private static void ensureManagerRunning() {
+        try (Ec2Client ec2 = Ec2Client.builder()
+                .region(AWS_REGION)
+                .credentialsProvider(DefaultCredentialsProvider.create())
+                .build()) {
+
+            System.out.println("[EC2] Checking for running Manager...");
+
+            DescribeInstancesResponse resp = ec2.describeInstances(DescribeInstancesRequest.builder()
+                    .filters(Filter.builder().name("tag:" + MANAGER_TAG_KEY).values(MANAGER_TAG_VALUE).build())
+                    .build());
+
+            boolean isRunning = resp.reservations().stream()
+                    .flatMap(r -> r.instances().stream())
+                    .anyMatch(i -> i.state().name().equals(InstanceStateName.RUNNING));
+
+            if (isRunning) {
+                System.out.println("[EC2] Manager is already running ✅");
                 return;
             }
 
-            // 3) Create local HTML that points to manager-summary.html
-            try {
-                createLocalOutputHtml(outputFileName, managerSummaryFile, n, terminate);
-                System.out.println("[LocalApplication] Wrote local output HTML: "
-                        + new File(outputFileName).getAbsolutePath());
-            } catch (IOException e) {
-                System.err.println("ERROR writing output HTML: " + e.getMessage());
-            }
+            System.out.println("[EC2] No running Manager found. Launching new instance...");
 
-            System.out.println("=== LocalApplication (LOCAL HOOK VERSION) FINISHED ===");
-        } else {
-            // Placeholder for future AWS version
-            // ----- AWS VERSION -----
-            // 1. Check if Manager EC2 is running
-            // 2. Upload input file to S3
-            // 3. Send SQS message to Manager
-            // 4. Wait for summary message
-            // 5. Download summary from S3
-            // 6. If terminate → send terminate message
-            System.out.println("[LocalApplication] AWS mode not implemented yet.");
+            RunInstancesResponse runResult = ec2.runInstances(RunInstancesRequest.builder()
+                    .imageId(MANAGER_AMI_ID)
+                    .instanceType(InstanceType.T3_MICRO)
+                    .minCount(1).maxCount(1)
+                    .iamInstanceProfile(IamInstanceProfileSpecification.builder()
+                            .name("ManagerInstanceProfile").build())
+                    .tagSpecifications(TagSpecification.builder()
+                            .resourceType(ResourceType.INSTANCE)
+                            .tags(Tag.builder().key(MANAGER_TAG_KEY).value(MANAGER_TAG_VALUE).build())
+                            .build())
+                    .build());
+
+            String managerId = runResult.instances().get(0).instanceId();
+            Ec2Waiter waiter = ec2.waiter();
+
+            waiter.waitUntilInstanceRunning(DescribeInstancesRequest.builder()
+                    .instanceIds(managerId)
+                    .build());
+
+            System.out.println("[EC2] Manager is now running ✅");
+
+        } catch (Ec2Exception e) {
+            System.err.println("EC2 ERROR: " + e.awsErrorDetails().errorMessage());
         }
     }
 
-    private static void printUsage() {
-        System.out.println("Usage: java Localapplication inputFileName outputFileName n [terminate]");
-        System.out.println("  inputFileName  - path to the input file (assignment format)");
-        System.out.println("  outputFileName - path to the LOCAL html output file");
-        System.out.println("  n              - max number of URLs per worker");
-        System.out.println("  terminate      - optional, for AWS version later");
+    // ------------------------------------------------------
+    // Step 2: Upload input to S3
+    // ------------------------------------------------------
+    private static void uploadToS3(String fileName, String key) {
+        try (S3Client s3 = S3Client.builder()
+                .region(AWS_REGION)
+                .credentialsProvider(DefaultCredentialsProvider.create())
+                .build()) {
+
+            s3.putObject(PutObjectRequest.builder()
+                            .bucket(S3_BUCKET)
+                            .key(key)
+                            .build(),
+                    RequestBody.fromFile(Paths.get(fileName)));
+
+            System.out.println("[S3] Uploaded file to s3://" + S3_BUCKET + "/" + key);
+
+        } catch (S3Exception e) {
+            System.err.println("S3 upload error: " + e.awsErrorDetails().errorMessage());
+        }
     }
 
-    private static void createLocalOutputHtml(String outputFileName,
-                                              String managerSummaryFile,
-                                              int n,
-                                              boolean terminate) throws IOException {
+    // ------------------------------------------------------
+    // Step 3: Send SQS message to Manager
+    // ------------------------------------------------------
+    private static void sendJobMessageToManager(String s3Key, int n) {
+        try (SqsClient sqs = SqsClient.builder()
+                .region(AWS_REGION)
+                .credentialsProvider(DefaultCredentialsProvider.create())
+                .build()) {
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName))) {
-            writer.write("<!DOCTYPE html>\n");
-            writer.write("<html><head><meta charset=\"UTF-8\"><title>Local Application Result</title></head><body>\n");
-            writer.write("<h1>Local Application Result (Local Test)</h1>\n");
-            writer.write("<p><b>Parameter n:</b> " + n + "</p>\n");
-            writer.write("<p><b>Terminate flag:</b> " + terminate + "</p>\n");
-            writer.write("<p>The actual analysis was done by the Manager locally.</p>\n");
-            writer.write("<p>See the Manager summary here: "
-                    + "<a href=\"" + managerSummaryFile + "\">" + managerSummaryFile + "</a></p>\n");
-            writer.write("<p><i>In the full AWS version, this page will be based on the summary file "
-                    + "downloaded from S3.</i></p>\n");
-            writer.write("</body></html>\n");
+            String message = "NEW_JOB;" + S3_BUCKET + ";" + s3Key + ";" + n + ";" + LOCALAPP_QUEUE_URL;
+            sqs.sendMessage(SendMessageRequest.builder()
+                    .queueUrl(MANAGER_QUEUE_URL)
+                    .messageBody(message)
+                    .build());
+
+            System.out.println("[SQS] Sent NEW_JOB message to Manager queue");
+
+        } catch (SqsException e) {
+            System.err.println("SQS send error: " + e.awsErrorDetails().errorMessage());
+        }
+    }
+
+    // ------------------------------------------------------
+    // Step 4: Wait for summary message (with 30 min timeout)
+    // ------------------------------------------------------
+    private static String waitForSummaryMessage() {
+        try (SqsClient sqs = SqsClient.builder()
+                .region(AWS_REGION)
+                .credentialsProvider(DefaultCredentialsProvider.create())
+                .build()) {
+
+            System.out.println("[SQS] Waiting for summary message...");
+
+            Instant start = Instant.now();
+            while (Duration.between(start, Instant.now()).toMinutes() < 30) {
+
+                ReceiveMessageResponse response = sqs.receiveMessage(ReceiveMessageRequest.builder()
+                        .queueUrl(LOCALAPP_QUEUE_URL)
+                        .maxNumberOfMessages(1)
+                        .waitTimeSeconds(15)
+                        .visibilityTimeout(20)
+                        .build());
+
+                List<Message> messages = response.messages();
+                if (messages.isEmpty()) continue;
+
+                for (Message msg : messages) {
+                    String body = msg.body();
+                    if (body.startsWith("SUMMARY_READY")) {
+                        String[] parts = body.split(";");
+                        String s3Key = parts[2];
+                        System.out.println("[SQS] Received SUMMARY_READY for: " + s3Key);
+
+                        // Delete after reading
+                        sqs.deleteMessage(DeleteMessageRequest.builder()
+                                .queueUrl(LOCALAPP_QUEUE_URL)
+                                .receiptHandle(msg.receiptHandle())
+                                .build());
+
+                        return s3Key;
+                    }
+                }
+            }
+
+        } catch (SqsException e) {
+            System.err.println("SQS receive error: " + e.awsErrorDetails().errorMessage());
+        }
+        return null;
+    }
+
+    // ------------------------------------------------------
+    // Step 5: Download summary file from S3
+    // ------------------------------------------------------
+    private static void downloadFromS3(String key, String outputFile) {
+        try (S3Client s3 = S3Client.builder()
+                .region(AWS_REGION)
+                .credentialsProvider(DefaultCredentialsProvider.create())
+                .build()) {
+
+            s3.getObject(GetObjectRequest.builder()
+                            .bucket(S3_BUCKET)
+                            .key(key)
+                            .build(),
+                    Paths.get(outputFile));
+
+            System.out.println("[S3] Downloaded summary → " + outputFile);
+            System.out.println("Summary URL: https://s3.console.aws.amazon.com/s3/object/"
+                    + S3_BUCKET + "/" + key);
+
+        } catch (S3Exception e) {
+            System.err.println("S3 download error: " + e.awsErrorDetails().errorMessage());
+        }
+    }
+
+    // ------------------------------------------------------
+    // Step 6: Send terminate message
+    // ------------------------------------------------------
+    private static void sendTerminateMessage() {
+        try (SqsClient sqs = SqsClient.builder()
+                .region(AWS_REGION)
+                .credentialsProvider(DefaultCredentialsProvider.create())
+                .build()) {
+
+            sqs.sendMessage(SendMessageRequest.builder()
+                    .queueUrl(MANAGER_QUEUE_URL)
+                    .messageBody("TERMINATE")
+                    .build());
+
+            System.out.println("[SQS] Sent TERMINATE message to Manager queue");
+
+        } catch (SqsException e) {
+            System.err.println("SQS terminate error: " + e.awsErrorDetails().errorMessage());
         }
     }
 }
