@@ -40,7 +40,8 @@ public class Manager {
     // ===============================
     // AWS CONFIGURATION
     // ===============================
-    private static final Region AWS_REGION = Region.EU_CENTRAL_1;
+    private static final Region AWS_REGION = Region.US_EAST_1;
+
 
     private static final String S3_BUCKET = "khaled-text-analysis-bucket";
 
