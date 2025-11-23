@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.time.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.core.sync.RequestBody;
@@ -121,7 +122,8 @@ public class Localapplication {
 
             List<Instance> list = resp.reservations().stream()
                     .flatMap(r -> r.instances().stream())
-                    .toList();
+                    .collect(Collectors.toList());
+
 
             if (!list.isEmpty()) {
                 System.out.println("[EC2] Manager already exists: " + list.get(0).instanceId());
