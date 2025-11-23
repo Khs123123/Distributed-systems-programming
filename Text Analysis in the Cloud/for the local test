@@ -6,3 +6,13 @@ mvn clean package
   
 
 mvn exec:java "-Dexec.mainClass=com.example.Manager" "-Dexec.args=input.txt manager-summary.html 5"
+
+
+
+https://sqs.us-east-1.amazonaws.com/310078408001/manager-queue
+
+https://sqs.us-east-1.amazonaws.com/310078408001/localapp-queue
+
+https://sqs.us-east-1.amazonaws.com/310078408001/worker-queue
+
+https://sqs.us-east-1.amazonaws.com/310078408001/worker-results-queue

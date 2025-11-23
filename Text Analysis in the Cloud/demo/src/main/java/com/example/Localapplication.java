@@ -43,8 +43,9 @@ public class Localapplication {
     private static final String S3_BUCKET = "khaled-text-analysis-bucket";
 
     // Replace with your REAL queues
-    private static final String MANAGER_QUEUE_URL = "https://sqs.eu-central-1.amazonaws.com/xxxxxxx/manager-queue";
-    private static final String LOCALAPP_QUEUE_URL = "https://sqs.eu-central-1.amazonaws.com/xxxxxxx/localapp-queue";
+    private static final String MANAGER_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/310078408001/manager-queue";
+    private static final String LOCALAPP_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/310078408001/localapp-queue";
+
 
     // Replace with your real AMI ID
     private static final String MANAGER_AMI_ID = "ami-xxxxxxxxx";

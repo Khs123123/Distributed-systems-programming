@@ -43,10 +43,9 @@ public class Worker {
 
     // ---------------- AWS CONFIG ----------------
     private static final String S3_BUCKET = "khaled-text-analysis-bucket";
-    private static final String WORKER_QUEUE_URL =
-            "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/worker-queue";
-    private static final String RESULTS_QUEUE_URL =
-            "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/worker-results-queue";
+    private static final String RESULTS_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/310078408001/worker-results-queue";
+    private static final String WORKER_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/310078408001/worker-queue";
+
 
     // ---------------- NLP PIPELINE ----------------
     private static final StanfordCoreNLP pipeline = createPipeline();

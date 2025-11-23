@@ -45,14 +45,16 @@ public class Manager {
 
     private static final String S3_BUCKET = "khaled-text-analysis-bucket";
 
-    private static final String MANAGER_QUEUE_URL =
-            "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/manager-queue";
+    // --- SQS Queue URLs ---
+private static final String MANAGER_QUEUE_URL =
+        "https://sqs.us-east-1.amazonaws.com/310078408001/manager-queue";
 
-    private static final String WORKER_QUEUE_URL =
-            "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/worker-queue";
+private static final String WORKER_QUEUE_URL =
+        "https://sqs.us-east-1.amazonaws.com/310078408001/worker-queue";
 
-    private static final String WORKER_RESULTS_QUEUE_URL =
-            "https://sqs.eu-central-1.amazonaws.com/XXXXXXX/worker-results-queue";
+private static final String WORKER_RESULTS_QUEUE_URL =
+        "https://sqs.us-east-1.amazonaws.com/310078408001/worker-results-queue";
+
 
     private static final String WORKER_AMI_ID = "ami-xxxxxxxxxxxxxx";
 
