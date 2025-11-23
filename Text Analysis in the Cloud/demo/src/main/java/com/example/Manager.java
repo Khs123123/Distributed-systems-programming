@@ -56,7 +56,7 @@ private static final String WORKER_RESULTS_QUEUE_URL =
         "https://sqs.us-east-1.amazonaws.com/310078408001/worker-results-queue";
 
 
-    private static final String WORKER_AMI_ID = "ami-xxxxxxxxxxxxxx";
+    private static final String WORKER_AMI_ID = "ami-00b13f11600160c10";
 
     private static final int MAX_WORKERS = 19;
 
@@ -300,7 +300,7 @@ private static final String WORKER_RESULTS_QUEUE_URL =
                     .minCount(1)
                     .maxCount(toLaunch)
                     .iamInstanceProfile(IamInstanceProfileSpecification.builder()
-                            .name("WorkerInstanceProfile")
+                            .name("LabInstanceProfile")
                             .build())
                     .build());
         }

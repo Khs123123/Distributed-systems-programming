@@ -49,7 +49,7 @@ public class Localapplication {
 
 
     // Replace with your real AMI ID
-    private static final String MANAGER_AMI_ID = "ami-xxxxxxxxx";
+    private static final String MANAGER_AMI_ID = "ami-00b13f11600160c10";
 
     private static final String MANAGER_TAG_KEY = "Project";
     private static final String MANAGER_TAG_VALUE = "TextAnalysisManager";
@@ -154,7 +154,7 @@ public class Localapplication {
                                             ).build()
                             )
                             .iamInstanceProfile(IamInstanceProfileSpecification.builder()
-                                    .name("ManagerInstanceProfile")
+                                    .name("LabInstanceProfile")
                                     .build())
                             .build()
             );
