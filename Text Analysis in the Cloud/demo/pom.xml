@@ -78,81 +78,74 @@
             <version>1.1.1</version>
         </dependency>
 
+        <!-- Gson for JSON messages -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
 
-            <!-- ======================== -->
-            <!-- BUILD LOCAL JAR          -->
-            <!-- ======================== -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.2</version>
-                <executions>
-
-                    <!-- LOCAL APPLICATION JAR -->
-                    <execution>
-                        <id>make-local-jar</id>
-                        <phase>package</phase>
-                        <goals><goal>jar</goal></goals>
-                        <configuration>
-                            <classifier>local</classifier>
-                            <archive>
-                                <manifest>
-                                    <mainClass>LocalApplication</mainClass>
-                                </manifest>
-                            </archive>
-                        </configuration>
-                    </execution>
-
-                    <!-- REMOTE JAR FOR MANAGER + WORKER -->
-                    <execution>
-                        <id>make-remote-jar</id>
-                        <phase>package</phase>
-                        <goals><goal>jar</goal></goals>
-                        <configuration>
-                            <classifier>remote</classifier>
-                            <archive>
-                                <manifest>
-                                    <!-- The "App" class calls Manager or Worker depending on args -->
-                                    <mainClass>App</mainClass>
-                                </manifest>
-                            </archive>
-                        </configuration>
-                    </execution>
-
-                </executions>
-            </plugin>
-
-            <!-- BUILD JAR WITH DEPENDENCIES (for EC2 run) -->
+            <!-- ==================================================== -->
+            <!-- CREATE BOTH LOCAL AND REMOTE FAT JARS WITH DEPENDENCIES -->
+            <!-- ==================================================== -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.example.Manager</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
+
                 <executions>
+
+                    <!-- LOCAL fat jar -->
                     <execution>
-                        <id>make-assembly</id>
+                        <id>make-local-assembly</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>com.example.Localapplication</mainClass>
+                                </manifest>
+                            </archive>
+                            <finalName>text-analysis-1.0-SNAPSHOT-local</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
                     </execution>
+
+                    <!-- REMOTE fat jar (Manager + Workers) -->
+                    <execution>
+                        <id>make-remote-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>com.example.Manager</mainClass>
+                                </manifest>
+                            </archive>
+                            <finalName>text-analysis-1.0-SNAPSHOT-remote</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptorRefs>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
+                            </descriptorRefs>
+                        </configuration>
+                    </execution>
+
                 </executions>
             </plugin>
 
-            <!-- RUN CLASSES (LOCAL TESTING) -->
+            <!-- optional: allows running Java classes with mvn exec:java -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

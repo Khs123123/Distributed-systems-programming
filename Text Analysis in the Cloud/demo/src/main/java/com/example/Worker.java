@@ -1,5 +1,7 @@
 package com.example;
 
+import com.google.gson.Gson;
+
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
@@ -24,28 +26,42 @@ import java.nio.file.*;
 import java.util.*;
 
 /**
- * Worker (AWS Version)
- *
- * - Polls messages from Worker SQS queue.
- * - Each message: TYPE ; URL
- * - Downloads the text from the URL.
- * - Runs Stanford CoreNLP analysis.
- * - Uploads result file to S3.
- * - Sends message to Manager results queue: TYPE ; URL ; S3_KEY
- * - Deletes original worker queue message.
- * - On error: sends ERROR message and deletes the task.
+ * Worker — JSON + LINE-BY-LINE
  */
-
 public class Worker {
 
     private static final Region AWS_REGION = Region.US_EAST_1;
 
+    private static final String S3_BUCKET =
+            "khaled-text-analysis-bucket";
 
-    // ---------------- AWS CONFIG ----------------
-    private static final String S3_BUCKET = "khaled-text-analysis-bucket";
-    private static final String RESULTS_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/310078408001/worker-results-queue";
-    private static final String WORKER_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/310078408001/worker-queue";
+    private static final String RESULTS_QUEUE_URL =
+            "https://sqs.us-east-1.amazonaws.com/310078408001/worker-results-queue";
 
+    private static final String WORKER_QUEUE_URL =
+            "https://sqs.us-east-1.amazonaws.com/310078408001/worker-queue";
+
+    private static final Gson GSON = new Gson();
+
+    // ----- JSON message classes -----
+    private static class WorkerTaskMessage {
+        String type;          // "TASK"
+        String analysisType;  // "POS", "CONSTITUENCY", "DEPENDENCY"
+        String url;
+    }
+
+    private static class ResultMessage {
+        String type = "RESULT";
+        String analysisType;
+        String url;
+        String s3Key;
+    }
+
+    private static class ErrorMessage {
+        String type = "ERROR";
+        String originalMessage;
+        String error;
+    }
 
     // ---------------- NLP PIPELINE ----------------
     private static final StanfordCoreNLP pipeline = createPipeline();
@@ -53,12 +69,12 @@ public class Worker {
     private static StanfordCoreNLP createPipeline() {
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize,ssplit,pos,parse,depparse");
-        System.out.println("[Worker] Loading Stanford CoreNLP models...");
+        System.out.println("[Worker] Loading Stanford CoreNLP...");
         return new StanfordCoreNLP(props);
     }
 
     public static void main(String[] args) {
-        System.out.println("=== Worker started (AWS) ===");
+        System.out.println("=== Worker started (line-by-line JSON version) ===");
 
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
@@ -103,31 +119,55 @@ public class Worker {
         }
     }
 
+
     // ----------------------------------------------------------
-    // MAIN TASK HANDLING
+    // MAIN TASK HANDLING — LINE BY LINE (JSON)
     // ----------------------------------------------------------
     private static void processTask(String message) throws Exception {
-        String[] parts = message.split(";", 2);
-        if (parts.length != 2)
-            throw new IllegalArgumentException("Invalid message format: TYPE;URL");
+        WorkerTaskMessage task = GSON.fromJson(message, WorkerTaskMessage.class);
+        if (task == null || task.type == null || !"TASK".equals(task.type)) {
+            throw new IllegalArgumentException("Invalid task JSON: " + message);
+        }
 
-        String type = parts[0].trim();
-        String url = parts[1].trim();
+        String type = task.analysisType != null ? task.analysisType.trim() : "";
+        String url = task.url != null ? task.url.trim() : "";
+
+        if (type.isEmpty() || url.isEmpty()) {
+            throw new IllegalArgumentException("Missing analysisType or url in task JSON");
+        }
 
         String text = downloadText(url);
-        String analysis = analyzeText(text, type);
 
+        // Output file
         String localResult = "/tmp/" + UUID.randomUUID() + "_analysis.txt";
-        Files.write(Paths.get(localResult), analysis.getBytes());
+        BufferedWriter writer = Files.newBufferedWriter(Paths.get(localResult));
 
+        // 🔥 Split into lines (line-by-line)
+        String[] lines = text.split("\n");
+
+        for (String line : lines) {
+            if (line.trim().isEmpty()) continue;
+
+            writer.write(">>> LINE >>> " + line + "\n");
+
+            // Safely analyze each line
+            String analysis = safeAnalyzeLine(line, type);
+
+            writer.write(analysis + "\n\n");
+        }
+
+        writer.close();
+
+        // Upload to S3
         String s3Key = "results/" + Paths.get(localResult).getFileName();
-
         uploadToS3(localResult, s3Key);
 
+        // Notify Manager (JSON)
         sendResultMessage(type, url, s3Key);
 
-        System.out.println("[Worker] Completed: " + type + " for " + url);
+        System.out.println("[Worker] Completed line-by-line task: " + type + " for " + url);
     }
+
 
     // ----------------------------------------------------------
     // DOWNLOAD TEXT SAFELY
@@ -136,8 +176,8 @@ public class Worker {
         StringBuilder sb = new StringBuilder();
         URL url = new URL(urlString);
 
-        final int MAX_LINES = 80;
-        final int MAX_CHARS = 8000;
+        final int MAX_LINES = 200;
+        final int MAX_CHARS = 20000;
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
             String line;
@@ -156,25 +196,34 @@ public class Worker {
         return sb.toString();
     }
 
-    // ----------------------------------------------------------
-    // NLP ANALYSIS
-    // ----------------------------------------------------------
-    private static String analyzeText(String text, String typeStr) {
-        Annotation doc = new Annotation(text);
-        pipeline.annotate(doc);
 
-        switch (typeStr.toUpperCase()) {
-            case "POS":
-                return posToString(doc);
-            case "CONSTITUENCY":
-                return constituencyToString(doc);
-            case "DEPENDENCY":
-                return dependencyToString(doc);
-            default:
-                return "[ERROR] Unknown type: " + typeStr;
+    // ----------------------------------------------------------
+    // SAFE LINE-BY-LINE ANALYSIS
+    // ----------------------------------------------------------
+    private static String safeAnalyzeLine(String line, String type) {
+        try {
+            Annotation doc = new Annotation(line);
+            pipeline.annotate(doc);
+
+            switch (type.toUpperCase()) {
+                case "POS":
+                    return posToString(doc);
+                case "CONSTITUENCY":
+                    return constituencyToString(doc);
+                case "DEPENDENCY":
+                    return dependencyToString(doc);
+                default:
+                    return "[ERROR] Unknown TYPE " + type;
+            }
+        } catch (Exception e) {
+            return "[ERROR parsing line] " + e.getMessage();
         }
     }
 
+
+    // ----------------------------------------------------------
+    // NLP OUTPUT FUNCTIONS
+    // ----------------------------------------------------------
     private static String posToString(Annotation doc) {
         StringBuilder sb = new StringBuilder();
         for (CoreMap sentence : doc.get(CoreAnnotations.SentencesAnnotation.class)) {
@@ -206,28 +255,29 @@ public class Worker {
         return sb.toString();
     }
 
+
     // ----------------------------------------------------------
     // S3 UPLOAD
     // ----------------------------------------------------------
+    // In Worker.java
     private static void uploadToS3(String filePath, String key) {
-        try (S3Client s3 = S3Client.builder()
-                .region(AWS_REGION)
-                .credentialsProvider(DefaultCredentialsProvider.create())
-                .build()) {
+        try (S3Client s3 = S3Client.builder().region(AWS_REGION).credentialsProvider(DefaultCredentialsProvider.create()).build()) {
 
             s3.putObject(PutObjectRequest.builder()
-                            .bucket(S3_BUCKET)
-                            .key(key)
-                            .build(),
-                    RequestBody.fromFile(Paths.get(filePath)));
+                        .bucket(S3_BUCKET)
+                        .key(key)
+                        //.acl(ObjectCannedACL.PUBLIC_READ) // <--- ADD THIS LINE
+                        .build(),
+                RequestBody.fromFile(Paths.get(filePath)));
 
         } catch (S3Exception e) {
             System.err.println("[Worker] S3 upload error: " + e.awsErrorDetails().errorMessage());
         }
     }
 
+
     // ----------------------------------------------------------
-    // SEND RESULTS TO MANAGER
+    // SEND RESULT TO MANAGER (JSON)
     // ----------------------------------------------------------
     private static void sendResultMessage(String type, String url, String s3Key) {
         try (SqsClient sqs = SqsClient.builder()
@@ -235,11 +285,16 @@ public class Worker {
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
 
-            String msg = type + ";" + url + ";" + s3Key;
+            ResultMessage r = new ResultMessage();
+            r.analysisType = type;
+            r.url = url;
+            r.s3Key = s3Key;
+
+            String body = GSON.toJson(r);
 
             sqs.sendMessage(SendMessageRequest.builder()
                     .queueUrl(RESULTS_QUEUE_URL)
-                    .messageBody(msg)
+                    .messageBody(body)
                     .build());
 
         } catch (SqsException e) {
@@ -247,8 +302,9 @@ public class Worker {
         }
     }
 
+
     // ----------------------------------------------------------
-    // SEND ERROR TO MANAGER
+    // SEND ERROR MESSAGE (JSON)
     // ----------------------------------------------------------
     private static void sendErrorMessage(String original, String error) {
         try (SqsClient sqs = SqsClient.builder()
@@ -256,11 +312,15 @@ public class Worker {
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
 
-            String msg = "ERROR;" + original + ";" + error;
+            ErrorMessage em = new ErrorMessage();
+            em.originalMessage = original;
+            em.error = error;
+
+            String body = GSON.toJson(em);
 
             sqs.sendMessage(SendMessageRequest.builder()
                     .queueUrl(RESULTS_QUEUE_URL)
-                    .messageBody(msg)
+                    .messageBody(body)
                     .build());
 
         } catch (SqsException e) {
