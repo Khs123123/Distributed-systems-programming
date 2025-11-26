@@ -1,3 +1,12 @@
-POS https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/pos.txt
-CONSTITUENCY https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/const.txt
-DEPENDENCY https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/dep.txt
+POS	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/pos.txt
+DEPENDENCY	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/dep.txt
+CONSTITUENCY	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/const.txt
+POS	https://www.gutenberg.org/files/11/11-0.txt
+DEPENDENCY	https://www.gutenberg.org/files/1342/1342-0.txt
+CONSTITUENCY	https://www.gutenberg.org/files/84/84-0.txt
+POS	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/pos.txt
+DEPENDENCY	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/dep.txt
+CONSTITUENCY	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/const.txt
+POS	https://www.gutenberg.org/files/2701/2701-0.txt
+DEPENDENCY	https://www.gutenberg.org/files/1661/1661-0.txt
+CONSTITUENCY	https://www.gutenberg.org/files/11/11-0.txt
