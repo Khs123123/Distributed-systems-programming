@@ -29,13 +29,13 @@ public class Localapplication {
 
     private static final Region AWS_REGION = Region.US_EAST_1;
 
-    private static final String S3_BUCKET = "khaled-text-analysis-bucket";
+    private static final String S3_BUCKET = "khaled-text-analysis-bucket-v2";
 
     private static final String MANAGER_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/310078408001/manager-queue";
+            "https://sqs.us-east-1.amazonaws.com/070930741423/MANAGER_QUEUE";
 
     private static final String LOCALAPP_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/310078408001/localapp-queue";
+            "https://sqs.us-east-1.amazonaws.com/070930741423/localapp-queue";
 
     // Tag definitions
     private static final String MANAGER_TAG_KEY = "Project";
@@ -188,7 +188,7 @@ public class Localapplication {
                     "\n" +
                     "# 3. Download Manager JAR\n" +
                     "echo 'Downloading manager.jar from S3...'\n" +
-                    "aws s3 cp s3://khaled-text-analysis-bucket/jars/text-analysis-1.0-SNAPSHOT-remote.jar manager.jar\n" +
+                    "aws s3 cp s3://khaled-text-analysis-bucket-v2/jars/text-analysis-1.0-SNAPSHOT-remote.jar manager.jar\n" +
                     "\n" +
                     "# 4. Run Manager\n" +
                     "echo 'Starting Manager java process...'\n" +

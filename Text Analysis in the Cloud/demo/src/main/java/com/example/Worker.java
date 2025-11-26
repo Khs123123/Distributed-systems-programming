@@ -33,13 +33,13 @@ public class Worker {
     private static final Region AWS_REGION = Region.US_EAST_1;
 
     private static final String S3_BUCKET =
-            "khaled-text-analysis-bucket";
+            "khaled-text-analysis-bucket-v2";
 
     private static final String RESULTS_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/310078408001/worker-results-queue";
+            "https://sqs.us-east-1.amazonaws.com/070930741423/worker-results-queue";
 
     private static final String WORKER_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/310078408001/worker-queue";
+            "https://sqs.us-east-1.amazonaws.com/070930741423/worker-queue";
 
     private static final Gson GSON = new Gson();
 
@@ -176,26 +176,16 @@ public class Worker {
         StringBuilder sb = new StringBuilder();
         URL url = new URL(urlString);
 
-        final int MAX_LINES = 200;
-        final int MAX_CHARS = 20000;
-
+        // Removed MAX_LINES and MAX_CHARS checks to process full file
         try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
             String line;
-            int lines = 0;
-
             while ((line = br.readLine()) != null) {
-                if (sb.length() >= MAX_CHARS || lines >= MAX_LINES) {
-                    sb.append("\n[TRUNCATED]\n");
-                    break;
-                }
                 sb.append(line).append("\n");
-                lines++;
             }
         }
 
         return sb.toString();
     }
-
 
     // ----------------------------------------------------------
     // SAFE LINE-BY-LINE ANALYSIS

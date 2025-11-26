@@ -27,14 +27,14 @@ public class Manager {
     // AWS CONFIGURATION
     // ===============================
     private static final Region AWS_REGION = Region.US_EAST_1;
-    private static final String S3_BUCKET = "khaled-text-analysis-bucket";
+    private static final String S3_BUCKET = "khaled-text-analysis-bucket-v2";
 
     private static final String MANAGER_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/310078408001/manager-queue";
+            "https://sqs.us-east-1.amazonaws.com/070930741423/MANAGER_QUEUE";
     private static final String WORKER_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/310078408001/worker-queue";
+            "https://sqs.us-east-1.amazonaws.com/070930741423/worker-queue";
     private static final String WORKER_RESULTS_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/310078408001/worker-results-queue";
+            "https://sqs.us-east-1.amazonaws.com/070930741423/worker-results-queue";
 
     private static final int MAX_WORKERS = 17;
 
@@ -508,7 +508,7 @@ public class Manager {
                 "\n" +
                 "# 3. Download JAR\n" +
                 "echo 'Downloading worker.jar from S3...'\n" +
-                "aws s3 cp s3://khaled-text-analysis-bucket/jars/text-analysis-1.0-SNAPSHOT-remote.jar worker.jar\n" +
+                "aws s3 cp s3://khaled-text-analysis-bucket-v2/jars/text-analysis-1.0-SNAPSHOT-remote.jar worker.jar\n" +
                 "\n" +
                 "# 4. Run Worker\n" +
                 "echo 'Starting Worker java process...'\n" +
