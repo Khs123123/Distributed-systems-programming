@@ -536,7 +536,7 @@ public class Manager {
         ec2.runInstances(runReq);
     } catch (Exception e) {
         System.err.println("[Manager] Failed to launch workers: " + e.getMessage());
-        e.printStackTrace();
+        e.printStackTrace();//''
     }
     }
 
