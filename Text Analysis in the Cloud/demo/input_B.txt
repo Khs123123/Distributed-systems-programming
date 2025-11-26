@@ -1,0 +1,2 @@
+DEPENDENCY	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/dep.txt
+POS	https://www.gutenberg.org/files/11/11-0.txt
