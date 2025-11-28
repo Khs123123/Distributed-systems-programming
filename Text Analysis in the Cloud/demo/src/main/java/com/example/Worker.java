@@ -106,10 +106,10 @@ public class Worker {
 
                         sendErrorMessage(msg.body(), e.getMessage());
 
-                        sqs.deleteMessage(DeleteMessageRequest.builder()
-                                .queueUrl(WORKER_QUEUE_URL)
-                                .receiptHandle(msg.receiptHandle())
-                                .build());
+                        // sqs.deleteMessage(DeleteMessageRequest.builder()
+                        //         .queueUrl(WORKER_QUEUE_URL)
+                        //         .receiptHandle(msg.receiptHandle())
+                        //         .build());
                     }
                 }
             }

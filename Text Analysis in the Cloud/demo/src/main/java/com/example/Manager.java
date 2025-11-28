@@ -20,6 +20,7 @@ import java.nio.file.*;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger; // Required for thread-safe counting
 
 public class Manager {
 
@@ -44,6 +45,13 @@ public class Manager {
     private final ExecutorService executor = Executors.newFixedThreadPool(THREADS);
 
     private static final Gson GSON = new Gson();
+    
+    // ===============================
+    // CONCURRENCY CONTROL ADDITIONS
+    // ===============================
+    private final AtomicInteger activeJobs = new AtomicInteger(0);
+    private final Semaphore terminationLock = new Semaphore(0); 
+    private volatile boolean terminationRequested = false; // [cite: 62]
 
     // === AMI helper: use Manager's own AMI for Worker instances ===
     private static String currentAmiId = null;
@@ -61,6 +69,50 @@ public class Manager {
             throw new RuntimeException("[Manager] Failed to read AMI ID from metadata", e);
         }
     }
+    
+    // ===============================
+    // GET CURRENT INSTANCE ID (FOR SELF-TERMINATION)
+    // ===============================
+    private static String getCurrentInstanceId() {
+        try {
+            URL url = new URL("http://169.254.169.254/latest/meta-data/instance-id");
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()))) {
+                String instanceId = reader.readLine().trim();
+                return instanceId;
+            }
+        } catch (Exception e) {
+            System.err.println("[Manager] WARNING: Failed to read Instance ID from metadata. Not on EC2?");
+            return null;
+        }
+    }
+    
+    // ===============================
+    // TERMINATE MANAGER (SELF)
+    // ===============================
+    private void terminateManagerSelf() {
+        String instanceId = getCurrentInstanceId();
+        if (instanceId == null) {
+            System.err.println("[EC2] Cannot self-terminate: Instance ID not found.");
+            return;
+        }
+
+        try (Ec2Client ec2 = Ec2Client.builder()
+                .region(AWS_REGION)
+                .credentialsProvider(DefaultCredentialsProvider.create())
+                .build()) {
+
+            System.out.println("[EC2] Terminating self: " + instanceId);
+            
+            ec2.terminateInstances(TerminateInstancesRequest.builder()
+                    .instanceIds(instanceId)
+                    .build());
+
+        } catch (Exception e) {
+            System.err.println("[Manager] Failed to self-terminate: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 
     // ---------- JSON message classes ----------
     private static class BaseMessage {
@@ -68,7 +120,7 @@ public class Manager {
     }
 
     private static class JobMessage {
-        String type;          // "NEW_JOB"
+        String type; // "NEW_JOB"
         String bucket;
         String inputKey;
         int n;
@@ -78,13 +130,13 @@ public class Manager {
     // this must match Worker.WorkerTaskMessage
     private static class WorkerTaskMessage {
         String type = "TASK"; 
-        String analysisType;  // "POS", "CONSTITUENCY", "DEPENDENCY", "ALL"
+        String analysisType; // "POS", "CONSTITUENCY", "DEPENDENCY", "ALL"
         String url;
     }
 
     // this must match Worker.ResultMessage
     private static class ResultMessage {
-        String type;          // "RESULT"
+        String type;  // "RESULT"
         String analysisType;
         String url;
         String s3Key;
@@ -92,7 +144,7 @@ public class Manager {
 
     // this must match Worker.ErrorMessage
     private static class ErrorMessage {
-        String type;          // "ERROR"
+        String type;  // "ERROR"
         String originalMessage;
         String error;
     }
@@ -128,7 +180,8 @@ public class Manager {
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
 
-            while (true) {
+            // CHANGE: Loop condition now checks terminationRequested flag [cite: 62]
+            while (!terminationRequested) {
                 ReceiveMessageRequest req = ReceiveMessageRequest.builder()
                         .queueUrl(MANAGER_QUEUE_URL)
                         .maxNumberOfMessages(1)
@@ -143,6 +196,19 @@ public class Manager {
                     executor.submit(() -> handleManagerMessage(sqs, msg));
                 }
             }
+            
+            // NEW BLOCK: Wait for TERMINATE to release the lock if it was requested
+            if (terminationRequested) {
+                System.out.println("[Manager] Main loop stopped. Waiting for all jobs to finish...");
+                try {
+                    // This blocks until terminate case handler releases the lock
+                    terminationLock.acquire(); 
+                    System.out.println("[Manager] Termination lock released. Proceeding to shutdown.");
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    System.err.println("[Manager] Termination wait interrupted.");
+                }
+            }
 
         } catch (Exception e) {
             System.err.println("[Manager] Fatal error in main loop: " + e.getMessage());
@@ -155,6 +221,8 @@ public class Manager {
     private void handleManagerMessage(SqsClient sqs, Message msg) {
         try {
             BaseMessage base = GSON.fromJson(msg.body(), BaseMessage.class);
+            // ... (rest of parsing logic) ...
+            
             if (base == null || base.type == null) {
                 System.err.println("[Manager] Unknown message: " + msg.body());
                 deleteMessageQuiet(sqs, MANAGER_QUEUE_URL, msg);
@@ -163,6 +231,11 @@ public class Manager {
 
             switch (base.type) {
                 case "NEW_JOB":
+                    if (terminationRequested) { // [cite: 62]
+                        System.out.println("[Manager] Termination requested. Ignoring new job.");
+                        deleteMessageQuiet(sqs, MANAGER_QUEUE_URL, msg);
+                        return;
+                    }
                     JobMessage job = GSON.fromJson(msg.body(), JobMessage.class);
                     System.out.println("[Manager] NEW_JOB: bucket=" + job.bucket +
                             ", key=" + job.inputKey + ", n=" + job.n);
@@ -171,9 +244,22 @@ public class Manager {
                     break;
 
                 case "TERMINATE":
-                    System.out.println("[Manager] TERMINATE request.");
+                    System.out.println("[Manager] TERMINATE request received. [cite: 61]");
+                    
+                    // 1. Set flag to stop accepting new jobs [cite: 62]
+                    terminationRequested = true; 
+
+                    // 2. Wait for all active jobs to finish [cite: 63]
+                    if (activeJobs.get() > 0) {
+                        System.out.println("[Manager] Waiting for " + activeJobs.get() + " active job(s) to finish...");
+                        terminationLock.acquire(); // Blocks current thread until activeJobs = 0
+                    }
+
+                    // 3. Termination sequence (Runs only after all jobs are complete)
                     terminateAllWorkers();
                     deleteMessageQuiet(sqs, MANAGER_QUEUE_URL, msg);
+                    terminateManagerSelf(); 
+                    System.out.println("[Manager] Graceful shutdown. Exiting JVM... [cite: 66]");
                     System.exit(0);
                     break;
 
@@ -190,11 +276,18 @@ public class Manager {
     }
 
     // ===============================
-    // HANDLE NEW JOB
+    // HANDLE NEW JOB (MODIFIED)
     // ===============================
     private void handleNewJob(JobMessage job) {
+        
+        // INCREMENT THE JOB COUNT
+        activeJobs.incrementAndGet();
+        System.out.println("[Manager] Job started. Active jobs: " + activeJobs.get());
+
         try {
             // 1) Download input file from S3
+            // ... (existing download logic) ...
+            
             Path tempFile = Files.createTempFile("manager_input_", ".txt");
             downloadFromS3(job.bucket, job.inputKey, tempFile);
 
@@ -241,11 +334,11 @@ public class Manager {
             String localSummaryFile = "/tmp/summary_" + System.currentTimeMillis() + ".html";
             writeSummaryHTML(summary, localSummaryFile);
 
-            // 6) Upload summary to S3
+            // 6) Upload summary to S3 [cite: 137]
             String summaryKey = "summaries/" + UUID.randomUUID() + "_summary.html";
             uploadToS3(S3_BUCKET, summaryKey, localSummaryFile);
 
-            // 7) Notify Localapplication
+            // 7) Notify Localapplication [cite: 138]
             sendSummaryMessage(job.callbackQueueUrl, summaryKey);
 
             Files.deleteIfExists(tempFile);
@@ -253,9 +346,20 @@ public class Manager {
         } catch (Exception e) {
             System.err.println("[Manager] JOB ERROR: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            // DECREMENT THE JOB COUNT WHEN PROCESSING IS FINISHED (Success or Fail)
+            activeJobs.decrementAndGet(); 
+            System.out.println("[Manager] Job finished. Active jobs: " + activeJobs.get());
+
+            // Release the lock if termination was requested and this was the last job
+            if (terminationRequested && activeJobs.get() == 0) {
+                terminationLock.release();
+            }
         }
     }
-
+    
+    // ... (rest of helper methods like downloadFromS3, sendTasksToWorkers, collectResults, etc.) ...
+    
     // ===============================
     // DOWNLOAD FROM S3
     // ===============================
@@ -387,11 +491,11 @@ public class Manager {
                     // Construct public S3 URL
                     String s3Url = "https://" + S3_BUCKET + ".s3.amazonaws.com/" + r.s3Key;
                     
-                    // REQUIRED FORMAT: <analysis type>: <input file> <output file>
+                    // REQUIRED FORMAT: <analysis type>: <input file> <output file> [cite: 22, 24]
                     // Using <p> tags to separate lines cleanly
                     pw.println("<p>" + r.analysisType + ": " + r.url + " " + s3Url + "</p>");
                 } else {
-                    // Error format: <analysis type>: <input file> <error>
+                    // Error format: <analysis type>: <input file> <a short description of the exception> [cite: 25]
                     String type = (r.analysisType != null) ? r.analysisType : "UNKNOWN";
                     pw.println("<p>" + type + ": " + r.url + " " + r.error + "</p>");
                 }
@@ -408,14 +512,13 @@ public class Manager {
     // ===============================
     // UPLOAD SUMMARY TO S3
     // ===============================
-    // In Manager.java
     private void uploadToS3(String bucket, String key, String localPath) {
         try (S3Client s3 = S3Client.builder().region(AWS_REGION).credentialsProvider(DefaultCredentialsProvider.create()).build()) {
 
         PutObjectRequest put = PutObjectRequest.builder()
                 .bucket(bucket)
                 .key(key)
-                //.acl(ObjectCannedACL.PUBLIC_READ) // <--- ADD THIS LINE
+                //.acl(ObjectCannedACL.PUBLIC_READ) // You may need this for public access
                 .build();
 
         s3.putObject(put, Paths.get(localPath));
@@ -481,6 +584,8 @@ public class Manager {
 
         System.out.println("[EC2] Launching " + toLaunch + " workers");
 
+        // ... (rest of user data script and run instances logic remains the same) ...
+
         String userDataScript =
                 "#!/bin/bash\n" +
                 "exec > /var/log/user-data.log 2>&1\n" +
@@ -488,18 +593,18 @@ public class Manager {
                 "\n" +
                 "# 1. Detect OS and install Java/AWS CLI\n" +
                 "if command -v apt-get &> /dev/null; then\n" +
-                "    echo 'Detected Ubuntu'\n" +
-                "    apt-get update -y\n" +
-                "    apt-get install -y default-jre awscli\n" +
-                "    USER_HOME=\"/home/ubuntu\"\n" +
+                "    echo 'Detected Ubuntu'\n" +
+                "    apt-get update -y\n" +
+                "    apt-get install -y default-jre awscli\n" +
+                "    USER_HOME=\"/home/ubuntu\"\n" +
                 "elif command -v yum &> /dev/null; then\n" +
-                "    echo 'Detected Amazon Linux'\n" +
-                "    yum update -y\n" +
-                "    yum install -y java-1.8.0-openjdk awscli\n" +
-                "    USER_HOME=\"/home/ec2-user\"\n" +
+                "    echo 'Detected Amazon Linux'\n" +
+                "    yum update -y\n" +
+                "    yum install -y java-1.8.0-openjdk awscli\n" +
+                "    USER_HOME=\"/home/ec2-user\"\n" +
                 "else\n" +
-                "    echo 'Unknown OS'\n" +
-                "    exit 1\n" +
+                "    echo 'Unknown OS'\n" +
+                "    exit 1\n" +
                 "fi\n" +
                 "\n" +
                 "# 2. Setup App Directory\n" +
