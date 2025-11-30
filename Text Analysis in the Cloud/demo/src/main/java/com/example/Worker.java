@@ -88,7 +88,7 @@ public class Worker {
                                 .queueUrl(WORKER_QUEUE_URL)
                                 .maxNumberOfMessages(1)
                                 .waitTimeSeconds(15)
-                                .visibilityTimeout(60)
+                                .visibilityTimeout(1800)
                                 .build());
 
                 for (Message msg : response.messages()) {
@@ -106,10 +106,10 @@ public class Worker {
 
                         sendErrorMessage(msg.body(), e.getMessage());
 
-                        // sqs.deleteMessage(DeleteMessageRequest.builder()
-                        //         .queueUrl(WORKER_QUEUE_URL)
-                        //         .receiptHandle(msg.receiptHandle())
-                        //         .build());
+                        sqs.deleteMessage(DeleteMessageRequest.builder()
+                                .queueUrl(WORKER_QUEUE_URL)
+                                .receiptHandle(msg.receiptHandle())
+                                .build());
                     }
                 }
             }

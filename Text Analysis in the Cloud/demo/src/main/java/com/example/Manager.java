@@ -186,7 +186,7 @@ public class Manager {
                         .queueUrl(MANAGER_QUEUE_URL)
                         .maxNumberOfMessages(1)
                         .waitTimeSeconds(20)
-                        .visibilityTimeout(120)
+                        .visibilityTimeout(3600)
                         .build();
 
                 List<Message> msgs = sqs.receiveMessage(req).messages();
@@ -239,8 +239,9 @@ public class Manager {
                     JobMessage job = GSON.fromJson(msg.body(), JobMessage.class);
                     System.out.println("[Manager] NEW_JOB: bucket=" + job.bucket +
                             ", key=" + job.inputKey + ", n=" + job.n);
-                    handleNewJob(job);
+                    
                     deleteMessageQuiet(sqs, MANAGER_QUEUE_URL, msg);
+                    handleNewJob(job);
                     break;
 
                 case "TERMINATE":
@@ -423,7 +424,7 @@ public class Manager {
                 .build()) {
 
             long start = System.currentTimeMillis();
-            long timeoutMs = Duration.ofMinutes(20).toMillis();
+            long timeoutMs = Duration.ofMinutes(40).toMillis();
 
             while (rows.size() < expected &&
                     System.currentTimeMillis() - start < timeoutMs) {
@@ -432,7 +433,7 @@ public class Manager {
                         .queueUrl(WORKER_RESULTS_QUEUE_URL)
                         .maxNumberOfMessages(10)
                         .waitTimeSeconds(20)
-                        .visibilityTimeout(120)
+                        .visibilityTimeout(1800)
                         .build();
 
                 List<Message> msgs = sqs.receiveMessage(req).messages();
