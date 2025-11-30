@@ -44,24 +44,9 @@ public class Worker {
     private static final Gson GSON = new Gson();
 
     // ----- JSON message classes -----
-    private static class WorkerTaskMessage {
-        String type;          // "TASK"
-        String analysisType;  // "POS", "CONSTITUENCY", "DEPENDENCY"
-        String url;
-    }
-
-    private static class ResultMessage {
-        String type = "RESULT";
-        String analysisType;
-        String url;
-        String s3Key;
-    }
-
-    private static class ErrorMessage {
-        String type = "ERROR";
-        String originalMessage;
-        String error;
-    }
+    private static class WorkerTaskMessage { String type; String analysisType; String url; }
+    private static class ResultMessage { String type = "RESULT"; String analysisType; String url; String s3Key; }
+    private static class ErrorMessage { String type = "ERROR"; String originalMessage; String error; }
 
     // ---------------- NLP PIPELINE ----------------
     private static final StanfordCoreNLP pipeline = createPipeline();
@@ -88,7 +73,7 @@ public class Worker {
                                 .queueUrl(WORKER_QUEUE_URL)
                                 .maxNumberOfMessages(1)
                                 .waitTimeSeconds(15)
-                                .visibilityTimeout(1800)
+                                .visibilityTimeout(1800) // Corrected timeout
                                 .build());
 
                 for (Message msg : response.messages()) {
@@ -104,7 +89,23 @@ public class Worker {
                     } catch (Exception e) {
                         System.err.println("[Worker] Task error: " + e);
 
-                        sendErrorMessage(msg.body(), e.getMessage());
+                        // --- FIX START: Capture full error details ---
+                    // --- FIX START: Capture and Clean Error String ---
+                    String fullError = e.toString();
+                    int urlIndex = fullError.indexOf("http");
+                    
+                    // Clean the error: keep only the exception type (e.g., "java.io.FileNotFoundException")
+                    String cleanError;
+                    if (urlIndex > 0) {
+                        cleanError = fullError.substring(0, urlIndex).trim(); 
+                    } else {
+                        // Fallback if the URL isn't present in the message
+                        cleanError = fullError;
+                    }
+                    // --- FIX END ---
+
+                    // Send the CLEAN error description to the Manager
+                    sendErrorMessage(msg.body(), cleanError);
 
                         sqs.deleteMessage(DeleteMessageRequest.builder()
                                 .queueUrl(WORKER_QUEUE_URL)
@@ -176,7 +177,7 @@ public class Worker {
         StringBuilder sb = new StringBuilder();
         URL url = new URL(urlString);
 
-        // Removed MAX_LINES and MAX_CHARS checks to process full file
+        // This is the line that throws FileNotFoundException/IOException on 404
         try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -249,14 +250,12 @@ public class Worker {
     // ----------------------------------------------------------
     // S3 UPLOAD
     // ----------------------------------------------------------
-    // In Worker.java
     private static void uploadToS3(String filePath, String key) {
         try (S3Client s3 = S3Client.builder().region(AWS_REGION).credentialsProvider(DefaultCredentialsProvider.create()).build()) {
 
             s3.putObject(PutObjectRequest.builder()
                         .bucket(S3_BUCKET)
                         .key(key)
-                        //.acl(ObjectCannedACL.PUBLIC_READ) // <--- ADD THIS LINE
                         .build(),
                 RequestBody.fromFile(Paths.get(filePath)));
 
