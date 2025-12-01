@@ -26,14 +26,14 @@ import java.nio.file.*;
 import java.util.*;
 
 /**
- * Worker — JSON + LINE-BY-LINE
+ * Worker — Final Production Version
  */
 public class Worker {
 
     private static final Region AWS_REGION = Region.US_EAST_1;
 
-    private static final String S3_BUCKET =
-            "khaled-text-analysis-bucket-v2";
+    // UPDATE THIS IF YOU CHANGE BUCKETS
+    private static final String S3_BUCKET = "khaled-text-analysis-bucket-v2";
 
     private static final String RESULTS_QUEUE_URL =
             "https://sqs.us-east-1.amazonaws.com/070930741423/worker-results-queue";
@@ -59,7 +59,7 @@ public class Worker {
     }
 
     public static void main(String[] args) {
-        System.out.println("=== Worker started (line-by-line JSON version) ===");
+        System.out.println("=== Worker started (Production) ===");
 
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
@@ -67,20 +67,20 @@ public class Worker {
                 .build()) {
 
             while (true) {
-
+                // Long polling for messages
                 ReceiveMessageResponse response = sqs.receiveMessage(
                         ReceiveMessageRequest.builder()
                                 .queueUrl(WORKER_QUEUE_URL)
                                 .maxNumberOfMessages(1)
                                 .waitTimeSeconds(15)
-                                .visibilityTimeout(1800) // Corrected timeout
+                                .visibilityTimeout(1800) // 30 mins visibility
                                 .build());
 
                 for (Message msg : response.messages()) {
-
                     try {
                         processTask(msg.body());
 
+                        // Delete on success
                         sqs.deleteMessage(DeleteMessageRequest.builder()
                                 .queueUrl(WORKER_QUEUE_URL)
                                 .receiptHandle(msg.receiptHandle())
@@ -89,24 +89,21 @@ public class Worker {
                     } catch (Exception e) {
                         System.err.println("[Worker] Task error: " + e);
 
-                        // --- FIX START: Capture full error details ---
-                    // --- FIX START: Capture and Clean Error String ---
-                    String fullError = e.toString();
-                    int urlIndex = fullError.indexOf("http");
-                    
-                    // Clean the error: keep only the exception type (e.g., "java.io.FileNotFoundException")
-                    String cleanError;
-                    if (urlIndex > 0) {
-                        cleanError = fullError.substring(0, urlIndex).trim(); 
-                    } else {
-                        // Fallback if the URL isn't present in the message
-                        cleanError = fullError;
-                    }
-                    // --- FIX END ---
+                        // Capture and Clean Error String
+                        String fullError = e.toString();
+                        int urlIndex = fullError.indexOf("http");
+                        
+                        String cleanError;
+                        if (urlIndex > 0) {
+                            cleanError = fullError.substring(0, urlIndex).trim(); 
+                        } else {
+                            cleanError = fullError;
+                        }
 
-                    // Send the CLEAN error description to the Manager
-                    sendErrorMessage(msg.body(), cleanError);
+                        // Send the CLEAN error description to the Manager
+                        sendErrorMessage(msg.body(), cleanError);
 
+                        // Delete to prevent infinite loops on bad messages
                         sqs.deleteMessage(DeleteMessageRequest.builder()
                                 .queueUrl(WORKER_QUEUE_URL)
                                 .receiptHandle(msg.receiptHandle())
@@ -120,9 +117,8 @@ public class Worker {
         }
     }
 
-
     // ----------------------------------------------------------
-    // MAIN TASK HANDLING — LINE BY LINE (JSON)
+    // MAIN TASK HANDLING
     // ----------------------------------------------------------
     private static void processTask(String message) throws Exception {
         WorkerTaskMessage task = GSON.fromJson(message, WorkerTaskMessage.class);
@@ -143,17 +139,14 @@ public class Worker {
         String localResult = "/tmp/" + UUID.randomUUID() + "_analysis.txt";
         BufferedWriter writer = Files.newBufferedWriter(Paths.get(localResult));
 
-        // 🔥 Split into lines (line-by-line)
+        // Split into lines (line-by-line)
         String[] lines = text.split("\n");
 
         for (String line : lines) {
             if (line.trim().isEmpty()) continue;
-
             writer.write(">>> LINE >>> " + line + "\n");
-
             // Safely analyze each line
             String analysis = safeAnalyzeLine(line, type);
-
             writer.write(analysis + "\n\n");
         }
 
@@ -166,9 +159,8 @@ public class Worker {
         // Notify Manager (JSON)
         sendResultMessage(type, url, s3Key);
 
-        System.out.println("[Worker] Completed line-by-line task: " + type + " for " + url);
+        System.out.println("[Worker] Completed task: " + type + " for " + url);
     }
-
 
     // ----------------------------------------------------------
     // DOWNLOAD TEXT SAFELY
@@ -177,14 +169,12 @@ public class Worker {
         StringBuilder sb = new StringBuilder();
         URL url = new URL(urlString);
 
-        // This is the line that throws FileNotFoundException/IOException on 404
         try (BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()))) {
             String line;
             while ((line = br.readLine()) != null) {
                 sb.append(line).append("\n");
             }
         }
-
         return sb.toString();
     }
 
@@ -210,7 +200,6 @@ public class Worker {
             return "[ERROR parsing line] " + e.getMessage();
         }
     }
-
 
     // ----------------------------------------------------------
     // NLP OUTPUT FUNCTIONS
@@ -246,7 +235,6 @@ public class Worker {
         return sb.toString();
     }
 
-
     // ----------------------------------------------------------
     // S3 UPLOAD
     // ----------------------------------------------------------
@@ -263,7 +251,6 @@ public class Worker {
             System.err.println("[Worker] S3 upload error: " + e.awsErrorDetails().errorMessage());
         }
     }
-
 
     // ----------------------------------------------------------
     // SEND RESULT TO MANAGER (JSON)
@@ -290,7 +277,6 @@ public class Worker {
             System.err.println("[Worker] Error sending result: " + e.awsErrorDetails().errorMessage());
         }
     }
-
 
     // ----------------------------------------------------------
     // SEND ERROR MESSAGE (JSON)
