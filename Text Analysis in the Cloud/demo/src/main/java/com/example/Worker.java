@@ -73,7 +73,7 @@ public class Worker {
                                 .queueUrl(WORKER_QUEUE_URL)
                                 .maxNumberOfMessages(1)
                                 .waitTimeSeconds(15)
-                                .visibilityTimeout(1800) // 30 mins visibility
+                                .visibilityTimeout(3600) // 30 mins visibility
                                 .build());
 
                 for (Message msg : response.messages()) {

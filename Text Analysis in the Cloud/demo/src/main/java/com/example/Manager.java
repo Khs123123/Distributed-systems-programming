@@ -347,7 +347,7 @@ public class Manager {
                         .queueUrl(WORKER_RESULTS_QUEUE_URL)
                         .maxNumberOfMessages(10)
                         .waitTimeSeconds(20)
-                        .visibilityTimeout(1800)
+                        .visibilityTimeout(3600)
                         .build();
 
                 List<Message> msgs = sqs.receiveMessage(req).messages();
