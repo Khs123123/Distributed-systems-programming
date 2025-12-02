@@ -28,12 +28,12 @@ import software.amazon.awssdk.services.sqs.model.*;
 public class Localapplication {
 
     private static final Region AWS_REGION = Region.US_EAST_1;
-    private static final String S3_BUCKET = "khaled-text-analysis-bucket-v2";
+    private static final String S3_BUCKET = "khaled-text-analysis-bucket-v3";
 
     private static final String MANAGER_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/070930741423/MANAGER_QUEUE";
+            "https://sqs.us-east-1.amazonaws.com/597918329386/MANAGER_QUEUE";
     private static final String LOCALAPP_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/070930741423/localapp-queue";
+            "https://sqs.us-east-1.amazonaws.com/597918329386/localapp-queue";
 
     // Tag definitions used to find and launch the Manager instance
     private static final String MANAGER_TAG_KEY = "Project";

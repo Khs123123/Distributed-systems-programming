@@ -24,7 +24,7 @@ Instance types:
   - Max workers:     17 (Hard limit enforced by Manager to avoid AWS blocks)
 
 S3 bucket:
-  - Name:            khaled-text-analysis-bucket-v2
+  - Name:            khaled-text-analysis-bucket-v3
   - Structure:
       inputs/      – input files uploaded by Localapplication
       results/     – result text files created by Workers
@@ -32,10 +32,10 @@ S3 bucket:
       jars/        – remote fat jar for Manager/Workers
 
 SQS queues:
-  - Manager queue:       https://sqs.us-east-1.amazonaws.com/070930741423/MANAGER_QUEUE
-  - Localapp queue:      https://sqs.us-east-1.amazonaws.com/070930741423/localapp-queue
-  - Worker queue:        https://sqs.us-east-1.amazonaws.com/070930741423/worker-queue
-  - Worker results:      https://sqs.us-east-1.amazonaws.com/070930741423/worker-results-queue
+  - Manager queue:       https://sqs.us-east-1.amazonaws.com/597918329386/MANAGER_QUEUE
+  - Localapp queue:      https://sqs.us-east-1.amazonaws.com/597918329386/localapp-queue
+  - Worker queue:        https://sqs.us-east-1.amazonaws.com/597918329386/worker-queue
+  - Worker results:      https://sqs.us-east-1.amazonaws.com/597918329386/worker-results-queue
 2. HOW TO BUILD
 
 From the `demo` directory of the project:
@@ -51,7 +51,7 @@ From the `demo` directory of the project:
 2. Upload the **remote** jar to S3 (Required before running):
 
    aws s3 cp target/text-analysis-1.0-SNAPSHOT-remote.jar \
-     s3://khaled-text-analysis-bucket-v2/jars/text-analysis-1.0-SNAPSHOT-remote.jar
+     s3://khaled-text-analysis-bucket-v3/jars/text-analysis-1.0-SNAPSHOT-remote.jar
 
 3. INPUT FORMAT
 

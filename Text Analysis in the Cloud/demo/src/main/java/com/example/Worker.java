@@ -30,13 +30,13 @@ public class Worker {
 
     private static final Region AWS_REGION = Region.US_EAST_1;
 
-    private static final String S3_BUCKET = "khaled-text-analysis-bucket-v2";
+    private static final String S3_BUCKET = "khaled-text-analysis-bucket-v3";
 
     private static final String RESULTS_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/070930741423/worker-results-queue";
+            "https://sqs.us-east-1.amazonaws.com/597918329386/worker-results-queue";
 
     private static final String WORKER_QUEUE_URL =
-            "https://sqs.us-east-1.amazonaws.com/070930741423/worker-queue";
+            "https://sqs.us-east-1.amazonaws.com/597918329386/worker-queue";
 
     private static final Gson GSON = new Gson();
 
