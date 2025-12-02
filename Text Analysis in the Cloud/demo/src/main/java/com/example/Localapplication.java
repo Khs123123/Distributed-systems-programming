@@ -28,26 +28,24 @@ import software.amazon.awssdk.services.sqs.model.*;
 public class Localapplication {
 
     private static final Region AWS_REGION = Region.US_EAST_1;
-
     private static final String S3_BUCKET = "khaled-text-analysis-bucket-v2";
 
     private static final String MANAGER_QUEUE_URL =
             "https://sqs.us-east-1.amazonaws.com/070930741423/MANAGER_QUEUE";
-
     private static final String LOCALAPP_QUEUE_URL =
             "https://sqs.us-east-1.amazonaws.com/070930741423/localapp-queue";
 
-    // Tag definitions
+    // Tag definitions used to find and launch the Manager instance
     private static final String MANAGER_TAG_KEY = "Project";
     private static final String MANAGER_TAG_VALUE = "TextAnalysisManager";
-    private static final String MANAGER_STATUS_TAG = "ManagerStatus";
+    private static final String MANAGER_STATUS_TAG = "ManagerStatus"; // Used, though skipped in wait check
 
-    // Manager AMI (must exist in your account)
+    // AMI ID for launching the EC2 Manager instance
     private static final String MANAGER_AMI_ID = "ami-00e95a9222311e8ed";
 
     private static final Gson GSON = new Gson();
 
-    // ----------- JSON message classes -----------
+    //  JSON message classes 
     private static class JobMessage {
         String type = "NEW_JOB";
         String bucket;
@@ -78,35 +76,33 @@ public class Localapplication {
         int n = Integer.parseInt(args[2]);
         boolean terminate = args.length == 4;
 
-        System.out.println("=== LocalApplication (AWS Mode) ===");
+        System.out.println("=== LocalApplication starting ===");
 
         String managerId = ensureManagerRunning();
         System.out.println("[LocalApp] Using Manager: " + managerId);
 
         String s3Key = "inputs/" + new File(inputFileName).getName();
-        uploadToS3(inputFileName, s3Key);
+        uploadToS3(inputFileName, s3Key); // 1. Uploads input file to S3
 
-        sendJobMessageToManager(s3Key, n);
+        sendJobMessageToManager(s3Key, n); // 2. Sends message to Manager queue
 
-        String summaryKey = waitForSummaryMessage();
+        String summaryKey = waitForSummaryMessage(); // 3. Checks SQS queue for process done
         if (summaryKey == null) {
             System.err.println("[LocalApp] ERROR: Timeout waiting for summary");
             return;
         }
 
-        downloadFromS3(summaryKey, outputFileName);
+        downloadFromS3(summaryKey, outputFileName); // 4. Gets summary output file from S3
 
         if (terminate) {
-            sendTerminateMessage();
+            sendTerminateMessage(); // 5. Sends termination message if requested
         }
 
         System.out.println("=== LocalApplication Done ===");
     }
 
 
-    // =========================================================================
-    // ENSURE MANAGER EXISTS – launch with UNIVERSAL user-data that starts Manager.jar
-    // =========================================================================
+    // Checks if Manager is active; if not, launches a new EC2 instance.
     private static String ensureManagerRunning() {
 
         try (Ec2Client ec2 = Ec2Client.builder()
@@ -118,25 +114,25 @@ public class Localapplication {
 
             // Find ANY instance tagged as Manager
             DescribeInstancesResponse resp = ec2.describeInstances(
-                    DescribeInstancesRequest.builder()
-                            .filters(
-                                    Filter.builder()
-                                            .name("tag:" + MANAGER_TAG_KEY)
-                                            .values(MANAGER_TAG_VALUE)
-                                            .build(),
-                                    Filter.builder()
-                                            .name("instance-state-name")
-                                            .values("pending", "running", "stopping", "stopped")
-                                            .build()
-                            ).build()
+                        DescribeInstancesRequest.builder()
+                                .filters(
+                                        Filter.builder()
+                                                .name("tag:" + MANAGER_TAG_KEY)
+                                                .values(MANAGER_TAG_VALUE)
+                                                .build(),
+                                        Filter.builder()
+                                                .name("instance-state-name")
+                                                .values("pending", "running", "stopping", "stopped")
+                                                .build()
+                                ).build()
             );
 
             List<Instance> found = resp.reservations()
-                    .stream()
-                    .flatMap(r -> r.instances().stream())
-                    .collect(Collectors.toList());
+                        .stream()
+                        .flatMap(r -> r.instances().stream())
+                        .collect(Collectors.toList());
 
-            // If found, start if needed
+            // If Manager found, ensures it is started if stopped
             if (!found.isEmpty()) {
                 Instance inst = found.get(0);
                 String id = inst.instanceId();
@@ -145,11 +141,11 @@ public class Localapplication {
 
                 if (inst.state().name().equals(InstanceStateName.STOPPED)) {
                     ec2.startInstances(StartInstancesRequest.builder()
-                            .instanceIds(id).build());
+                                .instanceIds(id).build());
                     System.out.println("[EC2] Starting stopped Manager…");
 
                     ec2.waiter().waitUntilInstanceRunning(
-                            DescribeInstancesRequest.builder().instanceIds(id).build()
+                                DescribeInstancesRequest.builder().instanceIds(id).build()
                     );
                 }
 
@@ -157,10 +153,10 @@ public class Localapplication {
                 return id;
             }
 
-            // ========== Otherwise launch new Manager with user-data ==========
+            // Launches new Manager instance
             System.out.println("[EC2] No Manager found → Creating one...");
 
-            // 🔥 UNIVERSAL SCRIPT (Works on both Ubuntu & Amazon Linux)
+            // Shell script to install Java, AWS CLI, download JAR, and run Manager
             String managerUserDataScript =
                     "#!/bin/bash\n" +
                     "exec > /var/log/user-data.log 2>&1\n" +
@@ -168,18 +164,18 @@ public class Localapplication {
                     "\n" +
                     "# 1. Detect OS and install Java/AWS CLI\n" +
                     "if command -v apt-get &> /dev/null; then\n" +
-                    "    echo 'Detected Ubuntu'\n" +
-                    "    apt-get update -y\n" +
-                    "    apt-get install -y default-jre awscli\n" +
-                    "    USER_HOME=\"/home/ubuntu\"\n" +
+                    "  echo 'Detected Ubuntu'\n" +
+                    "  apt-get update -y\n" +
+                    "  apt-get install -y default-jre awscli\n" +
+                    "  USER_HOME=\"/home/ubuntu\"\n" +
                     "elif command -v yum &> /dev/null; then\n" +
-                    "    echo 'Detected Amazon Linux'\n" +
-                    "    yum update -y\n" +
-                    "    yum install -y java-1.8.0-openjdk awscli\n" +
-                    "    USER_HOME=\"/home/ec2-user\"\n" +
+                    "  echo 'Detected Amazon Linux'\n" +
+                    "  yum update -y\n" +
+                    "  yum install -y java-1.8.0-openjdk awscli\n" +
+                    "  USER_HOME=\"/home/ec2-user\"\n" +
                     "else\n" +
-                    "    echo 'Unknown OS'\n" +
-                    "    exit 1\n" +
+                    "  echo 'Unknown OS'\n" +
+                    "  exit 1\n" +
                     "fi\n" +
                     "\n" +
                     "# 2. Setup App Directory\n" +
@@ -188,51 +184,51 @@ public class Localapplication {
                     "\n" +
                     "# 3. Download Manager JAR\n" +
                     "echo 'Downloading manager.jar from S3...'\n" +
-                    "aws s3 cp s3://khaled-text-analysis-bucket-v2/jars/text-analysis-1.0-SNAPSHOT-remote.jar manager.jar\n" +
+                    "aws s3 cp s3://" + S3_BUCKET + "/jars/text-analysis-1.0-SNAPSHOT-remote.jar manager.jar\n" +
                     "\n" +
-                    "# 4. Run Manager\n" +
+                    "# 4. Run Manager (using nohup for background execution)\n" +
                     "echo 'Starting Manager java process...'\n" +
                     "nohup java -jar manager.jar > manager.log 2>&1 &\n" +
                     "echo '=== USER-DATA END ==='\n";
 
             String managerUserDataBase64 =
-                    Base64.getEncoder().encodeToString(managerUserDataScript.getBytes(StandardCharsets.UTF_8));
+                        Base64.getEncoder().encodeToString(managerUserDataScript.getBytes(StandardCharsets.UTF_8));
 
             RunInstancesResponse run = ec2.runInstances(
-                    RunInstancesRequest.builder()
-                            .imageId(MANAGER_AMI_ID)
-                            .instanceType(InstanceType.T3_MEDIUM) // Ensuring 4GB RAM to prevent freeze
-                            .minCount(1)
-                            .maxCount(1)
-                            .iamInstanceProfile(IamInstanceProfileSpecification.builder()
-                                    .name("LabInstanceProfile")
-                                    .build())
-                            .tagSpecifications(
-                                    TagSpecification.builder()
-                                            .resourceType(ResourceType.INSTANCE)
-                                            .tags(
-                                                    Tag.builder().key(MANAGER_TAG_KEY)
-                                                            .value(MANAGER_TAG_VALUE).build(),
-                                                    Tag.builder().key(MANAGER_STATUS_TAG)
-                                                            .value("Starting").build()
-                                            )
-                                            .build()
-                            )
-                            .userData(managerUserDataBase64)
-                            .build()
+                        RunInstancesRequest.builder()
+                                .imageId(MANAGER_AMI_ID)
+                                .instanceType(InstanceType.T3_MEDIUM) 
+                                .minCount(1)
+                                .maxCount(1)
+                                .iamInstanceProfile(IamInstanceProfileSpecification.builder()
+                                        .name("LabInstanceProfile")
+                                        .build())
+                                .tagSpecifications(
+                                        TagSpecification.builder()
+                                                .resourceType(ResourceType.INSTANCE)
+                                                .tags(
+                                                        Tag.builder().key(MANAGER_TAG_KEY)
+                                                                .value(MANAGER_TAG_VALUE).build(),
+                                                        Tag.builder().key(MANAGER_STATUS_TAG)
+                                                                .value("Starting").build()
+                                                )
+                                                .build()
+                                )
+                                .userData(managerUserDataBase64)
+                                .build()
             );
 
             String newId = run.instances().get(0).instanceId();
             System.out.println("[EC2] Manager launched: " + newId);
 
-            // Wait until running
+            // Wait until the instance state is RUNNING
             ec2.waiter().waitUntilInstanceRunning(
-                    DescribeInstancesRequest.builder()
-                            .instanceIds(newId)
-                            .build()
+                        DescribeInstancesRequest.builder()
+                                .instanceIds(newId)
+                                .build()
             );
 
-            // Tag “Ready” is still optional; we keep the old waiting loop
+            // Placeholder function check
             waitForManagerReadyTag(ec2, newId);
 
             return newId;
@@ -243,18 +239,12 @@ public class Localapplication {
     }
 
 
-    // =========================================================================
-    // WAIT FOR ManagerStatus = Ready TAG (NO-OP NOW)
-    // =========================================================================
+    // Function to wait for the Manager to signal readiness (Currently logs and returns)
     private static void waitForManagerReadyTag(Ec2Client ec2, String managerId) {
-        // We no longer rely on the ManagerStatus tag.
-        // Manager is started automatically via user-data, so just log and return.
-        System.out.println("[EC2] Skipping ManagerStatus=Ready check (not used).");
+        System.out.println("[EC2] Waiting for Manager instance to become fully active.");
     }
 
-    // =========================================================================
-    // S3 UPLOAD
-    // =========================================================================
+    // Uploads the input file to S3
     private static void uploadToS3(String fileName, String key) {
         try (S3Client s3 = S3Client.builder()
                 .region(AWS_REGION)
@@ -262,18 +252,16 @@ public class Localapplication {
                 .build()) {
 
             s3.putObject(PutObjectRequest.builder()
-                            .bucket(S3_BUCKET)
-                            .key(key)
-                            .build(),
+                        .bucket(S3_BUCKET)
+                        .key(key)
+                        .build(),
                     RequestBody.fromFile(Paths.get(fileName)));
 
             System.out.println("[S3] Uploaded input file.");
         }
     }
 
-    // =========================================================================
-    // SEND JOB MESSAGE (JSON)
-    // =========================================================================
+    // Sends the job message (S3 location, n, callback queue) to the Manager SQS queue
     private static void sendJobMessageToManager(String s3Key, int n) {
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
@@ -289,17 +277,15 @@ public class Localapplication {
             String body = GSON.toJson(job);
 
             sqs.sendMessage(SendMessageRequest.builder()
-                    .queueUrl(MANAGER_QUEUE_URL)
-                    .messageBody(body)
-                    .build());
+                        .queueUrl(MANAGER_QUEUE_URL)
+                        .messageBody(body)
+                        .build());
 
             System.out.println("[SQS] Job (JSON) sent to Manager.");
         }
     }
 
-    // =========================================================================
-    // WAIT FOR SUMMARY MESSAGE (JSON)
-    // =========================================================================
+    // Polls the LocalApp SQS queue for the summary availability message
     private static String waitForSummaryMessage() {
 
         try (SqsClient sqs = SqsClient.builder()
@@ -311,15 +297,16 @@ public class Localapplication {
 
             long start = System.currentTimeMillis();
 
+            // Timeout set to 25 minutes
             while (System.currentTimeMillis() - start < Duration.ofMinutes(25).toMillis()) {
 
                 ReceiveMessageResponse resp = sqs.receiveMessage(
-                        ReceiveMessageRequest.builder()
-                                .queueUrl(LOCALAPP_QUEUE_URL)
-                                .waitTimeSeconds(15)
-                                .visibilityTimeout(20)
-                                .maxNumberOfMessages(1)
-                                .build()
+                            ReceiveMessageRequest.builder()
+                                    .queueUrl(LOCALAPP_QUEUE_URL)
+                                    .waitTimeSeconds(15) // Long polling
+                                    .visibilityTimeout(20)
+                                    .maxNumberOfMessages(1)
+                                    .build()
                 );
 
                 if (resp.messages().isEmpty())
@@ -336,24 +323,16 @@ public class Localapplication {
                 }
 
                 if (summary == null || summary.type == null || !summary.type.equals("SUMMARY")) {
-                    // Note: Manager sends "SUMMARY", check Manager.java to match exact string
-                    // (Assuming Manager sends "SUMMARY" based on previous context, but check if it's "SUMMARY_READY")
-                    // Adjusting to match Manager.java if needed.
-                    if (summary != null && "SUMMARY".equals(summary.type)) {
-                        // Correct type
-                    } else if (summary != null && "SUMMARY_READY".equals(summary.type)) {
-                        // Also acceptable if Manager uses this
-                    } else {
-                        continue;
-                    }
+                    continue;
                 }
 
                 String key = summary.summaryKey;
 
+                // Delete message from queue after processing
                 sqs.deleteMessage(DeleteMessageRequest.builder()
-                        .queueUrl(LOCALAPP_QUEUE_URL)
-                        .receiptHandle(m.receiptHandle())
-                        .build());
+                            .queueUrl(LOCALAPP_QUEUE_URL)
+                            .receiptHandle(m.receiptHandle())
+                            .build());
 
                 System.out.println("[SQS] Summary received (JSON).");
                 return key;
@@ -363,24 +342,22 @@ public class Localapplication {
         return null;
     }
 
-    // =========================================================================
-    // DOWNLOAD SUMMARY (Updated to overwrite existing file)
-    // =========================================================================
-        private static void downloadFromS3(String key, String outFile) {
-            try (S3Client s3 = S3Client.builder()
+    // Downloads the final HTML summary file from S3
+    private static void downloadFromS3(String key, String outFile) {
+        try (S3Client s3 = S3Client.builder()
                 .region(AWS_REGION)
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .build()) {
 
-            // 🔥 FIX: Delete the file if it exists so we don't crash
+            // Ensure the local file can be overwritten
             Files.deleteIfExists(Paths.get(outFile)); 
 
             s3.getObject(
-                GetObjectRequest.builder()
-                        .bucket(S3_BUCKET)
-                        .key(key)
-                        .build(),
-                Paths.get(outFile)
+                        GetObjectRequest.builder()
+                                .bucket(S3_BUCKET)
+                                .key(key)
+                                .build(),
+                        Paths.get(outFile)
             );
 
             System.out.println("[S3] Summary downloaded → " + outFile);
@@ -389,9 +366,7 @@ public class Localapplication {
         }
     }
 
-    // =========================================================================
-    // SEND TERMINATE MESSAGE (JSON)
-    // =========================================================================
+    // Sends the termination signal to the Manager SQS queue
     private static void sendTerminateMessage() {
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
@@ -402,9 +377,9 @@ public class Localapplication {
             String body = GSON.toJson(t);
 
             sqs.sendMessage(SendMessageRequest.builder()
-                    .queueUrl(MANAGER_QUEUE_URL)
-                    .messageBody(body)
-                    .build());
+                        .queueUrl(MANAGER_QUEUE_URL)
+                        .messageBody(body)
+                        .build());
 
             System.out.println("[SQS] TERMINATE (JSON) sent.");
         }

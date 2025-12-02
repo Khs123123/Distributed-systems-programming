@@ -25,14 +25,11 @@ import java.net.URL;
 import java.nio.file.*;
 import java.util.*;
 
-/**
- * Worker — Final Production Version
- */
+
 public class Worker {
 
     private static final Region AWS_REGION = Region.US_EAST_1;
 
-    // UPDATE THIS IF YOU CHANGE BUCKETS
     private static final String S3_BUCKET = "khaled-text-analysis-bucket-v2";
 
     private static final String RESULTS_QUEUE_URL =
@@ -43,12 +40,12 @@ public class Worker {
 
     private static final Gson GSON = new Gson();
 
-    // ----- JSON message classes -----
+    // JSON message classes
     private static class WorkerTaskMessage { String type; String analysisType; String url; }
     private static class ResultMessage { String type = "RESULT"; String analysisType; String url; String s3Key; }
     private static class ErrorMessage { String type = "ERROR"; String originalMessage; String error; }
 
-    // ---------------- NLP PIPELINE ----------------
+    // NLP PIPELINE 
     private static final StanfordCoreNLP pipeline = createPipeline();
 
     private static StanfordCoreNLP createPipeline() {
@@ -117,9 +114,8 @@ public class Worker {
         }
     }
 
-    // ----------------------------------------------------------
+
     // MAIN TASK HANDLING
-    // ----------------------------------------------------------
     private static void processTask(String message) throws Exception {
         WorkerTaskMessage task = GSON.fromJson(message, WorkerTaskMessage.class);
         if (task == null || task.type == null || !"TASK".equals(task.type)) {
@@ -162,9 +158,7 @@ public class Worker {
         System.out.println("[Worker] Completed task: " + type + " for " + url);
     }
 
-    // ----------------------------------------------------------
     // DOWNLOAD TEXT SAFELY
-    // ----------------------------------------------------------
     private static String downloadText(String urlString) throws IOException {
         StringBuilder sb = new StringBuilder();
         URL url = new URL(urlString);
@@ -178,9 +172,7 @@ public class Worker {
         return sb.toString();
     }
 
-    // ----------------------------------------------------------
     // SAFE LINE-BY-LINE ANALYSIS
-    // ----------------------------------------------------------
     private static String safeAnalyzeLine(String line, String type) {
         try {
             Annotation doc = new Annotation(line);
@@ -201,9 +193,7 @@ public class Worker {
         }
     }
 
-    // ----------------------------------------------------------
     // NLP OUTPUT FUNCTIONS
-    // ----------------------------------------------------------
     private static String posToString(Annotation doc) {
         StringBuilder sb = new StringBuilder();
         for (CoreMap sentence : doc.get(CoreAnnotations.SentencesAnnotation.class)) {
@@ -235,9 +225,7 @@ public class Worker {
         return sb.toString();
     }
 
-    // ----------------------------------------------------------
     // S3 UPLOAD
-    // ----------------------------------------------------------
     private static void uploadToS3(String filePath, String key) {
         try (S3Client s3 = S3Client.builder().region(AWS_REGION).credentialsProvider(DefaultCredentialsProvider.create()).build()) {
 
@@ -252,9 +240,7 @@ public class Worker {
         }
     }
 
-    // ----------------------------------------------------------
     // SEND RESULT TO MANAGER (JSON)
-    // ----------------------------------------------------------
     private static void sendResultMessage(String type, String url, String s3Key) {
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
@@ -277,10 +263,8 @@ public class Worker {
             System.err.println("[Worker] Error sending result: " + e.awsErrorDetails().errorMessage());
         }
     }
-
-    // ----------------------------------------------------------
+     
     // SEND ERROR MESSAGE (JSON)
-    // ----------------------------------------------------------
     private static void sendErrorMessage(String original, String error) {
         try (SqsClient sqs = SqsClient.builder()
                 .region(AWS_REGION)
