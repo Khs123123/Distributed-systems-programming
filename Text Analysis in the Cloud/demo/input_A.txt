@@ -1,2 +1,0 @@
-POS	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/pos.txt
-CONSTITUENCY	https://raw.githubusercontent.com/Khs123123/text-samples/refs/heads/main/const.txt

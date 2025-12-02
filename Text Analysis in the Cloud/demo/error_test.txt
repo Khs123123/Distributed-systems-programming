@@ -1,2 +1,0 @@
-POS	https://www.gutenberg.org/files/1661/1661-0.txt
-CONSTITUENCY	https://www.gutenberg.org/files/9999999/9999999-0.txt
