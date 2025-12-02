@@ -50,8 +50,7 @@ From the `demo` directory of the project:
 
 2. Upload the **remote** jar to S3 (Required before running):
 
-   aws s3 cp target/text-analysis-1.0-SNAPSHOT-remote.jar \
-     s3://khaled-text-analysis-bucket-v3/jars/text-analysis-1.0-SNAPSHOT-remote.jar
+   aws s3 cp target/text-analysis-1.0-SNAPSHOT-remote.jar s3://khaled-text-analysis-bucket-v3/jars/text-analysis-1.0-SNAPSHOT-remote.jar
 
 3. INPUT FORMAT
 
