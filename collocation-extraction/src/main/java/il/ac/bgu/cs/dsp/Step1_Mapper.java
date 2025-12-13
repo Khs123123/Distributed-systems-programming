@@ -17,7 +17,7 @@ public class Step1_Mapper extends Mapper<LongWritable, Text, Text, LongWritable>
 
     static {
         // --- English Stop Words (From eng-stopwords.txt) ---
-        String[] engWords = {
+        String[] engStopWords = {
             "a", "about", "above", "across", "after", "afterwards", "again", "against", "all", "almost",
             "alone", "along", "already", "also", "although", "always", "am", "among", "amongst", "amoungst",
             "amount", "an", "and", "another", "any", "anyhow", "anyone", "anything", "anyway", "anywhere",
@@ -51,7 +51,7 @@ public class Step1_Mapper extends Mapper<LongWritable, Text, Text, LongWritable>
         };
 
         // --- Hebrew Stop Words (From heb-stopwords.txt) ---
-        String[] hebWords = {
+        String[] hebStopWords = {
             "״", "׳", "של", "רב", "פי", "עם", "עליו", "עליהם", "על", "עד", "מן", "מכל", "מי", "מהם", "מה",
             "מ", "למה", "לכל", "לי", "לו", "להיות", "לה", "לא", "כן", "כמה", "כלי", "כל", "כי", "יש", "ימים",
             "יותר", "יד", "י", "זה", "ז", "ועל", "ומי", "ולא", "וכן", "וכל", "והיא", "והוא", "ואם", "ו",
@@ -65,8 +65,8 @@ public class Step1_Mapper extends Mapper<LongWritable, Text, Text, LongWritable>
             "ה", "בל", "בין", "בזה", "ב", "אף", "אי", "אותה", "או", "אבל", "א"
         };
 
-        STOP_WORDS.addAll(Arrays.asList(engWords));
-        STOP_WORDS.addAll(Arrays.asList(hebWords));
+        STOP_WORDS.addAll(Arrays.asList(engStopWords));
+        STOP_WORDS.addAll(Arrays.asList(hebStopWords));
     }
 
     @Override

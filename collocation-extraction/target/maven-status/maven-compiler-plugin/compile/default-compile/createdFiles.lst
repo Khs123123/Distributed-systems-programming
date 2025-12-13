@@ -1,6 +1,7 @@
 il\ac\bgu\cs\dsp\Step3_MapperUnigram.class
 il\ac\bgu\cs\dsp\Step4_Mapper.class
 il\ac\bgu\cs\dsp\Step3_Key.class
+il\ac\bgu\cs\dsp\EmrRunner.class
 il\ac\bgu\cs\dsp\Step2_GroupingComparator.class
 il\ac\bgu\cs\dsp\Step2_Key.class
 il\ac\bgu\cs\dsp\Step4_Reducer$ResultPair.class
