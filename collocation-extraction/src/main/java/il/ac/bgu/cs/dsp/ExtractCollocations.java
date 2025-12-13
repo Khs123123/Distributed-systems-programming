@@ -45,6 +45,12 @@ public class ExtractCollocations {
 
         if (!job1.waitForCompletion(true)) System.exit(1);
 
+        // *** NEW: RETRIEVE N FROM COUNTER ***
+        long N = job1.getCounters().findCounter(Step1_Reducer.Counter.N).getValue();
+        System.out.println("======================================");
+        System.out.println("Step 1 Finished. Calculated N = " + N);
+        System.out.println("======================================");
+
         // ---------------------------------------------------------
         // JOB 2: Join c1
         // ---------------------------------------------------------
@@ -71,7 +77,9 @@ public class ExtractCollocations {
         // JOB 3: Join c2 and Calculate LLR
         // ---------------------------------------------------------
         Configuration conf3 = new Configuration();
-        conf3.set("pathN", outputStep1.toString()); // Pass N path to Reducer
+        
+        // *** NEW: PASS N DIRECTLY TO CONFIGURATION ***
+        conf3.setLong("N", N);
         
         Job job3 = Job.getInstance(conf3, "Step 3: Calculate LLR");
         job3.setJarByClass(ExtractCollocations.class);
@@ -82,9 +90,9 @@ public class ExtractCollocations {
         job3.setPartitionerClass(Step3_Partitioner.class);
         job3.setGroupingComparatorClass(Step3_GroupingComparator.class);
 
-        // Input 1: Original Unigrams (SequenceFile)
+        // Input 1: Original Unigrams
         MultipleInputs.addInputPath(job3, new Path(input1Gram), SequenceFileInputFormat.class, Step3_MapperUnigram.class);
-        // Input 2: Output of Step 2 (TextFile)
+        // Input 2: Output of Step 2
         MultipleInputs.addInputPath(job3, outputStep2, TextInputFormat.class, Step3_MapperStep2.class);
         
         job3.setReducerClass(Step3_Reducer.class);
@@ -101,17 +109,12 @@ public class ExtractCollocations {
         job4.setJarByClass(ExtractCollocations.class);
         job4.setMapperClass(Step4_Mapper.class);
         job4.setReducerClass(Step4_Reducer.class);
-        
         job4.setOutputKeyClass(Text.class);
         job4.setOutputValueClass(Text.class);
-        
-        // Input is TextFile (output of Step 3)
         job4.setInputFormatClass(TextInputFormat.class);
         job4.setOutputFormatClass(TextOutputFormat.class);
         
         FileInputFormat.addInputPath(job4, outputStep3);
-        
-        // Final Output Path
         Path outputFinal = new Path(basePath + "/final_output");
         FileOutputFormat.setOutputPath(job4, outputFinal);
 

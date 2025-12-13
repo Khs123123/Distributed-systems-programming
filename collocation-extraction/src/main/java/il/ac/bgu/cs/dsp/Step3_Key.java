@@ -1,9 +1,10 @@
 package il.ac.bgu.cs.dsp;
 
-import org.apache.hadoop.io.WritableComparable;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+
+import org.apache.hadoop.io.WritableComparable;
 
 public class Step3_Key implements WritableComparable<Step3_Key> {
     private String decade;
@@ -34,16 +35,20 @@ public class Step3_Key implements WritableComparable<Step3_Key> {
 
     @Override
     public int compareTo(Step3_Key other) {
-        // 1. Sort by Decade
         int decadeCmp = this.decade.compareTo(other.decade);
         if (decadeCmp != 0) return decadeCmp;
 
-        // 2. Sort by Word (w2)
         int wordCmp = this.word.compareTo(other.word);
         if (wordCmp != 0) return wordCmp;
 
-        // 3. Sort by Type: Ensure Type 1 comes before Type 2
         return Integer.compare(this.type, other.type);
+    }
+
+    // ADDED: Clean toString to avoid formatting errors in logs
+    @Override
+    public String toString() {
+        // This ensures your logs and intermediate outputs are clean
+        return decade + "\t" + word + "\t" + type;
     }
 
     public String getDecade() { return decade; }

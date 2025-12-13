@@ -1,11 +1,14 @@
 package il.ac.bgu.cs.dsp;
 
-import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
 import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClientBuilder;
-import com.amazonaws.services.elasticmapreduce.model.*;
+import com.amazonaws.services.elasticmapreduce.model.HadoopJarStepConfig;
+import com.amazonaws.services.elasticmapreduce.model.JobFlowInstancesConfig;
+import com.amazonaws.services.elasticmapreduce.model.RunJobFlowRequest;
+import com.amazonaws.services.elasticmapreduce.model.RunJobFlowResult;
+import com.amazonaws.services.elasticmapreduce.model.StepConfig;
 
 public class EmrRunner {
 
@@ -17,11 +20,16 @@ public class EmrRunner {
         String logUri = "s3://" + bucketName + "/logs/";
         String jarUrl = "s3://" + bucketName + "/jars/assignment2-1.0-SNAPSHOT.jar";
         
-        // Google N-Grams S3 Paths (English) [cite: 24, 27]
-        String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-us-all/1gram/data";
-        String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-us-all/2gram/data";
-        String outputDir = "s3://" + bucketName + "/output/" + System.currentTimeMillis(); // Unique output folder
-        String language = "eng";
+        // --- BRITISH ENGLISH DATASET (Smaller English corpus) ---
+        //[cite_start]// [cite: 22, 24] (Based on standard naming convention for gb vs us)
+        String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/1gram/data";
+        String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/2gram/data";
+
+        // Language set to "eng" so your code applies English Stop Words
+        String language = "heb"; 
+
+        // Unique output folder
+        String outputDir = "s3://" + bucketName + "/output/TEST_HEBREW_v2" + System.currentTimeMillis();
 
         // --- STEP CONFIGURATION ---
         // We run the ExtractCollocations class (which runs Job 1 -> 2 -> 3 -> 4)
@@ -38,7 +46,7 @@ public class EmrRunner {
         // --- CLUSTER INSTANCES ---
         // Use M4.large as recommended [cite: 108]
         JobFlowInstancesConfig instances = new JobFlowInstancesConfig()
-                .withInstanceCount(3) // 1 Master + 2 Slaves
+                .withInstanceCount(6) // 1 Master + 5 Slaves
                 .withMasterInstanceType("m4.large")
                 .withSlaveInstanceType("m4.large")
                 .withEc2KeyName(keyPairName)

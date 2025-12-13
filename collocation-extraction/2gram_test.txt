@@ -1,0 +1,2 @@
+high	school	1990	150	15
+good	bad	1990	10	1

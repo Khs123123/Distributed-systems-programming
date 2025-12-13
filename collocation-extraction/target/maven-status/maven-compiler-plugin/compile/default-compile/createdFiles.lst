@@ -6,6 +6,7 @@ il\ac\bgu\cs\dsp\Step2_GroupingComparator.class
 il\ac\bgu\cs\dsp\Step2_Key.class
 il\ac\bgu\cs\dsp\Step4_Reducer$ResultPair.class
 il\ac\bgu\cs\dsp\Step2_MapperBigram.class
+il\ac\bgu\cs\dsp\Step1_Reducer$Counter.class
 il\ac\bgu\cs\dsp\Step3_Partitioner.class
 il\ac\bgu\cs\dsp\Step3_Reducer.class
 il\ac\bgu\cs\dsp\ExtractCollocations.class
