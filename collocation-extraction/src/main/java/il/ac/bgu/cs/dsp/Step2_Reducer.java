@@ -1,8 +1,9 @@
 package il.ac.bgu.cs.dsp;
 
+import java.io.IOException;
+
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
-import java.io.IOException;
 
 public class Step2_Reducer extends Reducer<Step2_Key, Step2_Value, Text, Text> {
     private Text outputKey = new Text();

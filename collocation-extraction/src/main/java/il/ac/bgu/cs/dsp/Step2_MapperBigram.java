@@ -1,45 +1,41 @@
 package il.ac.bgu.cs.dsp;
 
+import java.io.IOException;
+
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Step2_MapperBigram extends Mapper<LongWritable, Text, Step2_Key, Step2_Value> {
-    
-    // ... Copy the STOP_WORDS static block from the previous version here ...
-    private static final Set<String> STOP_WORDS = new HashSet<>();
-    static {
-        // ... PASTE YOUR STOP WORDS LIST HERE ...
-        STOP_WORDS.addAll(Arrays.asList("a", "the")); // Example
-    }
-    
-    private boolean isStopWord(String word) {
-        if (word == null || word.trim().isEmpty()) return true;
-        return STOP_WORDS.contains(word.toLowerCase());
-    }
 
     @Override
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String[] parts = value.toString().split("\t");
-        if (parts.length >= 4) {
-            String w1 = parts[0];
-            String w2 = parts[1];
-            if (isStopWord(w1) || isStopWord(w2)) return;
+        
+        if (parts.length >= 3) {
+            String[] bigram = parts[0].split(" ");
+            if (bigram.length == 2) {
+                String w1 = bigram[0].trim();
+                String w2 = bigram[1].trim();
 
-            try {
-                int year = Integer.parseInt(parts[2]);
-                String decade = String.valueOf((year / 10) * 10);
-                long count = Long.parseLong(parts[3]);
+                // FILTER: Strict check for valid letters only (English + Hebrew)
+                if (w1.length() < 2 || !w1.matches("^[a-zA-Z\u0590-\u05FF]+$")) return;
+                if (w2.length() < 2 || !w2.matches("^[a-zA-Z\u0590-\u05FF]+$")) return;
 
-                // NEW: Use Step2_Key with TYPE_BIGRAM (2)
-                Step2_Key newKey = new Step2_Key(decade, w1, Step2_Value.TYPE_BIGRAM);
-                
-                context.write(newKey, new Step2_Value(Step2_Value.TYPE_BIGRAM, w2, count));
-            } catch (Exception e) { }
+                try {
+                    int year = Integer.parseInt(parts[1]);
+                    String decade = String.valueOf((year / 10) * 10);
+                    long count = Long.parseLong(parts[2]);
+
+                    // Key: Decade, w1, w2, TYPE_BIGRAM
+                    Step2_Key outKey = new Step2_Key(decade, w1, w2, Step2_Key.TYPE_BIGRAM);
+                    
+                    // FIX: Use the correct 3-arg constructor (Type, w2, Count)
+                    // We pass 'w2' so the Reducer can retrieve it later
+                    context.write(outKey, new Step2_Value(Step2_Value.TYPE_BIGRAM, w2, count));
+                    
+                } catch (NumberFormatException e) { }
+            }
         }
     }
 }

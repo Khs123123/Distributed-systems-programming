@@ -7,8 +7,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
-import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
-import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat; // Use this for Google Datasets
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;     // Use this for intermediate steps
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
@@ -36,20 +36,20 @@ public class ExtractCollocations {
         job1.setReducerClass(Step1_Reducer.class);
         job1.setOutputKeyClass(Text.class);
         job1.setOutputValueClass(LongWritable.class);
-        job1.setInputFormatClass(SequenceFileInputFormat.class);
+        
+        // AWS Google N-Grams are SequenceFiles
+        job1.setInputFormatClass(SequenceFileInputFormat.class); 
         job1.setOutputFormatClass(TextOutputFormat.class); 
         
         MultipleInputs.addInputPath(job1, new Path(input1Gram), SequenceFileInputFormat.class, Step1_Mapper.class);
+        
         Path outputStep1 = new Path(basePath + "/step1_output");
         FileOutputFormat.setOutputPath(job1, outputStep1);
 
         if (!job1.waitForCompletion(true)) System.exit(1);
 
-        // *** NEW: RETRIEVE N FROM COUNTER ***
         long N = job1.getCounters().findCounter(Step1_Reducer.Counter.N).getValue();
-        System.out.println("======================================");
-        System.out.println("Step 1 Finished. Calculated N = " + N);
-        System.out.println("======================================");
+        System.out.println("DEBUG: Calculated N = " + N);
 
         // ---------------------------------------------------------
         // JOB 2: Join c1
@@ -63,8 +63,10 @@ public class ExtractCollocations {
         job2.setPartitionerClass(Step2_Partitioner.class);
         job2.setGroupingComparatorClass(Step2_GroupingComparator.class);
         
+        // AWS Google N-Grams are SequenceFiles
         MultipleInputs.addInputPath(job2, new Path(input1Gram), SequenceFileInputFormat.class, Step2_MapperUnigram.class);
         MultipleInputs.addInputPath(job2, new Path(input2Gram), SequenceFileInputFormat.class, Step2_MapperBigram.class);
+        
         job2.setReducerClass(Step2_Reducer.class);
         job2.setOutputFormatClass(TextOutputFormat.class); 
 
@@ -77,9 +79,7 @@ public class ExtractCollocations {
         // JOB 3: Join c2 and Calculate LLR
         // ---------------------------------------------------------
         Configuration conf3 = new Configuration();
-        
-        // *** NEW: PASS N DIRECTLY TO CONFIGURATION ***
-        conf3.setLong("N", N);
+        conf3.setLong("N", N); 
         
         Job job3 = Job.getInstance(conf3, "Step 3: Calculate LLR");
         job3.setJarByClass(ExtractCollocations.class);
@@ -90,13 +90,13 @@ public class ExtractCollocations {
         job3.setPartitionerClass(Step3_Partitioner.class);
         job3.setGroupingComparatorClass(Step3_GroupingComparator.class);
 
-        // Input 1: Original Unigrams
+        // Input 1: Original Unigrams (SequenceFile)
         MultipleInputs.addInputPath(job3, new Path(input1Gram), SequenceFileInputFormat.class, Step3_MapperUnigram.class);
-        // Input 2: Output of Step 2
+        
+        // Input 2: Step 2 Output (TextFile)
         MultipleInputs.addInputPath(job3, outputStep2, TextInputFormat.class, Step3_MapperStep2.class);
         
         job3.setReducerClass(Step3_Reducer.class);
-        
         Path outputStep3 = new Path(basePath + "/step3_output");
         FileOutputFormat.setOutputPath(job3, outputStep3);
 
@@ -111,6 +111,8 @@ public class ExtractCollocations {
         job4.setReducerClass(Step4_Reducer.class);
         job4.setOutputKeyClass(Text.class);
         job4.setOutputValueClass(Text.class);
+        
+        // Step 3 output is Text
         job4.setInputFormatClass(TextInputFormat.class);
         job4.setOutputFormatClass(TextOutputFormat.class);
         
