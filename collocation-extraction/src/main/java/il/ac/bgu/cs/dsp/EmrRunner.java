@@ -22,14 +22,14 @@ public class EmrRunner {
         
         // --- BRITISH ENGLISH DATASET (Smaller English corpus) ---
         //[cite_start]// [cite: 22, 24] (Based on standard naming convention for gb vs us)
-        String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/1gram/data";
-        String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/2gram/data";
+        String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/1gram/data";
+        String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/2gram/data";
 
         // Language set to "eng" so your code applies English Stop Words
-        String language = "heb"; 
+        String language = "eng"; 
 
         // Unique output folder
-        String outputDir = "s3://" + bucketName + "/output/TEST_HEBREW_v2" + System.currentTimeMillis();
+        String outputDir = "s3://" + bucketName + "/output/TEST_ENGLISH" + System.currentTimeMillis();
 
         // --- STEP CONFIGURATION ---
         // We run the ExtractCollocations class (which runs Job 1 -> 2 -> 3 -> 4)
@@ -47,8 +47,8 @@ public class EmrRunner {
         // Use M4.large as recommended [cite: 108]
         JobFlowInstancesConfig instances = new JobFlowInstancesConfig()
                 .withInstanceCount(6) // 1 Master + 5 Slaves
-                .withMasterInstanceType("m4.large")
-                .withSlaveInstanceType("m4.large")
+                .withMasterInstanceType("m5.xlarge")
+                .withSlaveInstanceType("m5.xlarge")
                 .withEc2KeyName(keyPairName)
                 .withKeepJobFlowAliveWhenNoSteps(false); // Auto-terminate to save money [cite: 112]
             
