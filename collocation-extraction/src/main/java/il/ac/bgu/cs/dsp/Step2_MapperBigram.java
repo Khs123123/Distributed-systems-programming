@@ -11,8 +11,9 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class Step2_MapperBigram extends Mapper<LongWritable, Text, Step2_Key, Step2_Value> {
 
-    // 1. Define the Full Stop Words List (English + Hebrew)
+    // FULL STOP WORDS LIST (English + Hebrew)
     private static final Set<String> STOP_WORDS = new HashSet<>(Arrays.asList(
+        // English
         "a", "about", "above", "across", "after", "afterwards", "again", "against", "all", "almost", 
         "alone", "along", "already", "also", "although", "always", "am", "among", "amongst", "amoungst", 
         "amount", "an", "and", "another", "any", "anyhow", "anyone", "anything", "anyway", "anywhere", 
@@ -42,6 +43,7 @@ public class Step2_MapperBigram extends Mapper<LongWritable, Text, Step2_Key, St
         "when", "whence", "whenever", "where", "whereafter", "whereas", "whereby", "wherein", "whereupon", 
         "wherever", "whether", "which", "while", "whither", "who", "whoever", "whole", "whom", "whose", "why", 
         "will", "with", "within", "without", "would", "yet", "you", "your", "yours", "yourself", "yourselves",
+        // Hebrew
         "״", "׳", "של", "רב", "פי", "עם", "עליו", "עליהם", "על", "עד", "מן", "מכל", "מי", "מהם", "מה", "מ", 
         "למה", "לכל", "לי", "לו", "להיות", "לה", "לא", "כן", "כמה", "כלי", "כל", "כי", "יש", "ימים", "יותר", 
         "יד", "י", "זה", "ז", "ועל", "ומי", "ולא", "וכן", "וכל", "והיא", "והוא", "ואם", "ו", "הרבה", "הנה", 
@@ -59,17 +61,16 @@ public class Step2_MapperBigram extends Mapper<LongWritable, Text, Step2_Key, St
         String[] parts = value.toString().split("\t");
         
         if (parts.length >= 3) {
-            String[] bigram = parts[0].split(" "); // Split the bigram pair "w1 w2"
+            String[] bigram = parts[0].split(" ");
             if (bigram.length == 2) {
                 String w1 = bigram[0].trim();
                 String w2 = bigram[1].trim();
 
-                // 2. FILTER: Remove Garbage (Numbers/Punctuation)
+                // 1. Garbage Filter
                 if (w1.length() < 2 || !w1.matches("^[a-zA-Z\u0590-\u05FF]+$")) return;
                 if (w2.length() < 2 || !w2.matches("^[a-zA-Z\u0590-\u05FF]+$")) return;
 
-                // 3. FILTER: Check for Stop Words (THIS WAS MISSING)
-                // If either word is a stop word, we ignore the whole pair.
+                // 2. STOP WORDS FILTER (CRITICAL)
                 if (STOP_WORDS.contains(w1.toLowerCase()) || STOP_WORDS.contains(w2.toLowerCase())) {
                     return;
                 }
@@ -79,7 +80,6 @@ public class Step2_MapperBigram extends Mapper<LongWritable, Text, Step2_Key, St
                     String decade = String.valueOf((year / 10) * 10);
                     long count = Long.parseLong(parts[2]);
 
-                    // Emit for Step 2 Reducer
                     Step2_Key outKey = new Step2_Key(decade, w1, w2, Step2_Key.TYPE_BIGRAM);
                     context.write(outKey, new Step2_Value(Step2_Value.TYPE_BIGRAM, w2, count));
                     

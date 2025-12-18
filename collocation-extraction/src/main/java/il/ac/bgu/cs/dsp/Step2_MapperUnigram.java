@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class Step2_MapperUnigram extends Mapper<LongWritable, Text, Step2_Key, Step2_Value> {
     
-    // רשימת מילות העצירה המלאה (כפי ששמת ב-Step1)
+    // FULL STOP WORDS LIST (English + Hebrew) - MUST MATCH THE LIST IN BIGRAM MAPPER
     private static final Set<String> STOP_WORDS = new HashSet<>(Arrays.asList(
         "a", "about", "above", "across", "after", "afterwards", "again", "against", "all", "almost", 
         "alone", "along", "already", "also", "although", "always", "am", "among", "amongst", "amoungst", 
@@ -54,19 +54,16 @@ public class Step2_MapperUnigram extends Mapper<LongWritable, Text, Step2_Key, S
         "ואין", "הן", "היתה", "הא", "ה", "בל", "בין", "בזה", "ב", "אף", "אי", "אותה", "או", "אבל", "א"
     ));
 
-    private boolean isStopWord(String word) {
-        if (word == null || word.trim().isEmpty()) return true;
-        return STOP_WORDS.contains(word.toLowerCase());
-    }
-
     @Override
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String[] parts = value.toString().split("\t");
         if (parts.length >= 3) {
-            String w1 = parts[0];
+            String w1 = parts[0].trim();
             
-            // בדיקת מילות עצירה - עכשיו היא תעבוד כי הרשימה מלאה
-            if (isStopWord(w1)) return;
+            // Check Stop Words
+            if (STOP_WORDS.contains(w1.toLowerCase())) {
+                return;
+            }
 
             try {
                 int year = Integer.parseInt(parts[1]);

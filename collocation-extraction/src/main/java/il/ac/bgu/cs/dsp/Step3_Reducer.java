@@ -23,9 +23,8 @@ public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
 
         for (Step3_Value val : values) {
             if (val.getType() == Step3_Value.TYPE_UNIGRAM) {
-                c2 = val.getC12(); // c2 stored in c12 field for unigrams
+                c2 = val.getC12(); // c2 value
             } else {
-                // Must create new object for buffer (Deep Copy)
                 step2DataBuffer.add(new Step3_Value(val.getW1(), val.getC1(), val.getC12()));
             }
         }
@@ -36,13 +35,10 @@ public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
                 String w2 = key.getWord();
                 String decade = key.getDecade();
                 
-                // Double check for garbage
                 if (!w1.matches("^[a-zA-Z\u0590-\u05FF]+$")) continue;
 
                 double llr = calcLogLikelihoodRatio(data.getC1(), c2, data.getC12(), N);
                 
-                // Write standard format for Step 4 to read:
-                // Decade <tab> w1 w2 <tab> LLR
                 context.write(new Text(decade), new Text(w1 + " " + w2 + "\t" + llr));
             }
         }
@@ -54,7 +50,6 @@ public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
         double k21 = c1 - c12;
         double k22 = N - (c1 + c2 - c12);
 
-        // Safety check
         if (k11 < 0 || k12 < 0 || k21 < 0 || k22 < 0) return 0;
 
         double logL = 2 * (
@@ -62,7 +57,6 @@ public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
             - entry(k11 + k12) - entry(k11 + k21) - entry(k12 + k22) - entry(k21 + k22)
             + entry(N)
         );
-        
         return logL;
     }
 
