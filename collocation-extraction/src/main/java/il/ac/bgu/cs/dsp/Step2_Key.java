@@ -50,16 +50,30 @@ public class Step2_Key implements WritableComparable<Step2_Key> {
         type = in.readInt();
     }
 
-    @Override
-    public int compareTo(Step2_Key other) {
-        int d = this.decade.compareTo(other.decade);
-        if (d != 0) return d;
-        
-        int w = this.w1.compareTo(other.w1);
-        if (w != 0) return w;
-        
-        return Integer.compare(this.type, other.type);
+// In Step2_Key.java
+
+@Override
+public int compareTo(Step2_Key other) {
+    // 1. Compare Decade
+    int d = this.decade.compareTo(other.decade);
+    if (d != 0) return d;
+    
+    // 2. Compare Word1
+    int w = this.w1.compareTo(other.w1);
+    if (w != 0) return w;
+    
+    // 3. Compare Type (Unigram < Bigram)
+    int t = Integer.compare(this.type, other.type);
+    if (t != 0) return t;
+
+    // 4. Compare Word2 (Fix for Aggregation!)
+    // If both are Bigrams, we must sort by w2 so duplicates appear together
+    if (this.type == TYPE_BIGRAM) {
+        return this.w2.compareTo(other.w2);
     }
+    
+    return 0;
+}
 
     public String getDecade() { return decade; }
     public String getWord1() { return w1; }

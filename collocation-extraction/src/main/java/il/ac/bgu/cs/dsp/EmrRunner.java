@@ -20,16 +20,28 @@ public class EmrRunner {
         String logUri = "s3://" + bucketName + "/logs/";
         String jarUrl = "s3://" + bucketName + "/jars/assignment2-1.0-SNAPSHOT.jar";
         
-        // --- BRITISH ENGLISH DATASET (Smaller English corpus) ---
-        //[cite_start]// [cite: 22, 24] (Based on standard naming convention for gb vs us)
-        String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/1gram/data";
-        String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/2gram/data";
+        // // --- BRITISH ENGLISH DATASET (Smaller English corpus) ---
+        // //[cite_start]// [cite: 22, 24] (Based on standard naming convention for gb vs us)
+        // String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/1gram/data";
+        // String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/2gram/data";
 
-        // Language set to "eng" so your code applies English Stop Words
-        String language = "eng"; 
+        // // Language set to "eng" so your code applies English Stop Words
+        // String language = "eng"; 
 
-        // Unique output folder
-        String outputDir = "s3://" + bucketName + "/output/TEST_ENGLISH" + System.currentTimeMillis();
+        // // Unique output folder
+        // String outputDir = "s3://" + bucketName + "/output/TEST_ENGLISH" + System.currentTimeMillis();
+
+        // 1. Change the Input Paths to Hebrew
+        String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/1gram/data";
+        String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/2gram/data";
+
+        // 2. Change the Language Flag
+        String language = "heb";
+
+        // 3. Change the Output Path (Important: Use a NEW name)
+        String outputDir = "s3://" + bucketName + "/output/TEST_HEBREW" + System.currentTimeMillis(); 
+
+        
 
         // --- STEP CONFIGURATION ---
         // We run the ExtractCollocations class (which runs Job 1 -> 2 -> 3 -> 4)

@@ -62,19 +62,35 @@ public class Step1_Mapper extends Mapper<LongWritable, Text, Text, LongWritable>
             String word = parts[0].trim();
             
             // FILTER: Remove Garbage
+            // We ignore single letters or words with non-alphabetic characters
             if (word.length() < 2 || !word.matches("^[a-zA-Z\u0590-\u05FF]+$")) {
                 return;
             }
 
             // FILTER: Remove Stop Words
+            // We do not want stop words to contribute to the Total Count (N)
             if (STOP_WORDS.contains(word.toLowerCase())) {
                 return;
             }
 
             try {
+                int year = Integer.parseInt(parts[1]);
+                String decade = String.valueOf((year / 10) * 10);
                 long count = Long.parseLong(parts[2]);
+                
+                // --- THE FIX: AGGREGATE N PER DECADE ---
+                // Instead of summing everything into one global N, we create a specific
+                // counter for each decade (e.g., "DecadeCounts", "1990").
+                // The Driver (ExtractCollocations) will read these later.
+                context.getCounter("DecadeCounts", decade).increment(count);
+
+                // We still write the output so the Reducer has data to process 
+                // (useful if you want to verify total counts later)
                 context.write(new Text(word), new LongWritable(count));
-            } catch (NumberFormatException e) {}
+                
+            } catch (NumberFormatException e) {
+                // Ignore lines with malformed numbers
+            }
         }
     }
 }

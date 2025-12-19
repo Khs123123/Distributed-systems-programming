@@ -4,6 +4,8 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Counter;
+import org.apache.hadoop.mapreduce.CounterGroup;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
@@ -27,7 +29,7 @@ public class ExtractCollocations {
         Configuration conf = new Configuration();
 
         // ---------------------------------------------------------
-        // JOB 1: Calculate N
+        // JOB 1: Calculate N (Per Decade)
         // ---------------------------------------------------------
         Job job1 = Job.getInstance(conf, "Step 1: Calculate N");
         job1.setJarByClass(ExtractCollocations.class);
@@ -48,8 +50,20 @@ public class ExtractCollocations {
 
         if (!job1.waitForCompletion(true)) System.exit(1);
 
-        long N = job1.getCounters().findCounter(Step1_Reducer.Counter.N).getValue();
-        System.out.println("DEBUG: Calculated N = " + N);
+        // --- FIX: READ COUNTERS PER DECADE ---
+        // Instead of reading one global N, we read the group "DecadeCounts" 
+        // which contains counters like "1990"=50000, "2000"=60000 etc.
+        StringBuilder decadeCountsSerialized = new StringBuilder();
+        CounterGroup decadeGroup = job1.getCounters().getGroup("DecadeCounts");
+        
+        for (Counter counter : decadeGroup) {
+            if (decadeCountsSerialized.length() > 0) {
+                decadeCountsSerialized.append(",");
+            }
+            decadeCountsSerialized.append(counter.getName()).append("=").append(counter.getValue());
+        }
+        
+        System.out.println("DEBUG: Serialized Decade Counts: " + decadeCountsSerialized.toString());
 
         // ---------------------------------------------------------
         // JOB 2: Join c1
@@ -79,7 +93,15 @@ public class ExtractCollocations {
         // JOB 3: Join c2 and Calculate LLR
         // ---------------------------------------------------------
         Configuration conf3 = new Configuration();
-        conf3.setLong("N", N); 
+        
+        // --- FIX: PASS PER-DECADE COUNTS TO STEP 3 ---
+        // We pass the string "1990=50000,2000=60000..." to the configuration.
+        // Step3_Reducer will parse this map in its setup() method.
+        if (decadeCountsSerialized.length() > 0) {
+            conf3.set("DecadeCounts", decadeCountsSerialized.toString());
+        } else {
+            System.err.println("WARNING: No Decade Counts found in Step 1!");
+        }
         
         Job job3 = Job.getInstance(conf3, "Step 3: Calculate LLR");
         job3.setJarByClass(ExtractCollocations.class);
