@@ -22,14 +22,14 @@ public class EmrRunner {
         
         // // --- BRITISH ENGLISH DATASET (Smaller English corpus) ---
         // //[cite_start]// [cite: 22, 24] (Based on standard naming convention for gb vs us)
-        // String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/1gram/data";
-        // String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/2gram/data";
+        //String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/1gram/data";
+        //String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/2gram/data";
 
         // // Language set to "eng" so your code applies English Stop Words
-        // String language = "eng"; 
+       // String language = "eng"; 
 
         // // Unique output folder
-        // String outputDir = "s3://" + bucketName + "/output/TEST_ENGLISH" + System.currentTimeMillis();
+        //String outputDir = "s3://" + bucketName + "/output/TEST_ENGLISH_With Local Aggregation" + System.currentTimeMillis();
 
         // 1. Change the Input Paths to Hebrew
         String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/1gram/data";
@@ -37,9 +37,8 @@ public class EmrRunner {
 
         // 2. Change the Language Flag
         String language = "heb";
-
         // 3. Change the Output Path (Important: Use a NEW name)
-        String outputDir = "s3://" + bucketName + "/output/TEST_HEBREW" + System.currentTimeMillis(); 
+        String outputDir = "s3://" + bucketName + "/output/TEST_HEBREW_With Local Aggregation" + System.currentTimeMillis(); 
 
         
 
