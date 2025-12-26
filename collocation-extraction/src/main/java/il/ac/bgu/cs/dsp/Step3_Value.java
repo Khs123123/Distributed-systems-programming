@@ -1,9 +1,10 @@
 package il.ac.bgu.cs.dsp;
 
-import org.apache.hadoop.io.Writable;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+
+import org.apache.hadoop.io.Writable;
 
 public class Step3_Value implements Writable {
     public static final int TYPE_UNIGRAM = 1;
@@ -12,11 +13,10 @@ public class Step3_Value implements Writable {
     private int type;
     private String w1;  
     private long c1;    
-    private long c12;   // Reused: holds c12 (if type 2) or c2 (if type 1)
+    private long c12;   
 
     public Step3_Value() {}
 
-    // Constructor for Unigram (c2)
     public Step3_Value(long c2) {
         this.type = TYPE_UNIGRAM;
         this.w1 = "";
@@ -24,7 +24,6 @@ public class Step3_Value implements Writable {
         this.c12 = c2; 
     }
 
-    // Constructor for Step 2 Data
     public Step3_Value(String w1, long c1, long c12) {
         this.type = TYPE_STEP2_DATA;
         this.w1 = w1;

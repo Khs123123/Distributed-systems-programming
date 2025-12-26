@@ -8,7 +8,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class Step1_Reducer extends Reducer<Text, LongWritable, Text, LongWritable> {
 
-    // Define a Global Counter
+    // Global Counter
     public static enum Counter { N }
 
     @Override
@@ -18,7 +18,7 @@ public class Step1_Reducer extends Reducer<Text, LongWritable, Text, LongWritabl
             sum += val.get();
         }
         
-        // INCREMENT GLOBAL COUNTER (Calculates N)
+        // Update the global counter with the sum for this word
         context.getCounter(Counter.N).increment(sum);
         
         context.write(key, new LongWritable(sum));

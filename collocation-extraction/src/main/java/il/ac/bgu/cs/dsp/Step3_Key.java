@@ -8,8 +8,8 @@ import org.apache.hadoop.io.WritableComparable;
 
 public class Step3_Key implements WritableComparable<Step3_Key> {
     private String decade;
-    private String word; // Represents w2
-    private int type;    // 1 = Unigram (c2), 2 = Step2 Data
+    private String word; 
+    private int type;    
 
     public Step3_Key() {}
 
@@ -44,10 +44,9 @@ public class Step3_Key implements WritableComparable<Step3_Key> {
         return Integer.compare(this.type, other.type);
     }
 
-    // ADDED: Clean toString to avoid formatting errors in logs
+    
     @Override
     public String toString() {
-        // This ensures your logs and intermediate outputs are clean
         return decade + "\t" + word + "\t" + type;
     }
 

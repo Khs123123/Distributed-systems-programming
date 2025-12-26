@@ -9,8 +9,8 @@ import org.apache.hadoop.mapreduce.CounterGroup;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.MultipleInputs;
-import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat; // Use this for Google Datasets
-import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;     // Use this for intermediate steps
+import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;     
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 
@@ -28,9 +28,8 @@ public class ExtractCollocations {
         
         Configuration conf = new Configuration();
 
-        // ---------------------------------------------------------
-        // JOB 1: Calculate N (Per Decade)
-        // ---------------------------------------------------------
+
+        // Job 1: Calculate Total Word Count (N) per Decade
         Job job1 = Job.getInstance(conf, "Step 1: Calculate N");
         job1.setJarByClass(ExtractCollocations.class);
         job1.setMapperClass(Step1_Mapper.class);
@@ -39,7 +38,7 @@ public class ExtractCollocations {
         job1.setOutputKeyClass(Text.class);
         job1.setOutputValueClass(LongWritable.class);
         
-        // AWS Google N-Grams are SequenceFiles
+        // Use SequenceFileInputFormat for Google N-Grams data
         job1.setInputFormatClass(SequenceFileInputFormat.class); 
         job1.setOutputFormatClass(TextOutputFormat.class); 
         
@@ -50,9 +49,8 @@ public class ExtractCollocations {
 
         if (!job1.waitForCompletion(true)) System.exit(1);
 
-        // --- FIX: READ COUNTERS PER DECADE ---
-        // Instead of reading one global N, we read the group "DecadeCounts" 
-        // which contains counters like "1990"=50000, "2000"=60000 etc.
+        // Retrieve the counters generated in Job 1 (N per decade)
+        // We serialize them into a string to pass into the Configuration for Job 3
         StringBuilder decadeCountsSerialized = new StringBuilder();
         CounterGroup decadeGroup = job1.getCounters().getGroup("DecadeCounts");
         
@@ -65,9 +63,8 @@ public class ExtractCollocations {
         
         System.out.println("DEBUG: Serialized Decade Counts: " + decadeCountsSerialized.toString());
 
-        // ---------------------------------------------------------
-        // JOB 2: Join c1
-        // ---------------------------------------------------------
+
+        // Job 2: Join Unigram Counts (C1) with Bigrams
         Job job2 = Job.getInstance(conf, "Step 2: Join c1");
         job2.setJarByClass(ExtractCollocations.class);
         job2.setMapOutputKeyClass(Step2_Key.class);
@@ -77,7 +74,6 @@ public class ExtractCollocations {
         job2.setPartitionerClass(Step2_Partitioner.class);
         job2.setGroupingComparatorClass(Step2_GroupingComparator.class);
         
-        // AWS Google N-Grams are SequenceFiles
         MultipleInputs.addInputPath(job2, new Path(input1Gram), SequenceFileInputFormat.class, Step2_MapperUnigram.class);
         MultipleInputs.addInputPath(job2, new Path(input2Gram), SequenceFileInputFormat.class, Step2_MapperBigram.class);
         
@@ -89,14 +85,9 @@ public class ExtractCollocations {
 
         if (!job2.waitForCompletion(true)) System.exit(1);
 
-        // ---------------------------------------------------------
-        // JOB 3: Join c2 and Calculate LLR
-        // ---------------------------------------------------------
+        // Job 3: Join Word2 Counts (C2) and Calculate LLR
         Configuration conf3 = new Configuration();
         
-        // --- FIX: PASS PER-DECADE COUNTS TO STEP 3 ---
-        // We pass the string "1990=50000,2000=60000..." to the configuration.
-        // Step3_Reducer will parse this map in its setup() method.
         if (decadeCountsSerialized.length() > 0) {
             conf3.set("DecadeCounts", decadeCountsSerialized.toString());
         } else {
@@ -112,10 +103,10 @@ public class ExtractCollocations {
         job3.setPartitionerClass(Step3_Partitioner.class);
         job3.setGroupingComparatorClass(Step3_GroupingComparator.class);
 
-        // Input 1: Original Unigrams (SequenceFile)
+        // Input 1: Original Unigrams (for C2 counts)
         MultipleInputs.addInputPath(job3, new Path(input1Gram), SequenceFileInputFormat.class, Step3_MapperUnigram.class);
         
-        // Input 2: Step 2 Output (TextFile)
+        // Input 2: Step 2 Output (Partial Bigram Data)
         MultipleInputs.addInputPath(job3, outputStep2, TextInputFormat.class, Step3_MapperStep2.class);
         
         job3.setReducerClass(Step3_Reducer.class);
@@ -124,9 +115,7 @@ public class ExtractCollocations {
 
         if (!job3.waitForCompletion(true)) System.exit(1);
 
-        // ---------------------------------------------------------
-        // JOB 4: Sort and Filter Top 100
-        // ---------------------------------------------------------
+        // Job 4: Top 100 Collocations per Decade
         Job job4 = Job.getInstance(conf, "Step 4: Top 100");
         job4.setJarByClass(ExtractCollocations.class);
         job4.setMapperClass(Step4_Mapper.class);
@@ -134,7 +123,6 @@ public class ExtractCollocations {
         job4.setOutputKeyClass(Text.class);
         job4.setOutputValueClass(Text.class);
         
-        // Step 3 output is Text
         job4.setInputFormatClass(TextInputFormat.class);
         job4.setOutputFormatClass(TextOutputFormat.class);
         

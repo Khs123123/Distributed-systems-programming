@@ -10,7 +10,6 @@ public class Step3_GroupingComparator extends WritableComparator {
         Step3_Key k1 = (Step3_Key) a;
         Step3_Key k2 = (Step3_Key) b;
         
-        // Group only by Decade and Word (w2)
         int d = k1.getDecade().compareTo(k2.getDecade());
         if (d != 0) return d;
         

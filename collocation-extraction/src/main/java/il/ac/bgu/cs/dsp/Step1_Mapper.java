@@ -61,14 +61,12 @@ public class Step1_Mapper extends Mapper<LongWritable, Text, Text, LongWritable>
         if (parts.length >= 3) {
             String word = parts[0].trim();
             
-            // FILTER: Remove Garbage
-            // We ignore single letters or words with non-alphabetic characters
+            // Filter out garbage: ignore single letters or invalid characters
             if (word.length() < 2 || !word.matches("^[a-zA-Z\u0590-\u05FF]+$")) {
                 return;
             }
 
-            // FILTER: Remove Stop Words
-            // We do not want stop words to contribute to the Total Count (N)
+            // Filter out stop words so they don't skew the value of N (Total Count)
             if (STOP_WORDS.contains(word.toLowerCase())) {
                 return;
             }
@@ -78,19 +76,14 @@ public class Step1_Mapper extends Mapper<LongWritable, Text, Text, LongWritable>
                 String decade = String.valueOf((year / 10) * 10);
                 long count = Long.parseLong(parts[2]);
                 
-                // --- THE FIX: AGGREGATE N PER DECADE ---
-                // Instead of summing everything into one global N, we create a specific
-                // counter for each decade (e.g., "DecadeCounts", "1990").
-                // The Driver (ExtractCollocations) will read these later.
+                // Aggregate N per decade using Hadoop Counters.
+                // These counters are read by the Driver and passed to Step 3.
                 context.getCounter("DecadeCounts", decade).increment(count);
 
-                // We still write the output so the Reducer has data to process 
-                // (useful if you want to verify total counts later)
+                // Write the word output so the Reducer has data (also useful for verification)
                 context.write(new Text(word), new LongWritable(count));
                 
-            } catch (NumberFormatException e) {
-                // Ignore lines with malformed numbers
-            }
+            } catch (NumberFormatException e) {}
         }
     }
 }

@@ -11,13 +11,10 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
 
-    // Map to store N for each decade (e.g., "1990" -> 5000000, "2000" -> 8500000)
     private Map<String, Long> decadeNMap = new HashMap<>();
 
     @Override
     protected void setup(Context context) throws IOException, InterruptedException {
-        // --- FIX: Read the serialized decade counts from configuration ---
-        // Expected format: "1990=50000,2000=60000,..."
         String serialized = context.getConfiguration().get("DecadeCounts", "");
         
         if (!serialized.isEmpty()) {
@@ -30,7 +27,6 @@ public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
                         long count = Long.parseLong(kv[1]);
                         decadeNMap.put(decade, count);
                     } catch (NumberFormatException e) {
-                        // Ignore malformed entries
                     }
                 }
             }
@@ -42,21 +38,17 @@ public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
         long c2 = 0;
         List<Step3_Value> step2DataBuffer = new ArrayList<>();
 
-        // --- FIX: Retrieve the specific N for the current decade ---
         Long decadeN = decadeNMap.get(key.getDecade());
         
-        // If N is missing for this decade, we cannot calculate LLR properly.
-        // However, to be safe, we skip or use a default (but skipping is safer).
         if (decadeN == null || decadeN <= 0) {
             return; 
         }
-        long N = decadeN; // Use the correct local N
+        long N = decadeN;
 
         for (Step3_Value val : values) {
             if (val.getType() == Step3_Value.TYPE_UNIGRAM) {
-                c2 = val.getC12(); // c2 value (stored in c12 field for Unigram type)
+                c2 = val.getC12();
             } else {
-                // Must deep copy the value to buffer it
                 step2DataBuffer.add(new Step3_Value(val.getW1(), val.getC1(), val.getC12()));
             }
         }
@@ -67,12 +59,11 @@ public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
                 String w2 = key.getWord();
                 String decade = key.getDecade();
                 
-                // Double check for garbage (redundant but safe)
                 if (!w1.matches("^[a-zA-Z\u0590-\u05FF]+$")) continue;
 
                 double llr = calcLogLikelihoodRatio(data.getC1(), c2, data.getC12(), N);
                 
-                // Write output: Decade <tab> w1 w2 <tab> LLR
+                //output: Decade <tab> w1 w2 <tab> LLR
                 context.write(new Text(decade), new Text(w1 + " " + w2 + "\t" + llr));
             }
         }
@@ -84,7 +75,6 @@ public class Step3_Reducer extends Reducer<Step3_Key, Step3_Value, Text, Text> {
         double k21 = c1 - c12;
         double k22 = N - (c1 + c2 - c12);
 
-        // Safety check for invalid math (Negative counts due to data noise)
         if (k11 < 0 || k12 < 0 || k21 < 0 || k22 < 0) return 0;
 
         double logL = 2 * (

@@ -14,38 +14,34 @@ public class EmrRunner {
 
     public static void main(String[] args) {
         
-        // --- CONFIGURATION ---
+        // CONFIGURATION 
         String bucketName = "mosta-s3-bucket"; 
         String keyPairName = "vockey";      
         String logUri = "s3://" + bucketName + "/logs/";
         String jarUrl = "s3://" + bucketName + "/jars/assignment2-1.0-SNAPSHOT.jar";
         
-        // // --- BRITISH ENGLISH DATASET (Smaller English corpus) ---
-        // //[cite_start]// [cite: 22, 24] (Based on standard naming convention for gb vs us)
+        // BRITISH ENGLISH DATASET 
         //String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/1gram/data";
         //String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/eng-gb-all/2gram/data";
 
-        // // Language set to "eng" so your code applies English Stop Words
-       // String language = "eng"; 
+        // String language = "eng"; 
 
-        // // Unique output folder
+        // Unique output folder
         //String outputDir = "s3://" + bucketName + "/output/TEST_ENGLISH_With Local Aggregation" + System.currentTimeMillis();
 
-        // 1. Change the Input Paths to Hebrew
         String input1Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/1gram/data";
         String input2Gram = "s3://datasets.elasticmapreduce/ngrams/books/20090715/heb-all/2gram/data";
 
-        // 2. Change the Language Flag
         String language = "heb";
-        // 3. Change the Output Path (Important: Use a NEW name)
+
         String outputDir = "s3://" + bucketName + "/output/TEST_HEBREW_With Local Aggregation" + System.currentTimeMillis(); 
 
         
 
-        // --- STEP CONFIGURATION ---
-        // We run the ExtractCollocations class (which runs Job 1 -> 2 -> 3 -> 4)
+        // STEP CONFIGURATION 
+        // Configures the Hadoop Job to run the ExtractCollocations driver
         HadoopJarStepConfig hadoopJarStep = new HadoopJarStepConfig()
-                .withJar(jarUrl) // Amazon EMR downloads this JAR from S3
+                .withJar(jarUrl) 
                 .withMainClass("il.ac.bgu.cs.dsp.ExtractCollocations")
                 .withArgs(input1Gram, input2Gram, outputDir, language);
 
@@ -54,17 +50,15 @@ public class EmrRunner {
                 .withHadoopJarStep(hadoopJarStep)
                 .withActionOnFailure("TERMINATE_JOB_FLOW");
 
-        // --- CLUSTER INSTANCES ---
-        // Use M4.large as recommended [cite: 108]
         JobFlowInstancesConfig instances = new JobFlowInstancesConfig()
                 .withInstanceCount(6) // 1 Master + 5 Slaves
                 .withMasterInstanceType("m5.xlarge")
                 .withSlaveInstanceType("m5.xlarge")
                 .withEc2KeyName(keyPairName)
-                .withKeepJobFlowAliveWhenNoSteps(false); // Auto-terminate to save money [cite: 112]
+                .withKeepJobFlowAliveWhenNoSteps(false);
             
 
-        // --- RUN REQUEST ---
+        // --- Job Submission ---
         RunJobFlowRequest runFlowRequest = new RunJobFlowRequest()
                 .withName("Collocation Extraction Job")
                 .withInstances(instances)
@@ -72,10 +66,8 @@ public class EmrRunner {
                 .withLogUri(logUri)
                 .withServiceRole("EMR_DefaultRole") 
                 .withJobFlowRole("EMR_EC2_DefaultRole")
-                .withReleaseLabel("emr-5.29.0"); // Matches Hadoop 2.10.x
+                .withReleaseLabel("emr-5.29.0");
 
-        // --- EXECUTE ---
-        // Credentials are loaded from ~/.aws/credentials (run 'aws configure' in terminal first)
         AmazonElasticMapReduce mapReduce = AmazonElasticMapReduceClientBuilder.standard()
                 .withRegion(Regions.US_EAST_1)
                 .withCredentials(new ProfileCredentialsProvider()) 

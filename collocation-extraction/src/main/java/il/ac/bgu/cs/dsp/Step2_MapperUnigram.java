@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 public class Step2_MapperUnigram extends Mapper<LongWritable, Text, Step2_Key, Step2_Value> {
     
-    // FULL STOP WORDS LIST (English + Hebrew) - MUST MATCH THE LIST IN BIGRAM MAPPER
+    // Stop words list containing both English and Hebrew words
     private static final Set<String> STOP_WORDS = new HashSet<>(Arrays.asList(
         "a", "about", "above", "across", "after", "afterwards", "again", "against", "all", "almost", 
         "alone", "along", "already", "also", "although", "always", "am", "among", "amongst", "amoungst", 
@@ -60,7 +60,6 @@ public class Step2_MapperUnigram extends Mapper<LongWritable, Text, Step2_Key, S
         if (parts.length >= 3) {
             String w1 = parts[0].trim();
             
-            // Check Stop Words
             if (STOP_WORDS.contains(w1.toLowerCase())) {
                 return;
             }

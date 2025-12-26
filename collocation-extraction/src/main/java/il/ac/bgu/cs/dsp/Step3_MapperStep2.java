@@ -1,13 +1,13 @@
 package il.ac.bgu.cs.dsp;
 
+import java.io.IOException;
+
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
-import java.io.IOException;
 
 public class Step3_MapperStep2 extends Mapper<Object, Text, Step3_Key, Step3_Value> {
     @Override
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-        // Input: Decade <tab> w1 <tab> w2 <tab> c1 <tab> c12
         String[] parts = value.toString().split("\t");
         if (parts.length >= 5) {
             String decade = parts[0];
@@ -16,7 +16,6 @@ public class Step3_MapperStep2 extends Mapper<Object, Text, Step3_Key, Step3_Val
             long c1 = Long.parseLong(parts[3]);
             long c12 = Long.parseLong(parts[4]);
 
-            // Join on w2
             Step3_Key newKey = new Step3_Key(decade, w2, Step3_Value.TYPE_STEP2_DATA);
             context.write(newKey, new Step3_Value(w1, c1, c12));
         }

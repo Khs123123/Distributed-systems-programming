@@ -13,12 +13,11 @@ public class Step2_Key implements WritableComparable<Step2_Key> {
 
     private String decade;
     private String w1;
-    private String w2; // Empty if Unigram
+    private String w2; 
     private int type;
 
     public Step2_Key() {}
 
-    // Constructor 1: Full (Used by Bigram Mapper)
     public Step2_Key(String decade, String w1, String w2, int type) {
         this.decade = decade;
         this.w1 = w1;
@@ -26,11 +25,10 @@ public class Step2_Key implements WritableComparable<Step2_Key> {
         this.type = type;
     }
 
-    // Constructor 2: 3-Arguments (ADDED THIS to fix the error in Unigram Mapper)
     public Step2_Key(String decade, String w1, int type) {
         this.decade = decade;
         this.w1 = w1;
-        this.w2 = ""; // Default empty
+        this.w2 = ""; 
         this.type = type;
     }
 
@@ -50,33 +48,27 @@ public class Step2_Key implements WritableComparable<Step2_Key> {
         type = in.readInt();
     }
 
-// In Step2_Key.java
 
-@Override
-public int compareTo(Step2_Key other) {
-    // 1. Compare Decade
-    int d = this.decade.compareTo(other.decade);
-    if (d != 0) return d;
-    
-    // 2. Compare Word1
-    int w = this.w1.compareTo(other.w1);
-    if (w != 0) return w;
-    
-    // 3. Compare Type (Unigram < Bigram)
-    int t = Integer.compare(this.type, other.type);
-    if (t != 0) return t;
+    @Override
+    public int compareTo(Step2_Key other) {
+        int d = this.decade.compareTo(other.decade);
+        if (d != 0) return d;
+        
+        int w = this.w1.compareTo(other.w1);
+        if (w != 0) return w;
 
-    // 4. Compare Word2 (Fix for Aggregation!)
-    // If both are Bigrams, we must sort by w2 so duplicates appear together
-    if (this.type == TYPE_BIGRAM) {
-        return this.w2.compareTo(other.w2);
+        int t = Integer.compare(this.type, other.type);
+        if (t != 0) return t;
+
+        if (this.type == TYPE_BIGRAM) {
+            return this.w2.compareTo(other.w2);
+        }
+        
+        return 0;
     }
-    
-    return 0;
-}
 
-    public String getDecade() { return decade; }
-    public String getWord1() { return w1; }
-    public String getWord2() { return w2; }
-    public int getType() { return type; }
-}
+        public String getDecade() { return decade; }
+        public String getWord1() { return w1; }
+        public String getWord2() { return w2; }
+        public int getType() { return type; }
+    }
