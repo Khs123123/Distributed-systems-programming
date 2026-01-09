@@ -1,9 +1,9 @@
 package com.assignment3;
 
 /**
- * Stemmer, implementing the Porter Stemming Algorithm
+ * Porter Stemmer + static helper stem(String)
  */
-class Stemmer {
+public class Stemmer {
     private char[] b;
     private int i, i_end, j, k;
     private static final int INC = 50;
@@ -12,6 +12,20 @@ class Stemmer {
         b = new char[INC];
         i = 0;
         i_end = 0;
+    }
+
+    // ✅ Static helper (this fixes: return Stemmer.stem(w); )
+    public static String stem(String word) {
+        if (word == null) return "";
+        word = word.trim().toLowerCase();
+        if (word.isEmpty()) return "";
+        Stemmer s = new Stemmer();
+        for (int idx = 0; idx < word.length(); idx++) {
+            char c = word.charAt(idx);
+            if (Character.isLetter(c)) s.add(c);
+        }
+        s.stem();
+        return s.toString();
     }
 
     public void add(char ch) {

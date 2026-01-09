@@ -1,4 +1,5 @@
 package com.assignment3;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,20 +8,35 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 public class MiReducer extends Reducer<Text, Text, Text, Text> {
+
     @Override
-    protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        Map<String, Integer> counts = new HashMap<>();
-        long total = 0;
-        for (Text val : values) {
-            String[] p = val.toString().split("\t");
+    protected void reduce(Text key, Iterable<Text> values, Context context)
+            throws IOException, InterruptedException {
+
+        // key = head \t slot
+        // values: child \t count
+
+        Map<String, Integer> childCounts = new HashMap<>();
+        int total = 0;
+
+        for (Text v : values) {
+            String[] p = v.toString().split("\t");
+            if (p.length < 2) continue;
+            String child = p[0];
             int c = Integer.parseInt(p[1]);
-            counts.put(p[0], c);
+
+            childCounts.merge(child, c, Integer::sum);
             total += c;
         }
-        for (Map.Entry<String, Integer> e : counts.entrySet()) {
-            double mi = Math.log((double) e.getValue() / total); 
-            // Changed filter to >= 0 for testing
-            if (mi >= 0) context.write(key, new Text(e.getKey() + "\t" + mi));
+
+        // Output: pattern \t child \t mi
+        // simplified MI: log(count / total)  (as in your pipeline)
+        for (Map.Entry<String, Integer> e : childCounts.entrySet()) {
+            String child = e.getKey();
+            int c = e.getValue();
+
+            double mi = Math.log((double) c / (double) total);
+            context.write(key, new Text(child + "\t" + mi));
         }
     }
 }

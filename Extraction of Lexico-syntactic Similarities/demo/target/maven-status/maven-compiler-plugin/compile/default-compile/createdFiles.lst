@@ -1,5 +1,6 @@
 com\assignment3\MiMapper.class
 com\assignment3\DirtReducer.class
+com\assignment3\DirtMapper$C.class
 com\assignment3\MiReducer.class
 com\assignment3\SimReducer.class
 com\assignment3\DirtMapper.class
