@@ -1,5 +1,4 @@
 package com.assignment3;
-
 import java.io.IOException;
 
 import org.apache.hadoop.io.LongWritable;
@@ -7,21 +6,24 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 public class SimMapper extends Mapper<LongWritable, Text, Text, Text> {
-
     @Override
-    protected void map(LongWritable key, Text value, Context context)
-            throws IOException, InterruptedException {
+    protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        // Input format: Head \t Slot \t Word \t Score
+        String[] parts = value.toString().split("\t");
+        
+        if (parts.length < 4) return;
 
-        // step2 output:
-        // head \t slot \t child \t mi
-        String[] p = value.toString().split("\t");
-        if (p.length < 4) return;
+        String head = parts[0];
+        String slot = parts[1];
+        String word = parts[2];
+        String score = parts[3];
 
-        String pattern = p[0] + "\t" + p[1]; // head \t slot
-        String child = p[2];
-        String mi = p[3];
+        // Key: Slot + Word (כדי לקבץ מילים דומות)
+        String outKey = slot + "\t" + word;
+        
+        // Value: Head + Score (אנחנו לא צריכים את ה-Slot בערך עצמו)
+        String outValue = head + "\t" + score;
 
-        // group by (slot, child)
-        context.write(new Text(p[1] + "\t" + child), new Text(pattern + "\t" + mi));
+        context.write(new Text(outKey), new Text(outValue));
     }
 }

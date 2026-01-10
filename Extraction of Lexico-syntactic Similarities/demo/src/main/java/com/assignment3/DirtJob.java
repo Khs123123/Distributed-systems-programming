@@ -2,7 +2,6 @@ package com.assignment3;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -25,23 +24,30 @@ public class DirtJob {
         String testSet = args[startIndex + 1];
         String outputBase = args[startIndex + 2];
 
-        // Step 1
-        Job j1 = Job.getInstance(conf, "DIRT Step 1");
+        // ---------------------------------------------------------
+        // Step 1: Extraction & Parsing
+        // ---------------------------------------------------------
+        Job j1 = Job.getInstance(conf, "DIRT Step 1: Extraction");
         j1.setJarByClass(DirtJob.class);
         j1.setMapperClass(DirtMapper.class);
         j1.setReducerClass(DirtReducer.class);
+        
         j1.setOutputKeyClass(Text.class);
-        j1.setOutputValueClass(IntWritable.class);
+        // Change: IntWritable -> Text (כי אנחנו מעבירים גם את המילה וגם את הספירה)
+        j1.setOutputValueClass(Text.class); 
 
         FileInputFormat.addInputPath(j1, new Path(rawInput));
         FileOutputFormat.setOutputPath(j1, new Path(outputBase + "/step1"));
         if (!j1.waitForCompletion(true)) System.exit(1);
 
-        // Step 2
-        Job j2 = Job.getInstance(conf, "DIRT Step 2");
+        // ---------------------------------------------------------
+        // Step 2: MI Calculation
+        // ---------------------------------------------------------
+        Job j2 = Job.getInstance(conf, "DIRT Step 2: MI Calculation");
         j2.setJarByClass(DirtJob.class);
         j2.setMapperClass(MiMapper.class);
         j2.setReducerClass(MiReducer.class);
+        
         j2.setOutputKeyClass(Text.class);
         j2.setOutputValueClass(Text.class);
 
@@ -49,12 +55,17 @@ public class DirtJob {
         FileOutputFormat.setOutputPath(j2, new Path(outputBase + "/step2"));
         if (!j2.waitForCompletion(true)) System.exit(1);
 
-        // Step 3
-        Job j3 = Job.getInstance(conf, "DIRT Step 3");
+        // ---------------------------------------------------------
+        // Step 3: Similarity & Evaluation
+        // ---------------------------------------------------------
+        Job j3 = Job.getInstance(conf, "DIRT Step 3: Similarity");
+        // מעבירים את נתיב ה-Test Set לקונפיגורציה כדי שה-Reducer יוכל לקרוא אותו
         j3.getConfiguration().set("dirt.testset.path", testSet);
+        
         j3.setJarByClass(DirtJob.class);
         j3.setMapperClass(SimMapper.class);
         j3.setReducerClass(SimReducer.class);
+        
         j3.setOutputKeyClass(Text.class);
         j3.setOutputValueClass(Text.class);
 
@@ -62,5 +73,25 @@ public class DirtJob {
         FileOutputFormat.setOutputPath(j3, new Path(outputBase + "/final"));
 
         System.exit(j3.waitForCompletion(true) ? 0 : 1);
+
+        // ---------------------------------------------------------
+        // Step 4: Aggregation (Summing Partial Scores)
+        // ---------------------------------------------------------
+        Job j4 = Job.getInstance(conf, "DIRT Step 4: Aggregation");
+        j4.setJarByClass(DirtJob.class);
+        j4.setMapperClass(SumMapper.class);
+        j4.setReducerClass(SumReducer.class);
+        
+        j4.setOutputKeyClass(Text.class);
+        j4.setOutputValueClass(Text.class);
+
+        // הקלט הוא הפלט של שלב 3
+        FileInputFormat.addInputPath(j4, new Path(outputBase + "/final"));
+        // הפלט הסופי באמת
+        FileOutputFormat.setOutputPath(j4, new Path(outputBase + "/aggregated_result"));
+
+        if (!j4.waitForCompletion(true)) System.exit(1);
+        
+        System.exit(0);
     }
 }

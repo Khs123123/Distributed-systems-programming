@@ -11,18 +11,26 @@ public class MiMapper extends Mapper<LongWritable, Text, Text, Text> {
     @Override
     protected void map(LongWritable key, Text value, Context context)
             throws IOException, InterruptedException {
-
-        // step1 line format:
-        // head \t slot \t child \t count
-        String[] p = value.toString().split("\t");
-        if (p.length < 4) return;
-
-        String head = p[0];
-        String slot = p[1];
-        String child = p[2];
-        String count = p[3];
-
-        // Group by pattern: head + slot
-        context.write(new Text(head + "\t" + slot), new Text(child + "\t" + count));
+        
+        // מקבל את הפלט של שלב 1:
+        // Format: Head \t Path \t SlotWord \t Count
+        
+        String line = value.toString();
+        String[] parts = line.split("\t");
+        
+        if (parts.length >= 4) {
+            String head = parts[0];
+            String path = parts[1];
+            String word = parts[2];
+            String count = parts[3];
+            
+            // Key: Head + Path (כדי שה-Reducer יקבל את כל המילים ששיכות לאותו נתיב)
+            String outKey = head + "\t" + path;
+            
+            // Value: Word + Count
+            String outValue = word + "\t" + count;
+            
+            context.write(new Text(outKey), new Text(outValue));
+        }
     }
 }

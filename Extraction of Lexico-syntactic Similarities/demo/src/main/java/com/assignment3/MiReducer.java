@@ -13,30 +13,37 @@ public class MiReducer extends Reducer<Text, Text, Text, Text> {
     protected void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
 
-        // key = head \t slot
-        // values: child \t count
+        // Key: Head + Path
+        // Values: List of "SlotWord \t Count"
 
-        Map<String, Integer> childCounts = new HashMap<>();
-        int total = 0;
+        Map<String, Integer> wordCounts = new HashMap<>();
+        double totalCountForPath = 0;
 
-        for (Text v : values) {
-            String[] p = v.toString().split("\t");
-            if (p.length < 2) continue;
-            String child = p[0];
-            int c = Integer.parseInt(p[1]);
+        for (Text value : values) {
+            String[] parts = value.toString().split("\t");
+            if (parts.length < 2) continue;
 
-            childCounts.merge(child, c, Integer::sum);
-            total += c;
+            String word = parts[0];
+            try {
+                int count = Integer.parseInt(parts[1]);
+                wordCounts.put(word, wordCounts.getOrDefault(word, 0) + count);
+                totalCountForPath += count;
+            } catch (NumberFormatException e) {
+                // Ignore errors
+            }
         }
 
-        // Output: pattern \t child \t mi
-        // simplified MI: log(count / total)  (as in your pipeline)
-        for (Map.Entry<String, Integer> e : childCounts.entrySet()) {
-            String child = e.getKey();
-            int c = e.getValue();
+        if (totalCountForPath == 0) return;
 
-            double mi = Math.log((double) c / (double) total);
-            context.write(key, new Text(child + "\t" + mi));
+        // חישוב Score
+        for (Map.Entry<String, Integer> entry : wordCounts.entrySet()) {
+            String word = entry.getKey();
+            int count = entry.getValue();
+
+            double score = Math.log(count / totalCountForPath);
+
+            // הפלט נשלח לשלב 3 (Sim)
+            context.write(key, new Text(word + "\t" + score));
         }
     }
 }

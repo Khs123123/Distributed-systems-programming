@@ -16,14 +16,23 @@ public class EmrRunner {
 
     public static void main(String[] args) {
 
+        // ⚠️ וודא שזה השם המדויק של הבאקט שיצרת ב-S3
         String bucketName = "mostafa-ass3-bucket";
+        
         String runId = UUID.randomUUID().toString().substring(0, 5);
         String outputDir = "s3://" + bucketName + "/output/Run_" + runId + "_" + System.currentTimeMillis();
+
+        // נתיבים לקבצים ב-S3
+        String inputPath = "s3://dsp-ass3-first10-biarcs/";
+        
+        // ⚠️ תיקון קריטי: הנתיב חייב להצביע לקובץ הספציפי ולא לתיקייה!
+        // וודא שהקובץ test_set.txt קיים בתוך תיקיית test-set בבאקט שלך
+        String testSetPath = "s3://mostafa-ass3-bucket/test-set/full_test_set.txt";
 
         HadoopJarStepConfig hadoopJarStep = new HadoopJarStepConfig()
                 .withJar("s3://" + bucketName + "/Jars/dirt-extraction-1.0-SNAPSHOT-jar-with-dependencies.jar")
                 .withMainClass("com.assignment3.DirtJob")
-                .withArgs("s3://dsp-ass3-first10-biarcs/", "s3://" + bucketName + "/test-set/", outputDir);
+                .withArgs(inputPath, testSetPath, outputDir);
 
         StepConfig stepConfig = new StepConfig()
                 .withName("DIRT_Run_" + runId)
@@ -53,6 +62,6 @@ public class EmrRunner {
 
         RunJobFlowResult result = mapReduce.runJobFlow(runFlowRequest);
         System.out.println("Job submitted! ID: " + result.getJobFlowId());
-        System.out.println("Wait for completion and check S3: " + outputDir);
+        System.out.println("Output will be at: " + outputDir);
     }
 }
