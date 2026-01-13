@@ -20,8 +20,12 @@ public class DirtJob {
         }
 
         Configuration conf = new Configuration();
-        String rawInput = args[startIndex];
-        String testSet = args[startIndex + 1];
+
+        // ✅ Correct "Requester Pays" for s3a://
+        conf.setBoolean("fs.s3a.requester.pays.enabled", true);
+
+        String rawInput  = args[startIndex];
+        String testSet   = args[startIndex + 1];
         String outputBase = args[startIndex + 2];
 
         // ---------------------------------------------------------
@@ -31,12 +35,19 @@ public class DirtJob {
         j1.setJarByClass(DirtJob.class);
         j1.setMapperClass(DirtMapper.class);
         j1.setReducerClass(DirtReducer.class);
-        
-        j1.setOutputKeyClass(Text.class);
-        // Change: IntWritable -> Text (כי אנחנו מעבירים גם את המילה וגם את הספירה)
-        j1.setOutputValueClass(Text.class); 
 
-        FileInputFormat.addInputPath(j1, new Path(rawInput));
+        j1.setOutputKeyClass(Text.class);
+        j1.setOutputValueClass(Text.class);
+
+        // ✅ Add each comma-separated path separately
+        String[] inputPaths = rawInput.split(",");
+        for (String path : inputPaths) {
+            String p = path.trim();
+            if (!p.isEmpty()) {
+                FileInputFormat.addInputPath(j1, new Path(p));
+            }
+        }
+
         FileOutputFormat.setOutputPath(j1, new Path(outputBase + "/step1"));
         if (!j1.waitForCompletion(true)) System.exit(1);
 
@@ -47,7 +58,7 @@ public class DirtJob {
         j2.setJarByClass(DirtJob.class);
         j2.setMapperClass(MiMapper.class);
         j2.setReducerClass(MiReducer.class);
-        
+
         j2.setOutputKeyClass(Text.class);
         j2.setOutputValueClass(Text.class);
 
@@ -56,42 +67,36 @@ public class DirtJob {
         if (!j2.waitForCompletion(true)) System.exit(1);
 
         // ---------------------------------------------------------
-        // Step 3: Similarity & Evaluation
+        // Step 3: Similarity (Filtered for Test Set)
         // ---------------------------------------------------------
         Job j3 = Job.getInstance(conf, "DIRT Step 3: Similarity");
-        // מעבירים את נתיב ה-Test Set לקונפיגורציה כדי שה-Reducer יוכל לקרוא אותו
         j3.getConfiguration().set("dirt.testset.path", testSet);
-        
+
         j3.setJarByClass(DirtJob.class);
         j3.setMapperClass(SimMapper.class);
         j3.setReducerClass(SimReducer.class);
-        
+
         j3.setOutputKeyClass(Text.class);
         j3.setOutputValueClass(Text.class);
 
         FileInputFormat.addInputPath(j3, new Path(outputBase + "/step2"));
         FileOutputFormat.setOutputPath(j3, new Path(outputBase + "/final"));
-
-        System.exit(j3.waitForCompletion(true) ? 0 : 1);
+        if (!j3.waitForCompletion(true)) System.exit(1);
 
         // ---------------------------------------------------------
-        // Step 4: Aggregation (Summing Partial Scores)
+        // Step 4: Aggregation (Final unique pair scores)
         // ---------------------------------------------------------
         Job j4 = Job.getInstance(conf, "DIRT Step 4: Aggregation");
         j4.setJarByClass(DirtJob.class);
         j4.setMapperClass(SumMapper.class);
         j4.setReducerClass(SumReducer.class);
-        
+
         j4.setOutputKeyClass(Text.class);
         j4.setOutputValueClass(Text.class);
 
-        // הקלט הוא הפלט של שלב 3
         FileInputFormat.addInputPath(j4, new Path(outputBase + "/final"));
-        // הפלט הסופי באמת
         FileOutputFormat.setOutputPath(j4, new Path(outputBase + "/aggregated_result"));
 
-        if (!j4.waitForCompletion(true)) System.exit(1);
-        
-        System.exit(0);
+        System.exit(j4.waitForCompletion(true) ? 0 : 1);
     }
 }

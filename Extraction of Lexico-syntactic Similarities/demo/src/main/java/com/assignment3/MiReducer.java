@@ -8,42 +8,37 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 public class MiReducer extends Reducer<Text, Text, Text, Text> {
-
     @Override
     protected void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException {
-
-        // Key: Head + Path
-        // Values: List of "SlotWord \t Count"
-
+        // Key: Head \t Path
         Map<String, Integer> wordCounts = new HashMap<>();
         double totalCountForPath = 0;
 
         for (Text value : values) {
             String[] parts = value.toString().split("\t");
             if (parts.length < 2) continue;
-
             String word = parts[0];
-            try {
-                int count = Integer.parseInt(parts[1]);
-                wordCounts.put(word, wordCounts.getOrDefault(word, 0) + count);
-                totalCountForPath += count;
-            } catch (NumberFormatException e) {
-                // Ignore errors
-            }
+            int count = Integer.parseInt(parts[1]);
+            wordCounts.put(word, wordCounts.getOrDefault(word, 0) + count);
+            totalCountForPath += count;
         }
 
         if (totalCountForPath == 0) return;
 
-        // חישוב Score
+        // Calculate MI (Rule 1: For ALL paths)
+        double totalMiSumForPath = 0;
+        Map<String, Double> miMap = new HashMap<>();
         for (Map.Entry<String, Integer> entry : wordCounts.entrySet()) {
-            String word = entry.getKey();
-            int count = entry.getValue();
+            // Using absolute log to ensure positive scores for Step 3
+            double mi = Math.abs(Math.log((double) entry.getValue() / totalCountForPath));
+            miMap.put(entry.getKey(), mi);
+            totalMiSumForPath += mi;
+        }
 
-            double score = Math.log(count / totalCountForPath);
-
-            // הפלט נשלח לשלב 3 (Sim)
-            context.write(key, new Text(word + "\t" + score));
+        for (Map.Entry<String, Double> entry : miMap.entrySet()) {
+            // Output format: Word \t MI_Score \t Total_Path_MI
+            context.write(key, new Text(entry.getKey() + "\t" + entry.getValue() + "\t" + totalMiSumForPath));
         }
     }
 }
