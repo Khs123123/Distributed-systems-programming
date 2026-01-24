@@ -204,13 +204,11 @@ Aggregate partial similarity contributions into final scores.
 7.2 S3 PATHS (FILL THESE)
 ------------------------------------------------------------
 
-S3_BUCKET                = s3://TODO
-CORPUS_SMALL_PREFIX      = s3://TODO/inputs/small/
-CORPUS_LARGE_PREFIX      = s3://TODO/inputs/large/
-TESTSET_PATH             = s3://TODO/testset/testset.txt
-JAR_PATH                 = s3://TODO/jars/
-OUTPUT_BASE              = s3://TODO/output/
-LOGS_BASE                = s3://TODO/logs/
+S3_BUCKET                = mostafa-ass3-bucket
+CORPUS_LARGE_PREFIX      = s3://mostafa-ass3-bucket/input/biarcs-large/
+TESTSET_PATH             = s3://mostafa-ass3-bucket/test-set/
+JAR_PATH                 = s3://mostafa-ass3-bucket/Jars/
+OUTPUT_BASE              = s3://mostafa-ass3-bucket/output/
 
 ------------------------------------------------------------
 7.3 Build JAR
@@ -222,29 +220,16 @@ mvn clean package
 7.4 Upload JAR
 ------------------------------------------------------------
 
-aws s3 cp target/TODO.jar s3://TODO/jars/
+ aws s3 cp target/dirt-extraction-1.0-SNAPSHOT-jar-with-dependencies.jar s3://mostafa-ass3-bucket/Jars/dirt-extraction-1.0-SNAPSHOT-jar-with-dependencies.jar                            
 
 ------------------------------------------------------------
-7.5 Upload Inputs (if needed)
+7.5 Run on EMR (EmrRunner)
 ------------------------------------------------------------
 
-aws s3 cp ./biarcs_small/ s3://TODO/inputs/small/ --recursive
-aws s3 cp ./biarcs_large/ s3://TODO/inputs/large/ --recursive
-aws s3 cp ./testset.txt   s3://TODO/testset/
 
-------------------------------------------------------------
-7.6 Run on EMR (EmrRunner)
-------------------------------------------------------------
-
-Edit EmrRunner.java:
-- bucketName = "TODO"
-- inputSmall = "s3://TODO/inputs/small/"
-- inputLarge = "s3://TODO/inputs/large/"
-- testSet    = "s3://TODO/testset/testset.txt"
-- outputBase = "s3://TODO/output/"
 
 Run:
-java -cp target/TODO.jar com.assignment3.EmrRunner
+In the EmrRunner click run 
 
 ============================================================
 
