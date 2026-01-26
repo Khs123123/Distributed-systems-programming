@@ -304,6 +304,12 @@ Precision
 AUC ≈ 0.95
 The PR curve shows high precision across most recall levels, indicating strong ranking quality of MI-based similarity.
 
+**Small Input (10 Files)** ![Precision-Recall Curve - Small](pr_small.png)
+
+**Large Input (100 Files)** ![Precision-Recall Curve - Large](pr_large.png)
+**Analysis of Curves:**
+The Large Input curve shows a significantly higher Area Under the Curve (AUC). While the Small Input suffers from extreme data sparsity (Recall peaking at 0.14), the Large Input run successfully "activates" more predicate pairs, achieving much higher Recall while maintaining high Precision for the top-ranked results.
+
 ------------------------------------------------------------
 8.4 Error Analysis (Examples)
 ------------------------------------------------------------
@@ -311,13 +317,19 @@ The PR curve shows high precision across most recall levels, indicating strong r
 True Positives:
 - X accompany Y  ⇔  X accompany by Y
 - X occur with Y ⇔  X occur in Y
+- X find Y  ⇔  X discover Y
+- X create Y ⇔ X produce Y
 
 False Positives:
 - X protect from Y ⇔ X expose to Y
+- X destroy Y ⇔ X derive from Y
   (antonym relation, similar contexts)
 
 False Negatives:
 - X control with Y ⇔ Y be in X
+- X develop Y ⇔ X expose to Y
+- X characterize by Y ⇔ X cause by Y
+
   (missing MI features / data sparsity)
 
 Errors mainly arise because distributional similarity captures contextual similarity, which may include antonyms.
