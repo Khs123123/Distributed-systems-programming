@@ -1,12 +1,13 @@
 com\assignment3\MiMapper.class
 com\assignment3\SumMapper.class
 com\assignment3\DirtReducer.class
+com\assignment3\SimReducer.class
+com\assignment3\SimMapper.class
+com\assignment3\EmrRunner.class
 com\assignment3\MiReducer.class
 com\assignment3\DirtMapper$Token.class
-com\assignment3\SimReducer.class
+com\assignment3\Constants.class
 com\assignment3\DirtMapper.class
-com\assignment3\SimMapper.class
 com\assignment3\DirtJob.class
-com\assignment3\EmrRunner.class
 com\assignment3\Stemmer.class
 com\assignment3\SumReducer.class

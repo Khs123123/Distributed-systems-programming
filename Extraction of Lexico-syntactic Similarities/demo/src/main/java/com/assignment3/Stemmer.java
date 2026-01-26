@@ -14,14 +14,12 @@ public class Stemmer {
         i_end = 0;
     }
 
-    // ✅ Static helper (this fixes: return Stemmer.stem(w); )
     public static String stem(String word) {
-        if (word == null) return "";
-        word = word.trim().toLowerCase();
-        if (word.isEmpty()) return "";
+        if (word == null || word.trim().isEmpty()) return "";
         Stemmer s = new Stemmer();
-        for (int idx = 0; idx < word.length(); idx++) {
-            char c = word.charAt(idx);
+        String w = word.trim().toLowerCase();
+        for (int i = 0; i < w.length(); i++) {
+            char c = w.charAt(i);
             if (Character.isLetter(c)) s.add(c);
         }
         s.stem();

@@ -1,2580 +1,2580 @@
-expose to	protect from
-differ from	resemble
-distinguish from	associate with
-know as	resemble
-protect from	expose to
-associate with	occur
-characterize by	distinguish from
-distinguish from	have
-derive from	kill
-include	differ from
-have	distinguish from
-produce by	destroy
-derive from	convert to
-be in	contain
-be in	have
-derive from	be against
-contain	be in
-include	substitute for
-resemble	differentiate from
-simulate	confound with
-convert to	derive from
-produce	kill
-treat by	produce
-be against	derive from
-resemble	confuse with
-distinguish from	confound with
-associate with	distinguish from
-be in	occur in
-avoid in	use in
-prevent	produce
-differentiate from	resemble
-resemble	confound with
-kill	derive from
-get	kill
-contract	die of
-include	confuse with
-differ from	include
-substitute for	include
-be against	produce
-produce	use in
-produce by	be against
-simulate	differ from
-mimic	differentiate from
-characterize by	include
-correct	indicate for
-expose to	die of
-resemble	know as
-occur	associate with
-resemble	distinguish from
-confuse with	include
-produce by	kill
-produce	give to
-contract	die from
-be in	find in
-distinguish from	characterize by
-produce	be against
-resemble	distinguish from
-use in	produce
-have	be in
-suffer from	die of
-treat with	produce
-destroy	produce by
-simulate	confound with
-distinguish from	associate with
-give to	produce
-distinguish from	confound with
-develop	die of
-differ from	confound with
-characterize by	distinguish from
-produce	prevent
-resemble	differ from
-indicate for	correct
-distinguish from	resemble
-have	die of
-destroy	derive from
-kill	produce by
-associate with	distinguish from
-occur in	be in
-contract	kill
-resemble	differ from
-produce	destroy
-constrict	dilate
-produce	treat with
-be against	produce by
-dilate	constrict
-use in	avoid in
-get	die of
-produce	treat by
-simulate	distinguish from
-kill	produce
-derive from	destroy
-distinguish from	characterize by
-resemble	confuse with
-find in	be in
-destroy	produce
-convert to	convert to
-have	kill
-differentiate from	mimic
-get	die from
-confuse with	confound with
-release into	secrete into
-suffer from	get
-relate to	cause
-associate with	associate with
-make from	derive from
-eradicate	be against
-give	expose to
-use for	recommend for
-die from	die of
-cause by	give
-cause by	involve
-give	indicate for
-involve	define as
-precede by	complicate
-suggest	accompany by
-be in	control with
-license for	be for
-give to	use in
-result in	accompany by
-require for	respond to
-administer for	give for
-accompany	develop with
-associate with	develop from
-accompany	complicate
-produce	secrete by
-recommend for	administer for
-control with	prevent
-contain	have
-produce	increase
-require for	use in
-associate with	result in
-be against	use in
-order for	reduce
-enter	reach
-be in	present with
-occur in	present with
-consist of	begin with
-relieve by	prescribe for
-follow	develop after
-confound with	confuse with
-give as	use as
-offer	provide
-control	be in
-contain	find in
-give to	take
-develop	occur in
-involve	occur in
-improve	relieve by
-result from	associate with
-result in	produce
-induce by	produce
-join with	unite with
-provide	obtain with
-help	manage with
-license for	use for
-take for	prescribe for
-help	prescribe for
-base on	make from
-alleviate	prescribe for
-cause	lead to
-use in	take
-control with	treat by
-accompany by	result in
-bring	cause
-find in	associate with
-give for	take for
-have	use for
-use for	help
-see in	cause by
-find	discover
-use for	be against
-reserve for	treat by
-administer for	relieve by
-create	produce
-lead to	complicate by
-develop	be in
-characterize by	mean
-be in	describe as
-associate with	give
-treat with	mask
-present as	follow
-eradicate	control by
-stimulate	promote
-give for	use in
-precede by	cause
-use in	use for
-kill	kill by
-find in	be in
-wipe	prevent
-use as	derive from
-fertilize by	inject into
-inactivate by	inactivate
-suffer from	develop
-treat with	affect by
-cause	increase
-complicate	accompany by
-cause	precipitate by
-see in	accompany by
-respond to	prescribe for
-need for	treat with
-control by	control with
-order for	be in
-occur in	have
-derive from	synthesize from
-carry by	spread by
-develop	affect
-associate with	attend with
-provide by	provide
-control with	eradicate
-afford by	provide by
-develop from	result from
-relieve by	require
-convert to	reduce to
-use for	require for
-destroy	be against
-cause	mean
-unite with	meet
-affect by	involve
-base on	prepare from
-respond to	alleviate
-give	cause
-transmit	spread by
-convert	break
-control by	relieve by
-develop into	progress to
-prevent	protect from
-obtain from	derive from
-prescribe for	provide from
-accompany	associate with
-precede	characterize by
-attribute to	associate with
-be in	cause
-cause by	aggravate
-mask	control with
-attribute to	be in
-convert into	reduce to
-affect	be with
-use in	need for
-occur from	produce
-compose of	prepare from
-reduce	relieve by
-make from	base on
-prevent by	protect against
-isolate from	produce by
-produce	relate to
-need for	relieve
-prevent	wipe
-take for	give for
-cure	cure by
-require	prescribe for
-use for	take for
-relieve with	take for
-occur with	lead to
-need for	prescribe for
-take for	help
-produce	occur with
-destroy	kill
-control with	be against
-lead to	contribute to
-occur in	contain
-require for	be in
-follow by	be after
-cure by	require
-develop into	complicate by
-kill	use against
-control by	order for
-encounter	meet
-introduce by	introduce
-give to	use for
-use for	give
-complicate	occur with
-be in	reduce
-penetrate	fertilize
-occur during	be during
-correct	use for
-relieve by	alleviate
-require for	relieve
-help	decrease
-give	occur in
-relieve by	treat by
-accompany by	occur with
-overcome by	treat by
-confuse with	confound with
-produce	cause by
-relieve	require
-cause by	occur in
-provide	give
-contain	be in
-be in	administer for
-cause by	occur with
-treat with	take
-recommend for	prescribe for
-follow by	produce
-relieve	use for
-combine with	join with
-be in	order for
-combine with	use with
-provide by	recommend for
-develop into	associate with
-accompany by	come with
-occur in	suffer from
-characterize by	lead to
-enter	be in
-treat by	eradicate
-affect	involve
-prevent	use against
-relieve with	give for
-produce	develop
-help	reduce
-provide	afford by
-make from	prepare from
-reduce	need for
-produce	release
-cause	be from
-infect with	infect
-decrease	reduce
-afford	obtain with
-suggest	be in
-carry	spread
-appear as	characterize by
-lead to	develop into
-provide	contain
-occur in    affect
-meet    unite with
-inactivate  inactivate by
-kill	die from
-achieve with	offer
-indicate for	afford
-affect by	affect
-use against	control with
-suggest	present with
-cause by	progress to
-prevent by	treat by
-indicate	result in
-cause by	manifest as
-control with   	eliminate
-treat with	be against
-use for	give for
-manifest as	associate with
-be with	be in
-treat by	need for
-characterize by	result from
-contract	get
-increase	cause
-manage with	prescribe for
-need for	treat by
-be against	control by
-reduce	relieve with
-occur in	occur with
-give	bring
-infect with	occur in
-define as	associate with
-associate with	find in
-make	produce by
-obtain with	offer
-prescribe for	control
-occur with	result in
-progress to	associate with
-need for	control
-correct by	treat with
-correct by	correct with
-consist of	use as
-alleviate	respond to
-associate with	refer to
-eradicate	eliminate
-relieve with	mask
-have	use as
-secrete by	produce by
-begin as	complicate
-be in	cause by
-present with	suggest
-eliminate	prevent
-reduce	indicate for
-treat with	order for
-be after	follow
-reduce	relieve
-alleviate	decrease
-reduce	control by
-characterize by	result from
-follow	characterize by
-produce	secrete
-affect by	eradicate
-derive from	use as
-characterize by	cause
-start with	characterize by
-enter	inject into
-prevent	prescribe for
-associate with	produce by
-treat	treat with
-fertilize	enter
-make from	consist of
-follow by	develop after
-suggest	lead to
-relieve by	relieve
-administer to	use in
-combine with	meet
-manifest by	cause by
-treat with	correct with
-release	produce by
-complicate with	complicate
-penetrate	inject into
-order for	control by
-contribute to	cause by
-differ from	differ from
-associate with	manifest as
-see in	characterize by
-need for	give for
-precipitate by	cause
-result from	produce by
-describe as	be in
-treat with	correct by
-contribute to	lead to
-characterize by	manifest by
-control	cure with
-require for	relieve by
-contain	occur in
-accompany by	attend with
-order for	treat with
-present as	be in
-give	use in
-develop from	associate with
-be from	cause
-derive from	produce by
-produce by	manufacture
-have	receive
-carry	spread by
-give before	start before
-be in	alleviate
-occur with	associate with
-define as	refer to
-treat	treat by
-characterize by	include
-provide from	treat with
-result from	cause
-occur from	cause by
-indicate for	provide
-combine with	include
-affect in	involve
-observe in	occur in
-release	make
-mask	relieve by
-attend with	accompany by
-carry by	transmit
-relieve	prescribe for
-produce	bring
-use for	relieve by
-associate with	occur in
-prepare from	base on
-confuse with	distinguish from
-decrease	control
-control with	relieve with
-prevent	treat
-suggest	result in
-give for	be for
-reduce	suppress
-relieve with	control
-need for	be in
-carry	find in
-produce	lead to
-accompany	follow
-succeed to	follow by
-present with	indicate
-decrease	control with
-stimulate	produce
-convert to	form from
-metabolize to	reduce to
-convert by	metabolize by
-induce	provide
-mask	control
-complicate	complicate by
-follow	suggest
-control	decrease
-relieve by	take for
-afford	offer
-recommend for	indicate for
-indicate in	indicate for
-control by	need for
-be for	recommend for
-require	treat by
-use as	consist of
-associate with	result in
-associate with	see with
-join with	unite with
-give	associate with
-relieve	relieve with
-cause by	occur in
-indicate for	recommend for
-inject into	fertilize by
-order for	treat by
-alternate with	give to
-refer to	cause by
-correct by	correct
-mask	control by
-require for	need for
-cause	develop with
-make from	compose of
-spread through	transmit by
-isolate from	derive from
-give for	prescribe for
-affect	develop in
-manage with	mask
-predispose to	lead to
-transmit	transmit by
-transmit by	find in
-occur with	cause
-infect with	have
-indicate for	achieve with
-associate with	accompany with
-use for	administer for
-relate to	result in
-develop with	accompany
-relieve	treat with
-be in	present as
-provide	recommend for
-use in	give to
-enter	penetrate by
-use	have
-control by	overcome by
-produce	find
-afford	prescribe for
-use for	order for
-use for	correct with
-treat with	provide from
-convert by	convert
-present with	associate with
-find in	appear in
-afford by	offer
-follow by	complicate by
-produce	precede by
-begin with	present with
-require	correct by
-carry by	infect with
-correct with	correct by
-transmit by	spread by
-lead to	present as
-overcome by	control by
-cause	trigger
-achieve with	prescribe for
-cause	mean
-unite with	encounter
-occur in	suggest
-cause by	define as
-contract	develop
-treat with	cure with
-achieve with	give
-destroy	attack
-produce in	produce by
-be during	be in
-prescribe for	relieve with
-be in	relieve by
-alleviate	relieve by
-affect by	treat with
-be in	develop in
-complicate	begin as
-reduce	give for
-treat by	relieve by
-give	treat with
-come with	associate with
-suggest	see in
-relieve	need for
-suggest	follow
-correct	relieve by
-accompany	accompany
-contain	compose of
-involve	associate with
-promote	stimulate
-relieve	reduce
-associate with	develop
-occur in	cause
-complicate	result from
-afford	provide
-cure	control
-reduce to	metabolize to
-break	convert
-fertilize	penetrate
-follow	associate with
-relieve	help
-treat	control with
-kill	affect by
-include	use for
-eliminate	treat by
-obtain with	give
-produce	induce
-occur with	follow
-treat with	prescribe for
-relieve by	need for
-produce	introduce
-decrease	relieve by
-present with	see in
-use for	manage with
-relate to	produce
-enter	release into
-make of	make from
-prescribe for	give for
-be against	treat by
-relieve	provide from
-relieve by	relieve with
-manage with	treat by
-cause	characterize by
-eradicate	use against
-be for	provide
-mistake for	confound with
-administer for	be for
-kill by	be against
-associate with	give to
-control with	cure
-give	obtain with
-occur after	result in
-help	use for
-occur after	result from
-mask	help
-develop from	produce
-cause by	result from
-develop from	result in
-progress to	develop into
-occur during	occur in
-give for	relieve
-occur in	produce
-prepare from	make from
-need for	order for
-be in	administer to
-occur after	lead to
-respond to	reduce
-cure	cure with
-be in	relieve with
-decrease	use for
-develop after	follow by
-control	reduce
-give	recommend for
-carry	occur in
-suggest	manifest by
-unite with	encounter
-give	cause by
-eliminate	cure by
-help	relieve with
-confuse with	differentiate from
-relieve by	be in
-provide	be for
-produce by	cause
-use for	give with
-cause by	accompany by
-kill	reduce
-give for	reduce
-associate with	attribute to
-control with	kill
-penetrate	fertilize by
-affect	infect
-give to	follow by
-manage with	reduce
-treat with	treat by
-obtain from	produce by
-bring	be for
-cure with	cure
-relieve	relieve by
-metabolize in	metabolize by
-inject into	enter
-require for	recommend for
-cause	start with
-help	mask
-give for	need for
-manifest by	characterize by
-complicate	precede by
-characterize by	be in
-result from	characterize by
-turn into	develop into
-treat by	correct with
-suggest	associate with
-manifest by	see in
-obtain from	isolate from
-characterize by	start with
-occur in	observe in
-present with	cause by
-obtain with	achieve with
-introduce	make
-accompany	cause by
-find in	characterize by
-produce by	isolate from
-prescribe for	relieve by
-suggest	occur in
-result in	present as
-follow by	associate with
-include	produce by
-introduce	produce
-involve	associate with
-use in	administer for
-occur with	associate with
-begin with	indicate
-occur in	associate with
-recommend for	achieve with
-present as	present with
-present with	begin with
-encounter	join with
-provide from	control by
-secrete by	secrete
-see in	associate with
-control	relieve with
-cause	occur in
-protect from	protect against
-reduce	decrease
-mean	associate with
-lead to	turn into
-accompany by	mean
-recommend for	provide by
-terminate in	follow
-spread by	carry
-transmit	carry
-be for	require for
-suffer from	attack with
-be in	require for
-destroy	affect by
-need for	use for
-accompany by	follow by
-control by	eradicate
-provide by	offer
-treat by	prescribe for
-prevent	respond to
-include	refer to
-cause by	result in
-have	find in
-lead to	produce
-give with	use for
-provide from	control
-characterize by	present with
-lead to	develop from
-control	cure
-increase	produce
-develop	suffer from
-accompany	mean
-find in	infect with
-follow by	alternate with
-present with	cause
-use for	provide from
-prepare from	compose of
-confound with	mistake for
-control by	prevent by
-relieve by	treat with
-treat with	eradicate
-cause	suggest
-control	help
-cause by	occur with
-lead to	progress to
-affect	be in
-be in	be with
-produce	manifest as
-have	get
-recommend for	treat with
-administer to	give to
-find in	see in
-result from	be in
-develop into	associate with
-control with	treat with
-give for	require for
-inject into	get into
-confound with	resemble
-control by	alleviate
-complicate by	complicate
-prevent by	control by
-prescribe for	order for
-control with	prescribe for
-use for	provide by
-occur in	be during
-occur after	associate with
-treat by	order for
-suggest	present as
-require for	use for
-carry	contain
-cause by	mean
-confuse with	distinguish from
-order for	control with
-associate with	come with
-achieve with	obtain with
-relieve by	correct by
-imply	mean
-wipe	be against
-lead to	prevent by
-lead to	relate to
-provide from	control with
-develop into	suggest
-manifest by	result in
-find in	contain
-result from	complicate by
-use	use for
-use for	give to
-use in	recommend for
-relieve	correct by
-prescribe for	obtain with
-prescribe for	administer for
-cure with	treat with
-occur with	occur in
-occur from	associate with
-follow by	cause
-treat by	cure with
-be in	need for
-administer for	use for
-afford	be for
-use for	afford by
-refer to	include
-alleviate	give for
-order for	relieve
-use as	give as
-contain	provide
-give	use for
-associate with	accompany with
-prevent	correct by
-respond to	help
-suggest	cause by
-cause	develop after
-occur during	be in
-control	control by
-respond to	relieve
-enter	fertilize
-control by	manage with
-use in	be with
-reduce	control with
-produce	obtain with
-hydrolyze	digest
-correct by	prevent
-obtain from	provide
-infect	affect
-take for	relieve
-occur in	precede by
-be for	license for
-attack	affect by
-order for	be for
-convert to	metabolize to
-result from	occur from
-die of	have
-accompany	accompany by
-control with	control
-lead to	cause by
-characterize by	indicate
-relate to	suggest
-develop in	occur in
-result from	cause by
-use for	alleviate
-give to	alternate with
-precede by	occur in
-see with	associate with
-refer to	involve
-present	find in
-increase	associate with
-require for	treat with
-be for	administer for
-know as	include
-contain	obtain from
-prescribe for	alleviate
-see in	associate with
-break	hydrolyze
-occur in	associate with
-develop	transmit
-accompany by	occur with
-use during	give during
-invent	discover
-decrease	relieve
-transmit	find in
-cure with	control by
-treat with	reduce
-receive	be in
-relieve with	manage with
-respond to	relieve with
-provide from	give for
-fertilize by	penetrate by
-appear in	find in
-fertilize	inject into
-kill	be for
-treat by	control by
-respond to	be against
-precede	complicate
-cause	precipitate
-produce	contribute to
-indicate	occur with
-lead to	result from
-start with	suggest
-associate with	involve
-control with	indicate for
-digest	break
-be against	wipe
-use during	use in
-accompany	cause
-precipitate	lead to
-treat	respond to
-lead to	occur with
-require for	order for
-use for	respond to
-encounter	meet
-license for	use in
-present as	associate with
-mean	cause
-control by	prevent
-differ from	distinguish from
-require for	administer for
-need for	administer for
-develop for	recommend for
-characterize by	occur in
-transmit	be in
-give for	relieve with
-infect with	transmit by
-associate with	begin as
-treat with	need for
-die of	kill
-produce by	secrete by
-kill	control with
-unite with	join with
-precipitate	trigger
-prescribe for	respond to
-use for	license for
-occur after	follow by
-produce	occur from
-induce	cause
-transmit	have
-involve	cause by
-eliminate	kill
-precede	follow
-encounter	combine with
-recommend for	use in
-prevent by	treat with
-contain	use in
-have	carry
-manage with	treat with
-make	introduce by
-form from	convert to
-treat with	treat
-meet	meet
-correct with	correct
-differ from	distinguish from
-give to	characterize by
-associate with	involve
-occur with	follow by
-produce	ejaculate
-treat	control
-cause by	manifest by
-need for	manage with
-be against	eradicate
-be during	occur in
-find	invent
-need for	relieve by
-characterize by	present as
-attribute to	follow
-administer for	prescribe for
-be in	recommend for
-offer	afford by
-lead to	result in
-suggest	result from
-accompany by	cause by
-cause	bring
-produce	occur after
-be in	affect by
-introduce by	make
-cure by	be in
-manage with	relieve by
-involve	affect by
-be for	prescribe for
-die from	kill
-associate with	indicate
-be in	find in
-convert	hydrolyze
-prevent by	prevent
-help	control
-eliminate	treat with
-produce	create
-produce	occur in
-treat by	reserve for
-find in	include
-present with	produce
-produce	isolate from
-give for	relieve by
-administer for	help
-result from	lead to
-afford	achieve with
-manifest by	cause
-be for	afford
-affect by	respond to
-result from	indicate
-lead to	suggest
-see in	suggest
-wipe	control with
-cause	contribute to
-occur in	cause by
-control with	cure with
-provide	provide by
-reduce	alleviate
-follow	occur after
-substitute for	substitute for
-offer	be for
-form from	convert into
-characterize by	cause by
-consist of	compose of
-require	cure
-be with	begin with
-relieve with	be in
-associate with	present with
-treat with	give to
-release	produce
-treat by	require
-distinguish from	distinguish from
-suggest	involve
-cause	result from
-use in	require
-encounter	unite with
-obtain from	contain
-give	afford by
-give	afford
-recommend for	give
-control with	need for
-present as	lead to
-begin with	cause by
-follow by	occur after
-come with	associate with
-indicate for	control by
-cure by	eliminate
-associate with	accompany
-promote	produce
-accompany by	follow by
-characterize by	relate to
-bring	produce
-have	contain
-offer	give
-need for	require
-respond to	give for
-develop into	turn to
-follow	accompany by
-follow	terminate in
-affect	transmit to
-associate with	occur after
-associate with	contribute to
-treat by	cure by
-cause by	develop
-begin with	consist of
-require	use in
-give	provide
-be in	attribute to
-help	be in
-reduce	be in
-prevent	affect by
-administer for	use in
-characterize by	result in
-use for	administer to
-occur with	indicate
-afford by	use for
-manifest by	suggest
-occur in	affect with
-manage with	be in
-follow	accompany by
-respond to	need for
-suggest	follow
-observe in	be in
-correct	correct by
-order for	administer for
-occur in	show
-relieve	give for
-use against	eradicate
-mistake for	distinguish from
-fertilize by	enter
-affect by	eliminate
-obtain with	be for
-associate with	develop with
-result in	follow
-result from	develop from
-accompany	produce
-see in	be in
-transmit	transmit through
-develop into	turn into
-give to	treat with
-control by	relieve with
-provide by	be for
-follow	present as
-indicate for	license for
-require for	prescribe for
-relieve by	manage with
-hydrolyze	convert
-contain	receive
-respond to	decrease
-combine with	join with
-require	treat with
-precede by	produce
-accompany by	associate with
-associate with	complicate with
-contain	make from
-begin with	be with
-control with	wipe
-present with	be in
-lead to	suggest
-mean	involve
-lead to	cause
-form from	derive from
-reduce	prescribe for
-begin as	associate with
-accompany	associate with
-indicate	suggest
-afford	give
-order for	require for
-indicate	present with
-occur with	cause by
-spread by	transmit by
-be for	achieve with
-be in	receive
-produce by	produce
-manufacture	release
-characterize by	find in
-give for	respond to
-produce	induce by
-alleviate	help
-present with	characterize by
-prescribe for	treat with
-treat by	prevent by
-develop	contract
-result in	manifest by
-inject into	penetrate
-give	lead to
-take	give to
-respond to	kill
-take for	use for
-cause	follow
-be against	treat with
-prescribe for	control with
-occur after	cause
-relieve by	control by
-spread	carry
-manage with	need for
-contribute to	associate with
-associate with	present with
-cause	produce by
-meet	combine with
-induce by	lead to
-recommend for	be in
-be against	kill by
-require	use for
-mean	imply
-produce	derive from
-correct by	relieve
-accompany	cause
-relieve with	alleviate
-control	relieve
-administer during	use during
-treat by	treat with
-develop from	cause
-respond to	treat
-confound with	confuse with
-occur in	be in
-mask	respond to
-be for	take for
-indicate	occur in
-attribute to	produce
-manage with	relieve with
-develop in	affect with
-be in	use
-cause	occur during
-treat by	require for
-treat with	relieve
-provide from	prescribe for
-result from	produce
-use	be in
-require	require for
-accompany with	accompany
-follow by	complicate
-cause	imply
-produce	produce in
-associate with	accompany
-use in	develop for
-isolate from	find in
-recommend for	require for
-cause	aggravate
-complicate by	lead to
-be with	characterize by
-prescribe for	require for
-characterize by	begin with
-associate with	progress to
-characterize by	give to
-require	treat
-accompany by	accompany
-indicate for	develop for
-turn into	lead to
-contain	combine with
-follow	complicate by
-involve	characterize by
-correct by	use for
-transmit through	transmit by
-occur with	occur in
-find in	carry
-present with	occur with
-decrease	respond to
-derive from	convert into
-accompany by	develop with
-be in	suggest
-convert	digest
-produce	suggest
-confuse with	mistake for
-achieve with	be for
-require	control with
-use as	use for
-produce by	secrete
-indicate for	control
-offer	use for
-contain	use as
-affect by	kill
-prevent by	cure by
-control with	decrease
-convert into	convert to
-give	prescribe for
-cause	give to
-result from	attribute to
-produce	suggest
-attribute to	cause
-develop after	follow
-transmit by	transmit through
-prescribe for	help
-confound with	differ from
-cure	control with
-order for	indicate for
-eliminate	control with
-cover	be against
-cause by	relate to
-produce	make
-reduce	prevent
-suggest	begin with
-associate with	develop into
-mistake for	confuse with
-accompany by	present with
-result in	occur from
-control	treat with
-manifest as	associate with
-cause	induce
-suggest	cause by
-respond with	treat with
-license for	recommend for
-indicate	cause by
-reserve for	require
-lead to	precipitate
-give to	give
-eliminate	eradicate
-present as	indicate
-suggest	occur with
-isolate from	obtain from
-result in	cause
-complicate with	associate with
-contain	prepare from
-produce	aggravate
-require for	manage with
-alleviate	manage with
-complicate	accompany
-die of	expose to
-treat with	decrease
-relieve by	control
-cure by	treat with
-suggest	lead to
-eradicate	control with
-confuse with	differ from
-combine with	unite with
-contribute to	result in
-indicate	manifest by
-be in	cure by
-control	order for
-involve	confine to
-kill	eliminate
-cause	accompany by
-meet	encounter
-meet	encounter
-occur with	complicate
-result from	occur after
-follow by	succeed to
-accompany	follow by
-make	release
-complicate	lead to
-result in	accompany
-take for	relieve by
-reserve for	treat with
-follow	complicate by
-transmit to	affect
-result in	give to
-present as	associate with
-relate to	lead to
-affect with	occur in
-associate with	accompany by
-administer to	be in
-use for	use during
-include	contain
-be for	use in
-see in	cause
-treat with	give
-associate with	occur with
-compose of	base on
-eliminate	prevent by
-prescribe for	be for
-license for	indicate for
-use in	use as
-cause by	characterize by
-cause by	indicate
-lead to	follow by
-be in	consist of
-indicate	associate with
-achieve with	require for
-infect with	carry
-invent	find
-correct with	treat with
-associate with	cause by
-control	treat
-require for	achieve with
-imply	cause
-alternate with	follow by
-see in	present with
-accompany with	associate with
-produce	see in
-be in	transmit
-manifest by	present with
-alleviate	use for
-control by	provide from
-correct	treat with
-give to	follow
-associate with	occur with
-mean	refer to
-develop from	lead to
-include	characterize by
-precipitate	cause
-characterize by	involve
-relieve with	prescribe for
-suffer from	have
-derive from	form from
-confine to	involve
-administer during	use in
-prescribe for	afford
-relieve with	control with
-control	provide from
-indicate for	reduce
-relieve with	respond to
-give	provide by
-join with	meet
-provide	indicate for
-cause by	contribute to
-associate with	present as
-discharge	produce
-be for	help
-respond to	be for
-use	recommend for
-die of	get
-contain	carry
-affect	occur in
-lead to	complicate
-lead to	occur from
-unite with	meet
-control with	be in
-result from	present as
-be against	destroy
-characterize by	appear as
-achieve with	be in
-provide from	reduce
-transmit by	be in
-compose of	consist of
-present as	characterize by
-manage with	respond to
-give to	cause
-cause	accompany with
-employ as	use as
-correct by	require
-follow	be in
-prescribe for	use for
-involve	suggest
-occur from	follow
-give to	result from
-be with	be for
-protect from	prevent
-use as	compose of
-give for	order for
-relieve	order for
-affect	have
-occur with	present with
-alleviate	control
-treat	prevent
-eradicate	affect by
-give for	manage with
-cause by	occur from
-be for	obtain with
-result in	occur after
-convert	convert by
-indicate	begin with
-result in	relate to
-enter	penetrate
-suggest	relate to
-relieve	prevent
-help	control with
-use for	be with
-isolate from	produce
-cure	prescribe for
-prescribe for	relieve
-cause	precede by
-treat by	control with
-mean	accompany by
-relieve by	correct
-occur with	suggest
-be in	observe in
-give for	use for
-prescribe for	treat by
-be against	control with
-take	treat with
-cause by	suggest
-associate with	manifest as
-induce by	cause
-mean	cause by
-release	manufacture
-produce	develop from
-respond to	prevent
-order for	control
-contribute to	characterize by
-enter	fertilize by
-unite with	unite with
-complicate by	follow
-encounter	unite with
-prepare from	use as
-relate to	contribute to
-secrete into	release into
-produce	attribute to
-find in	transmit by
-digest	hydrolyze
-mean	define as
-transmit by	carry by
-prescribe for	use in
-result from	manifest as
-control	need for
-cover	kill
-relieve by	help
-develop into	cause by
-attack with	suffer from
-characterize by	consist of
-cause	begin as
-relieve by	give for
-affect by	prevent
-affect	affect by
-provide from	use for
-be in	enter
-use with	combine with
-complicate with	associate with
-relieve with	be for
-mean	accompany
-treat	require
-relieve by	improve
-manufacture	produce
-produce in	make
-eliminate	respond to
-metabolize by	convert by
-attack	affect
-suggest	cause
-develop with	associate with
-be in	follow
-affect in	affect
-join with	combine with
-define as	involve
-involve	affect in
-follow by	give to
-use in	be against
-develop with	associate with
-provide	afford
-have	characterize by
-recommend for	license for
-need for	reduce
-achieve with	afford
-digest	convert
-occur in	occur during
-cause	result in
-relieve	alleviate
-treat with	help
-produce by	derive from
-characterize by	see in
-follow	follow by
-produce	achieve with
-infect	infect with
-manifest as	cause by
-result from	cause
-follow	result in
-respond to	affect by
-administer for	be in
-afford	indicate for
-help	give for
-include	combine with
-indicate for	order for
-correct	correct with
-transmit through	spread by
-confound with	mistake for
-use against	kill
-cause by	suggest
-occur with	produce
-control with	relieve
-relate to	associate with
-respond to	cure by
-aggravate	cause by
-use for	have
-be against	use against
-produce by	result from
-characterize by	precede
-occur in	give
-ejaculate	produce
-confound with	confound with
-give for	alleviate
-lead to	occur after
-bring	provide
-cause by	produce
-produce	offer
-use for	require
-follow by	follow by
-occur from	result from
-find in	enter
-prevent by	lead to
-be in	develop
-obtain from	produce
-accompany by	accompany
-infect with	carry by
-relieve with	use for
-induce	cause by
-synthesize from	derive from
-follow	be after
-control with	alleviate
-reduce	be for
-relieve	cure by
-give before	administer before
-prescribe for	manage with
-manifest as	produce
-carry	have
-correct by	relieve by
-produce	be in
-infect with	be in
-hydrolyze	hydrolyze by
-die from	get
-require	reserve for
-produce	promote
-use during	administer during
-associate with	present as
-associate with	increase
-produce	present with
-alleviate	be in
-require	correct
-occur from	cause
-complicate	follow
-bring	use for
-manage with	help
-cause by	be in
-transmit	develop
-be against	cover
-transmit through	transmit via
-produce	follow
-control with	use against
-occur with	cause by
-kill by	affect by
-use during	use for
-enter	get into
-associate with	follow
-be in	be during
-prescribe for	control by
-cause	cause by
-follow	cause
-treat with	prevent by
-prevent	eliminate
-control	control with
-accompany with	accompany by
-associate	cause
-develop	associate with
-combine with	encounter
-carry by	transmit by
-secrete by	produce
-attribute to	result from
-affect by	attack
-inject into	penetrate by
-present as	result in
-accompany by	produce
-present with	associate with
-be against	affect by
-associate with	imply
-relieve with	reduce
-mask	treat with
-produce	obtain from
-alternate with	alternate with
-imply	define as
-need for	require for
-secrete	secrete by
-make	produce
-use in	be for
-penetrate	penetrate by
-receive	have
-accompany	accompany with
-order for	give for
-mistake for	confound with
-mask	alleviate
-consist of	have
-kill	cover
-treat with	correct
-manufacture	make
-prevent	prevent by
-develop with	accompany by
-treat with	relieve by
-relieve with	relieve
-relieve	improve
-see in	indicate
-have	consist of
-carry	carry by
-correct with	use for
-relate to	result from
-see in	occur in
-administer to	use for
-take for	relieve with
-follow	follow
-predispose to	cause
-follow by	accompany by
-carry	transmit by
-contribute to	cause
-accompany	result in
-produce	make by
-progress to	cause by
-develop from	cause by
-be in	have
-complicate by	cause by
-use in	reduce
-occur in	obtain from
-accompany	occur in
-associate with	begin as
-require for	require
-afford	recommend for
-recommend for	be for
-lead to	indicate
-complicate by	result from
-occur in	cause by
-cause	accompany
-treat by	mask
-use	use in
-complicate by	follow
-provide from	relieve
-help	be for
-be in	occur during
-suggest	result from
-kill	destroy
-characterize by	occur during
-reduce	mask
-relieve	respond to
-manifest by	result from
-recommend for	develop for
-make from	make of
-suggest	be in
-develop	cause
-attend with	associate with
-require	administer for
-develop for	be for
-lead to	give
-manage with	give for
-accompany	occur with
-present with	result in
-confine to	affect
-use as	use in
-follow	occur with
-occur with	accompany
-cure with	treat by
-trigger	cause
-have	transmit
-accompany by	see in
-afford	use for
-indicate for	control with
-associate with	develop with
-be in	carry
-precede	follow by
-indicate for	give
-produce	result from
-be for	kill
-obtain from	find in
-contain	include
-present as	produce
-prescribe for	need for
-produce	accompany
-treat with	reserve for
-relieve by	respond to
-give	offer
-confound with	distinguish from
-cause	result in
-treat with	cure
-cause	result from
-complicate	precede
-mean	associate with
-manage with	require for
-be after	follow by
-be for	bring
-occur during	cause
-associate with	relate to
-need for	help
-treat by	treat
-be in	transmit by
-correct	treat by
-result from	result in
-occur in	indicate
-treat by	manage with
-use for	afford
-convert to	convert into
-join with	meet
-use against	prevent
-hydrolyze	break
-control	mask
-reduce	protect from
-alleviate	reduce
-help	control by
-relieve by	decrease
-relate to	attribute to
-produce by	cause by
-relieve by	be for
-result in	suggest
-combine with	use as
-use for	relieve with
-find in	present
-lead to	follow
-provide	achieve with
-attack	occur in
-derive from	make from
-find in	transmit
-mask	use for
-treat by	be against
-respond to	use in
-inhibit by	inhibit
-be in	control
-treat with	overcome by
-give for	recommend for
-occur during	associate with
-indicate	characterize by
-act as	include
-derive from	produce
-bring	afford
-alternate with	follow by
-follow by	occur with
-treat with	cover
-cause	follow by
-refer to	imply
-find in	associate with
-pass through	enter
-use as	combine with
-be for	relieve by
-control	alleviate
-resemble	simulate
-indicate	be in
-get into	inject into
-accompany	accompany by
-prescribe for	take for
-be in	result from
-result from	manifest by
-accompany	suggest
-include	find in
-treat by	control
-result from	mean
-involve	refer to
-have	develop
-treat by	eliminate
-develop after	cause by
-administer with	combine with
-occur in	present as
-manifest by	associate with
-use for	prescribe for
-control with	require
-ejaculate	have
-help	relieve
-associate with	mean
-control	relieve by
-eradicate	treat with
-kill by	destroy
-respond to	administer for
-use in	contain
-combine with	meet
-associate with	occur from
-decrease	help
-control with	reduce
-lead to	produce by
-produce by	associate with
-cure by	respond to
-kill by	kill
-require	correct with
-correct	require
-convert into	metabolize to
-receive	contain
-alleviate	mask
-imply	refer to
-follow by	follow
-associate with	attribute to
-occur after	produce
-lead to	induce by
-meet	join with
-obtain from	have
-distinguish from	differ from
-compose of	make from
-carry by	carry
-confound with	simulate
-treat by	correct by
-die of	die from
-require for	treat by
-lead to	precede by
-prescribe for	bring
-mean	result from
-use for	use
-penetrate by	penetrate
-penetrate by	enter
-control by	indicate for
-achieve with	use for
-produce	produce by
-use for	reserve for
-treat by	overcome by
-relieve	mask
-alternate with	give to
-relieve	help with
-administer for	respond to
-administer during	use for
-bring	prescribe for
-be against	use for
-eradicate	kill
-cause	attend with
-follow	attribute to
-offer	achieve with
-require	need for
-cause by	develop into
-cause	develop
-treat with	suppress
-control with	take for
-combine with	encounter
-overcome by	relieve
-result in	occur with
-control by	prescribe for
-manage with	alleviate
-occur with	present with
-start before	give before
-obtain with	provide
-contract	have
-suggest	result in
-provide	induce
-associate with	find in
-attack with	have
-define as	imply
-give for	administer for
-give for	correct by
-contribute to	produce
-eliminate	affect by
-control	prescribe for
-prescribe for	provide
-produce by	include
-characterize by	contribute to
-refer to	define as
-order for	relieve by
-require	relieve
-relieve	require for
-be of	have
-produce by	give
-mask	reduce
-present with	occur with
-get	have
-occur in	develop
-contribute to	result from
-complicate	cause
-progress to	lead to
-associate with	manifest by
-administer for	require
-be against	eliminate
-suggest	characterize by
-prevent	control with
-transmit	infect with
-be in	indicate
-see in	find in
-compose of	contain
-prescribe for	give
-need for	use in
-help	take for
-offer	provide by
-provide by	use for
-be with	use in
-cure by	prevent by
-cause by	follow
-follow by	precede
-be for	relieve with
-offer	obtain with
-use in	respond to
-provide	obtain from
-occur in	suggest
-occur in	infect with
-give	achieve with
-indicate for	provide by
-give to	follow by
-use for	bring
-cause by	refer to
-expose to	give
-reserve for	use for
-use in	give
-kill	get
-alleviate	treat with
-be for	order for
-use as	make from
-produce	result in
-precede by	lead to
-have	be in
-predispose to	cause by
-spread by	transmit through
-occur after	follow
-relieve	treat by
-affect	affect in
-attribute to	relate to
-carry	be in
-give to	alternate with
-treat with	cure by
-develop into	lead to
-cause by	produce by
-derive from	prepare from
-alleviate	treat by
-have	ejaculate
-need for	respond to
-use against	be against
-control with	help
-produce in	produce
-use as	contain
-find	produce
-affect	develop
-relieve	control with
-contain	consist of
-use for	offer
-follow	accompany
-refer to	associate with
-come from	produce
-give to	result in
-produce by	make
-treat by	correct
-prepare from	contain
-prescribe for	recommend for
-treat with	manage with
-be for	offer
-result from	relate to
-cause by	begin with
-administer for	recommend for
-decrease	alleviate
-contribute to	associate with
-meet	unite with
-indicate	associate with
-relieve	administer for
-cure by	treat by
-occur in	carry
-cause	accompany
-complicate	cause by
-present with	manifest by
-get into	enter
-characterize by	have
-indicate for	prescribe for
-suggest	produce
-come with	accompany by
-take	use in
-distinguish from	differ from
-complicate with	be in
-result from	follow
-present as	result from
-indicate for	be for
-bring	give
-respond to	mask
-fertilize	fertilize by
-make from	use as
-replace	substitute for
-begin as	associate with
-prevent	fight
-eliminate	use against
-use for	administer during
-use for	be for
-have	occur in
-present with	accompany by
-mistake for	differ from
-associate with	suggest
-spread by	carry by
-afford by	give
-see in	manifest by
-reduce	kill
-obtain with	afford
-affect with	affect
-join with	combine with
-enter	pass through
-treat with	control by
-be for	give
-trigger	precipitate
-use in	administer during
-manage with	control with
-cause	produce
-obtain with	use for
-associate with	accompany by
-have	be of
-make	introduce
-hydrolyze by	hydrolyze
-control by	cure
-give to	present with
-be for	need for
-contribute to	relate to
-follow	associate with
-enter	find in
-achieve with	produce
-provide by	afford by
-cure	treat with
-relate to	characterize by
-control	require
-result in	follow by
-associate with	contribute to
-associate with	occur in
-consist of	contain
-occur in	accompany
-control by	require
-combine with	unite with
-result from	complicate
-associate with	relate to
-require	control
-protect against	prevent by
-make by	produce
-combine with	use with
-produce	stimulate
-derive from	obtain from
-have	obtain from
-destroy	kill by
-produce	develop with
-develop for	indicate for
-treat with	eliminate
-penetrate by	fertilize
-have	affect
-result from	see in
-occur with	accompany
-cause	give
-present with	present as
-occur in	see in
-need for	be for
-accompany	produce
-confound with	simulate
-use in	use during
-treat with	take for
-substitute for	replace
-consist of	prepare from
-reduce	provide from
-use for	provide
-cause by	attribute to
-follow by	result in
-confuse with	differ from
-relieve by	mask
-include	act as
-offer	afford
-suffer from	occur in
-treat with	require
-be for	relieve
-fertilize by	fertilize
-mask	treat by
-involve	mean
-unite with	join with
-be with	use for
-suppress	treat with
-use for	obtain with
-begin with	suggest
-prepare from	derive from
-relieve by	cure
-prescribe for	prevent
-indicate	lead to
-decrease	treat with
-give	produce by
-control with	relieve by
-prevent	control
-reduce	use for
-reduce	respond to
-manifest as	cause
-follow by	accompany
-reduce to	convert into
-require for	give for
-relieve	take for
-cause	relate to
-occur with	accompany by
-mask	relieve with
-die of	suffer from
-meet	join with
-relieve	be for
-follow by	accompany by
-result from	characterize by
-start with	cause
-cause by	complicate by
-manage with	control
-secrete	produce by
-indicate	result from
-provide	produce
-manage with	use for
-accompany by	follow
-result in	associate with
-occur in	find in
-produce	introduce by
-cause	occur from
-cause by	occur after
-use in	prescribe for
-administer for	reduce
-be for	indicate for
-find in	occur in
-associate with	complicate with
-kill	be against
-occur with	cause
-control by	reduce
-provide by	indicate for
-kill	eradicate
-be against	respond to
-have	infect with
-find in	obtain from
-be for	develop for
-be in	see in
-administer for	require for
-characterize by	occur in
-associate with	see in
-show	occur in
-be for	reduce
-use in	license for
-obtain with	produce
-attack	involve
-refer to	mean
-be for	respond to
-mask	relieve
-take for	control with
-correct with	require
-associate with	occur from
-follow	develop from
-form from	metabolize to
-result in	develop from
-alleviate	control with
-relieve	decrease
-be in	characterize by
-need for	control by
-find in	have
-associate with	manifest by
-administer for	relieve
-transmit	carry by
-cause	present with
-suggest	develop into
-follow	suggest
-treat with	require for
-protect against	prevent
-give	obtain from
-associate with	define as
-occur with	produce
-aggravate	produce
-control with	order for
-cause	see in
-protect from	reduce
-result in	lead to
-define as	mean
-afford	produce
-result in	present with
-manage with	relieve
-suggest	produce
-carry	infect with
-use for	mask
-give for	help
-be for	be against
-be in	infect with
-alleviate	relieve
-give to	administer to
-administer for	need for
-compose of	use as
-precede by	herald by
-occur during	characterize by
-be in	occur in
-present with	occur in
-prescribe for	reduce
-reduce	control
-accompany by	associate with
-use for	use in
-cause by	cause
-manage with	be for
-cause	complicate
-be in	affect
-make	produce in
-follow by	give to
-improve	relieve
-give for	provide from
-follow	occur from
-associate with	mean
-treat with	control
-cause by	induce
-use in	require for
-take for	be for
-unite with	combine with
-manufacture	produce by
-be in	contain
-accompany with	associate with
-imply	associate with
-prevent	reduce
-present with	give to
-give	give to
-produce	occur with
-be with	indicate for
-achieve with	provide
-occur in	characterize by
-cure by	cure
-mean	characterize by
-cause	develop from
-cause	associate
-control by	cure with
-characterize by	be with
-mistake for	mistake for
-base on	contain
-consist of	be in
-result in	cause
-occur after	associate with
-predispose to	associate with
-result from	give to
-control by	control
-accompany	occur with
-give with	treat with
-cause by	present with
-associate with	see in
-treat	use for
-metabolize to	form from
-aggravate	cause
-be for	give for
-overcome by	relieve by
-be in	control by
-take for	treat with
-help	administer for
-encounter	combine with
-produce	cause
-indicate	see in
-help	respond to
-combine with	administer with
-help	treat with
-reduce	use in
-relate to	associate with
-herald by	associate with
-administer for	order for
-provide	offer
-control with	manage with
-occur in	occur with
-prescribe for	achieve with
-complicate by	progress to
-give during	use during
-affect with	develop in
-help with	relieve
-use for	reduce
-treat with	control with
-occur in	develop in
-respond to	require for
-derive from	isolate from
-follow	cause by
-inject into	fertilize
-eradicate	treat by
-cause	occur with
-complicate	follow by
-be for	manage with
-be for	provide by
-produce	accompany
-respond to	relieve by
-produce	accompany by
-see in	result from
-follow by	associate with
-cause by	develop after
-penetrate	enter
-use for	decrease
-associate with	come with
-develop in	be in
-develop for	use in
-cause	predispose to
-cause by	accompany
-control	treat by
-result from	suggest
-cause by	develop from
-reduce	administer for
-prevent	control by
-use for	achieve with
-protect against	protect from
-provide	use for
-cause by	follow by
-expose to	develop
-recommend for	give for
-define as	cause by
-relieve by	require for
-confuse with	resemble
-develop for	use for
-respond to	use for
-obtain from	give
-associate with	give to
-accompany by	accompany with
-be against	be for
-develop	produce
-metabolize by	metabolize in
-treat with	relieve with
-obtain with	bring
-produce	present as
-penetrate by	inject into
-relieve with	control by
-consist of	make from
-relieve	be in
-have	provide
-suggest	consist of
-join with	encounter
-suggest	associate with
-prepare from	consist of
-result in	characterize by
-prevent	protect against
-cause	manifest as
-treat by	relieve
-control with	mask
-associate with	result from
-use as	prepare from
-inhibit	inhibit by
-kill	respond to
-prevent	relieve
-relieve by	administer for
-introduce	introduce by
-follow by	lead to
-produce by	obtain from
-produce by	produce in
-relieve with	relieve by
-achieve with	bring
-metabolize to	convert into
-release into	enter
-use with	combine with
-offer	produce
-secrete	produce
-consist of	characterize by
-metabolize to	convert to
-be in	help
-inhibit	prevent
-lead to	predispose to
-occur in	attack
-manage with	control by
-discover	find
-control by	treat with
-transmit through	transmit
-characterize by	be with
-occur with	accompany by
-reach	enter
-be for	use for
-be for	be with
-suffer from	be in
-manifest by	lead to
-relieve by	use for
-take for	reduce
-reduce	take for
-afford by	provide
-cause	be in
-simulate	resemble
-transmit by	carry
-suggest	have
-be in	complicate with
-produce	manufacture
-fight	prevent
-produce by	lead to
-use for	need for
-associate with	occur during
-order for	prescribe for
-treat with	alleviate
-manifest by	produce
-associate with	herald by
-prescribe for	require
-use for	correct by
-indicate for	indicate in
-give	be for
-herald by	precede by
-combine with	contain
-produce	follow by
-cause	induce by
-use in	give for
-provide by	give
-affect by	be against
-prevent by	eliminate
-relieve	control by
-complicate by	follow by
-use as	have
-recommend for	use for
-transmit by	infect with
-accompany by	cause by
-use for	correct
-find in	develop
-mistake for	distinguish from
-result from	suggest
-help	need for
-reduce	manage with
-relate to	cause by
-treat with	give with
-control by	help
-relieve by	overcome by
-cause	manifest by
-use for	relieve
-die of	develop
-improve	treat with
-result in	cause by
-require	control by
-control by	be against
-result in	suggest
-present as	occur in
-suggest	accompany
-follow	lead to
-result in	result from
-cause	affect
-result in	indicate
-prescribe for	indicate for
-mask	manage with
-recommend for	provide
-help	relieve by
-relieve with	treat with
-cause by	complicate
-cause	occur after
-be in	achieve with
-relieve by	order for
-indicate	accompany by
-induce	produce
-relieve by	reduce
-occur from	lead to
-use for	use as
-use for	develop for
-occur in	involve
-develop	find in
-correct by	give for
-suggest	indicate
-use against	eliminate
-respond to	require
-contain	base on
-recommend for	afford
-accompany by	accompany by
-give to	associate with
-transmit by	transmit
-follow	give to
-result from	contribute to
-develop in	affect
-involve	attack
-complicate	complicate with
-cure with	control
-correct by	treat by
-administer before	give before
-use as	employ as
-develop after	cause
-require	cure by
-be against	kill
-spread by	transmit
-provide	bring
-control with	provide from
-cause	involve
-reduce	treat with
-manifest by	indicate
-cure	treat by
-control with	treat
-require	relieve by
-control	indicate for
-prescribe for	cure
-obtain from	occur in
-cause by	characterize by
-use in	use
-relieve	control
-find in	isolate from
-be in	manage with
-treat with	improve
-be in	suggest
-alleviate	control by
-accompany by	follow
-cause	attribute to
-control by	be in
-give to	associate with
-turn to	develop into
-combine with	combine with
-transmit via	transmit through
-suggest	start with
-reduce	help
-lead to	manifest by
-control	prevent
-cause	exacerbate
-occur in	characterize by
-bring	obtain with
-indicate	present as
-begin as	cause
-provide	have
-obtain with	prescribe for
-produce	afford
-manifest as	result from
-make	manufacture
-carry	transmit
-relieve with	help
-occur after	cause by
-suppress	reduce
-produce	accompany by
-achieve with	recommend for
-begin with	characterize by
-transmit from	have
-suggest	cause
-cure by	relieve
-convert into	derive from
-afford	bring
-manifest by	associate with
-reduce	order for
-give for	require
-cure with	control with
-indicate for	be with
-control	manage with
-control by	treat by
-require	prevent
-complicate by	develop into
-alleviate	relieve with
-use as	use as
-use in	administer to
-affect by	be in
-be with	affect
-require	give for
-respond to	manage with
-result in	associate with
-fertilize	penetrate by
-fertilize by	penetrate
-cause	occur with
-produce	come from
-need for	control with
-cause by	lead to
-make from	contain
-control by	relieve
-produce	discharge
-relieve	overcome by
-attribute to	associate with
-follow	produce
-order for	need for
-involve	affect
-follow	accompany
-produce	provide
-affect by	kill by
-order for	use for
-provide	prescribe for
-use for	include
-cure	require
-control by	mask
-follow	result from
-follow	complicate
-prevent	inhibit
-produce	manifest by
-include	know as
-be in	suffer from
-recommend for	use
-base on	compose of
-lead to	characterize by
-bring	achieve with
-occur from	associate with
-cover	treat with
-produce by	release
-occur from	result in
-associate with	follow by
-eliminate	be against
-require for	be for
-develop	cause by
-correct with	treat by
-result in	contribute to
-relieve	manage with
-cause by	accompany by
-cause by	see in
-cause by	predispose to
-meet	combine with
-affect	affect with
-respond to	eliminate
-cure	relieve by
-kill	die of
-develop from	follow
-progress to	complicate by
-mean	cause
-overcome by	treat with
-accompany by	complicate
-transmit by	spread through
-introduce by	produce
-achieve with	indicate for
-break	digest
-be during	occur during
-be with	characterize by
-penetrate by	fertilize by
-prevent	require
-relieve by	control with
-treat by	alleviate
-cure	control by
-treat by	cure
-help	alleviate
-develop	expose to
-infect with	transmit
-characterize by	cause by
-accompany	follow
-attribute to	cause by
-occur in	transmit
-follow by	cause by
-exacerbate	cause
-treat with	recommend for
-involve	cause
-develop	have
-convert into	form from
-reduce to	convert to
-discover	invent
-suggest	occur in
-see in	produce
-follow by	alternate with
-be in	relieve
-require	respond to
-infect with	find in
-transmit	occur in
-control with	control by
-use for	treat
-cause by	associate with
-follow	precede
-unite with	combine with
+X expose to Y	X protect from Y	NEGATIVE
+X differ from Y	X resemble Y	NEGATIVE
+X distinguish from Y	X associate with Y	NEGATIVE
+X know as Y	X resemble Y	NEGATIVE
+X protect from Y	X expose to Y	NEGATIVE
+X associate with Y	X occur Y	NEGATIVE
+X characterize by Y	X distinguish from Y	NEGATIVE
+X distinguish from Y	X have Y	NEGATIVE
+X derive from Y	X kill Y	NEGATIVE
+X include Y	X differ from Y	NEGATIVE
+X have Y	X distinguish from Y	NEGATIVE
+X produce by Y	X destroy Y	NEGATIVE
+X derive from Y	X convert to Y	NEGATIVE
+X be in Y	X contain Y	NEGATIVE
+X be in Y	X have Y	NEGATIVE
+X derive from Y	X be against Y	NEGATIVE
+X contain Y	X be in Y	NEGATIVE
+X include Y	X substitute for Y	NEGATIVE
+X resemble Y	X differentiate from Y	NEGATIVE
+X simulate Y	X confound with Y	NEGATIVE
+X convert to Y	X derive from Y	NEGATIVE
+X produce Y	X kill Y	NEGATIVE
+X treat by Y	X produce Y	NEGATIVE
+X be against Y	X derive from Y	NEGATIVE
+X resemble Y	X confuse with Y	POSITIVE
+X distinguish from Y	X confound with Y	NEGATIVE
+X associate with Y	X distinguish from Y	NEGATIVE
+X be in Y	X occur in Y	NEGATIVE
+X avoid in Y	X use in Y	NEGATIVE
+X prevent Y	X produce Y	NEGATIVE
+X differentiate from Y	X resemble Y	NEGATIVE
+X resemble Y	X confound with Y	NEGATIVE
+X kill Y	X derive from Y	NEGATIVE
+X get Y	X kill Y	NEGATIVE
+X contract Y	X die of Y	NEGATIVE
+X include Y	X confuse with Y	NEGATIVE
+X differ from Y	X include Y	NEGATIVE
+X substitute for Y	X include Y	NEGATIVE
+X be against Y	X produce Y	NEGATIVE
+X produce Y	X use in Y	NEGATIVE
+X produce by Y	X be against Y	NEGATIVE
+X simulate Y	X differ from Y	NEGATIVE
+X mimic Y	X differentiate from Y	NEGATIVE
+X characterize by Y	X include Y	NEGATIVE
+X correct Y	X indicate for Y	NEGATIVE
+X expose to Y	X die of Y	NEGATIVE
+X resemble Y	X know as Y	NEGATIVE
+X occur Y	X associate with Y	NEGATIVE
+X resemble Y	X distinguish from Y	NEGATIVE
+X confuse with Y	X include Y	NEGATIVE
+X produce by Y	X kill Y	NEGATIVE
+X produce Y	X give to Y	NEGATIVE
+X contract Y	X die from Y	NEGATIVE
+X be in Y	X find in Y	NEGATIVE
+X distinguish from Y	X characterize by Y	NEGATIVE
+X produce Y	X be against Y	NEGATIVE
+X resemble Y	X distinguish from Y	NEGATIVE
+X use in Y	X produce Y	NEGATIVE
+X have Y	X be in Y	NEGATIVE
+X suffer from Y	X die of Y	NEGATIVE
+X treat with Y	X produce Y	NEGATIVE
+X destroy Y	X produce by Y	NEGATIVE
+X simulate Y	X confound with Y	NEGATIVE
+X distinguish from Y	X associate with Y	NEGATIVE
+X give to Y	X produce Y	NEGATIVE
+X distinguish from Y	X confound with Y	NEGATIVE
+X develop Y	X die of Y	NEGATIVE
+X differ from Y	X confound with Y	NEGATIVE
+X characterize by Y	X distinguish from Y	NEGATIVE
+X produce Y	X prevent Y	NEGATIVE
+X resemble Y	X differ from Y	NEGATIVE
+X indicate for Y	X correct Y	NEGATIVE
+X distinguish from Y	X resemble Y	NEGATIVE
+X have Y	X die of Y	NEGATIVE
+X destroy Y	X derive from Y	NEGATIVE
+X kill Y	X produce by Y	NEGATIVE
+X associate with Y	X distinguish from Y	NEGATIVE
+X occur in Y	X be in Y	NEGATIVE
+X contract Y	X kill Y	NEGATIVE
+X resemble Y	X differ from Y	NEGATIVE
+X produce Y	X destroy Y	NEGATIVE
+X constrict Y	X dilate Y	NEGATIVE
+X produce Y	X treat with Y	NEGATIVE
+X be against Y	X produce by Y	NEGATIVE
+X dilate Y	X constrict Y	NEGATIVE
+X use in Y	X avoid in Y	NEGATIVE
+X get Y	X die of Y	NEGATIVE
+X produce Y	X treat by Y	NEGATIVE
+X simulate Y	X distinguish from Y	NEGATIVE
+X kill Y	X produce Y	NEGATIVE
+X derive from Y	X destroy Y	NEGATIVE
+X distinguish from Y	X characterize by Y	NEGATIVE
+X resemble Y	X confuse with Y	NEGATIVE
+X find in Y	X be in Y	NEGATIVE
+X destroy Y	X produce Y	NEGATIVE
+X convert to Y	X convert to Y	NEGATIVE
+X have Y	X kill Y	NEGATIVE
+X differentiate from Y	X mimic Y	NEGATIVE
+X get Y	X die from Y	NEGATIVE
+X confuse with Y	X confound with Y	POSITIVE
+X release into Y	X secrete into Y	POSITIVE
+X suffer from Y	X get Y	POSITIVE
+X relate to Y	X cause Y	POSITIVE
+X associate with Y	X associate with Y	POSITIVE
+X make from Y	X derive from Y	POSITIVE
+X eradicate Y	X be against Y	POSITIVE
+X give Y	X expose to Y	POSITIVE
+X use for Y	X recommend for Y	POSITIVE
+X die from Y	X die of Y	POSITIVE
+X cause by Y	X give Y	POSITIVE
+X cause by Y	X involve Y	POSITIVE
+X give Y	X indicate for Y	POSITIVE
+X involve Y	X define as Y	POSITIVE
+X precede by Y	X complicate Y	POSITIVE
+X suggest Y	X accompany by Y	POSITIVE
+X be in Y	X control with Y	POSITIVE
+X license for Y	X be for Y	POSITIVE
+X give to Y	X use in Y	POSITIVE
+X result in Y	X accompany by Y	POSITIVE
+X require for Y	X respond to Y	POSITIVE
+X administer for Y	X give for Y	POSITIVE
+X accompany Y	X develop with Y	POSITIVE
+X associate with Y	X develop from Y	POSITIVE
+X accompany Y	X complicate Y	POSITIVE
+X produce Y	X secrete by Y	POSITIVE
+X recommend for Y	X administer for Y	POSITIVE
+X control with Y	X prevent Y	POSITIVE
+X contain Y	X have Y	POSITIVE
+X produce Y	X increase Y	POSITIVE
+X require for Y	X use in Y	POSITIVE
+X associate with Y	X result in Y	POSITIVE
+X be against Y	X use in Y	POSITIVE
+X order for Y	X reduce Y	POSITIVE
+X enter Y	X reach Y	POSITIVE
+X be in Y	X present with Y	POSITIVE
+X occur in Y	X present with Y	POSITIVE
+X consist of Y	X begin with Y	POSITIVE
+X relieve by Y	X prescribe for Y	POSITIVE
+X follow Y	X develop after Y	POSITIVE
+X confound with Y	X confuse with Y	POSITIVE
+X give as Y	X use as Y	POSITIVE
+X offer Y	X provide Y	POSITIVE
+X control Y	X be in Y	POSITIVE
+X contain Y	X find in Y	POSITIVE
+X give to Y	X take Y	POSITIVE
+X develop Y	X occur in Y	POSITIVE
+X involve Y	X occur in Y	POSITIVE
+X improve Y	X relieve by Y	POSITIVE
+X result from Y	X associate with Y	POSITIVE
+X result in Y	X produce Y	POSITIVE
+X induce by Y	X produce Y	POSITIVE
+X join with Y	X unite with Y	POSITIVE
+X provide Y	X obtain with Y	POSITIVE
+X help Y	X manage with Y	POSITIVE
+X license for Y	X use for Y	POSITIVE
+X take for Y	X prescribe for Y	POSITIVE
+X help Y	X prescribe for Y	POSITIVE
+X base on Y	X make from Y	POSITIVE
+X alleviate Y	X prescribe for Y	POSITIVE
+X cause Y	X lead to Y	POSITIVE
+X use in Y	X take Y	POSITIVE
+X control with Y	X treat by Y	POSITIVE
+X accompany by Y	X result in Y	POSITIVE
+X bring Y	X cause Y	POSITIVE
+X find in Y	X associate with Y	POSITIVE
+X give for Y	X take for Y	POSITIVE
+X have Y	X use for Y	POSITIVE
+X use for Y	X help Y	POSITIVE
+X see in Y	X cause by Y	POSITIVE
+X find Y	X discover Y	POSITIVE
+X use for Y	X be against Y	POSITIVE
+X reserve for Y	X treat by Y	POSITIVE
+X administer for Y	X relieve by Y	POSITIVE
+X create Y	X produce Y	POSITIVE
+X lead to Y	X complicate by Y	POSITIVE
+X develop Y	X be in Y	POSITIVE
+X characterize by Y	X mean Y	POSITIVE
+X be in Y	X describe as Y	POSITIVE
+X associate with Y	X give Y	POSITIVE
+X treat with Y	X mask Y	POSITIVE
+X present as Y	X follow Y	POSITIVE
+X eradicate Y	X control by Y	POSITIVE
+X stimulate Y	X promote Y	POSITIVE
+X give for Y	X use in Y	POSITIVE
+X precede by Y	X cause Y	POSITIVE
+X use in Y	X use for Y	POSITIVE
+X kill Y	X kill by Y	POSITIVE
+X find in Y	X be in Y	POSITIVE
+X wipe Y	X prevent Y	POSITIVE
+X use as Y	X derive from Y	POSITIVE
+X fertilize by Y	X inject into Y	POSITIVE
+X inactivate by Y	X inactivate Y	POSITIVE
+X suffer from Y	X develop Y	POSITIVE
+X treat with Y	X affect by Y	POSITIVE
+X cause Y	X increase Y	POSITIVE
+X complicate Y	X accompany by Y	POSITIVE
+X cause Y	X precipitate by Y	POSITIVE
+X see in Y	X accompany by Y	POSITIVE
+X respond to Y	X prescribe for Y	POSITIVE
+X need for Y	X treat with Y	POSITIVE
+X control by Y	X control with Y	POSITIVE
+X order for Y	X be in Y	POSITIVE
+X occur in Y	X have Y	POSITIVE
+X derive from Y	X synthesize from Y	POSITIVE
+X carry by Y	X spread by Y	POSITIVE
+X develop Y	X affect Y	POSITIVE
+X associate with Y	X attend with Y	POSITIVE
+X provide by Y	X provide Y	POSITIVE
+X control with Y	X eradicate Y	POSITIVE
+X afford by Y	X provide by Y	POSITIVE
+X develop from Y	X result from Y	POSITIVE
+X relieve by Y	X require Y	POSITIVE
+X convert to Y	X reduce to Y	POSITIVE
+X use for Y	X require for Y	POSITIVE
+X destroy Y	X be against Y	POSITIVE
+X cause Y	X mean Y	POSITIVE
+X unite with Y	X meet Y	POSITIVE
+X affect by Y	X involve Y	POSITIVE
+X base on Y	X prepare from Y	POSITIVE
+X respond to Y	X alleviate Y	POSITIVE
+X give Y	X cause Y	POSITIVE
+X transmit Y	X spread by Y	POSITIVE
+X convert Y	X break Y	POSITIVE
+X control by Y	X relieve by Y	POSITIVE
+X develop into Y	X progress to Y	POSITIVE
+X prevent Y	X protect from Y	POSITIVE
+X obtain from Y	X derive from Y	POSITIVE
+X prescribe for Y	X provide from Y	POSITIVE
+X accompany Y	X associate with Y	POSITIVE
+X precede Y	X characterize by Y	POSITIVE
+X attribute to Y	X associate with Y	POSITIVE
+X be in Y	X cause Y	POSITIVE
+X cause by Y	X aggravate Y	POSITIVE
+X mask Y	X control with Y	POSITIVE
+X attribute to Y	X be in Y	POSITIVE
+X convert into Y	X reduce to Y	POSITIVE
+X affect Y	X be with Y	POSITIVE
+X use in Y	X need for Y	POSITIVE
+X occur from Y	X produce Y	POSITIVE
+X compose of Y	X prepare from Y	POSITIVE
+X reduce Y	X relieve by Y	POSITIVE
+X make from Y	X base on Y	POSITIVE
+X prevent by Y	X protect against Y	POSITIVE
+X isolate from Y	X produce by Y	POSITIVE
+X produce Y	X relate to Y	POSITIVE
+X need for Y	X relieve Y	POSITIVE
+X prevent Y	X wipe Y	POSITIVE
+X take for Y	X give for Y	POSITIVE
+X cure Y	X cure by Y	POSITIVE
+X require Y	X prescribe for Y	POSITIVE
+X use for Y	X take for Y	POSITIVE
+X relieve with Y	X take for Y	POSITIVE
+X occur with Y	X lead to Y	POSITIVE
+X need for Y	X prescribe for Y	POSITIVE
+X take for Y	X help Y	POSITIVE
+X produce Y	X occur with Y	POSITIVE
+X destroy Y	X kill Y	POSITIVE
+X control with Y	X be against Y	POSITIVE
+X lead to Y	X contribute to Y	POSITIVE
+X occur in Y	X contain Y	POSITIVE
+X require for Y	X be in Y	POSITIVE
+X follow by Y	X be after Y	POSITIVE
+X cure by Y	X require Y	POSITIVE
+X develop into Y	X complicate by Y	POSITIVE
+X kill Y	X use against Y	POSITIVE
+X control by Y	X order for Y	POSITIVE
+X encounter Y	X meet Y	POSITIVE
+X introduce by Y	X introduce Y	POSITIVE
+X give to Y	X use for Y	POSITIVE
+X use for Y	X give Y	POSITIVE
+X complicate Y	X occur with Y	POSITIVE
+X be in Y	X reduce Y	POSITIVE
+X penetrate Y	X fertilize Y	POSITIVE
+X occur during Y	X be during Y	POSITIVE
+X correct Y	X use for Y	POSITIVE
+X relieve by Y	X alleviate Y	POSITIVE
+X require for Y	X relieve Y	POSITIVE
+X help Y	X decrease Y	POSITIVE
+X give Y	X occur in Y	POSITIVE
+X relieve by Y	X treat by Y	POSITIVE
+X accompany by Y	X occur with Y	POSITIVE
+X overcome by Y	X treat by Y	POSITIVE
+X confuse with Y	X confound with Y	POSITIVE
+X produce Y	X cause by Y	POSITIVE
+X relieve Y	X require Y	POSITIVE
+X cause by Y	X occur in Y	POSITIVE
+X provide Y	X give Y	POSITIVE
+X contain Y	X be in Y	POSITIVE
+X be in Y	X administer for Y	POSITIVE
+X cause by Y	X occur with Y	POSITIVE
+X treat with Y	X take Y	POSITIVE
+X recommend for Y	X prescribe for Y	POSITIVE
+X follow by Y	X produce Y	POSITIVE
+X relieve Y	X use for Y	POSITIVE
+X combine with Y	X join with Y	POSITIVE
+X be in Y	X order for Y	POSITIVE
+X combine with Y	X use with Y	POSITIVE
+X provide by Y	X recommend for Y	POSITIVE
+X develop into Y	X associate with Y	POSITIVE
+X accompany by Y	X come with Y	POSITIVE
+X occur in Y	X suffer from Y	POSITIVE
+X characterize by Y	X lead to Y	POSITIVE
+X enter Y	X be in Y	POSITIVE
+X treat by Y	X eradicate Y	POSITIVE
+X affect Y	X involve Y	POSITIVE
+X prevent Y	X use against Y	POSITIVE
+X relieve with Y	X give for Y	POSITIVE
+X produce Y	X develop Y	POSITIVE
+X help Y	X reduce Y	POSITIVE
+X provide Y	X afford by Y	POSITIVE
+X make from Y	X prepare from Y	POSITIVE
+X reduce Y	X need for Y	POSITIVE
+X produce Y	X release Y	POSITIVE
+X cause Y	X be from Y	POSITIVE
+X infect with Y	X infect Y	POSITIVE
+X decrease Y	X reduce Y	POSITIVE
+X afford Y	X obtain with Y	POSITIVE
+X suggest Y	X be in Y	POSITIVE
+X carry Y	X spread Y	POSITIVE
+X appear as Y	X characterize by Y	POSITIVE
+X lead to Y	X develop into Y	POSITIVE
+X provide Y	X contain Y	POSITIVE
+X occur in Y	X affect Y	POSITIVE
+X meet Y	X unite with Y	POSITIVE
+X inactivate Y	X inactivate by Y	POSITIVE
+X kill Y	X die from Y	POSITIVE
+X achieve with Y	X offer Y	POSITIVE
+X indicate for Y	X afford Y	POSITIVE
+X affect by Y	X affect Y	POSITIVE
+X use against Y	X control with Y	POSITIVE
+X suggest Y	X present with Y	POSITIVE
+X cause by Y	X progress to Y	POSITIVE
+X prevent by Y	X treat by Y	POSITIVE
+X indicate Y	X result in Y	POSITIVE
+X cause by Y	X manifest as Y	POSITIVE
+X control with Y	X eliminate Y	POSITIVE
+X treat with Y	X be against Y	POSITIVE
+X use for Y	X give for Y	POSITIVE
+X manifest as Y	X associate with Y	POSITIVE
+X be with Y	X be in Y	POSITIVE
+X treat by Y	X need for Y	POSITIVE
+X characterize by Y	X result from Y	POSITIVE
+X contract Y	X get Y	POSITIVE
+X increase Y	X cause Y	POSITIVE
+X manage with Y	X prescribe for Y	POSITIVE
+X need for Y	X treat by Y	POSITIVE
+X be against Y	X control by Y	POSITIVE
+X reduce Y	X relieve with Y	POSITIVE
+X occur in Y	X occur with Y	POSITIVE
+X give Y	X bring Y	POSITIVE
+X infect with Y	X occur in Y	POSITIVE
+X define as Y	X associate with Y	POSITIVE
+X associate with Y	X find in Y	POSITIVE
+X make Y	X produce by Y	POSITIVE
+X obtain with Y	X offer Y	POSITIVE
+X prescribe for Y	X control Y	POSITIVE
+X occur with Y	X result in Y	POSITIVE
+X progress to Y	X associate with Y	POSITIVE
+X need for Y	X control Y	POSITIVE
+X correct by Y	X treat with Y	POSITIVE
+X correct by Y	X correct with Y	POSITIVE
+X consist of Y	X use as Y	POSITIVE
+X alleviate Y	X respond to Y	POSITIVE
+X associate with Y	X refer to Y	POSITIVE
+X eradicate Y	X eliminate Y	POSITIVE
+X relieve with Y	X mask Y	POSITIVE
+X have Y	X use as Y	POSITIVE
+X secrete by Y	X produce by Y	POSITIVE
+X begin as Y	X complicate Y	POSITIVE
+X be in Y	X cause by Y	POSITIVE
+X present with Y	X suggest Y	POSITIVE
+X eliminate Y	X prevent Y	POSITIVE
+X reduce Y	X indicate for Y	POSITIVE
+X treat with Y	X order for Y	POSITIVE
+X be after Y	X follow Y	POSITIVE
+X reduce Y	X relieve Y	POSITIVE
+X alleviate Y	X decrease Y	POSITIVE
+X reduce Y	X control by Y	POSITIVE
+X characterize by Y	X result from Y	POSITIVE
+X follow Y	X characterize by Y	POSITIVE
+X produce Y	X secrete Y	POSITIVE
+X affect by Y	X eradicate Y	POSITIVE
+X derive from Y	X use as Y	POSITIVE
+X characterize by Y	X cause Y	POSITIVE
+X start with Y	X characterize by Y	POSITIVE
+X enter Y	X inject into Y	POSITIVE
+X prevent Y	X prescribe for Y	POSITIVE
+X associate with Y	X produce by Y	POSITIVE
+X treat Y	X treat with Y	POSITIVE
+X fertilize Y	X enter Y	POSITIVE
+X make from Y	X consist of Y	POSITIVE
+X follow by Y	X develop after Y	POSITIVE
+X suggest Y	X lead to Y	POSITIVE
+X relieve by Y	X relieve Y	POSITIVE
+X administer to Y	X use in Y	POSITIVE
+X combine with Y	X meet Y	POSITIVE
+X manifest by Y	X cause by Y	POSITIVE
+X treat with Y	X correct with Y	POSITIVE
+X release Y	X produce by Y	POSITIVE
+X complicate with Y	X complicate Y	POSITIVE
+X penetrate Y	X inject into Y	POSITIVE
+X order for Y	X control by Y	POSITIVE
+X contribute to Y	X cause by Y	POSITIVE
+X differ from Y	X differ from Y	POSITIVE
+X associate with Y	X manifest as Y	POSITIVE
+X see in Y	X characterize by Y	POSITIVE
+X need for Y	X give for Y	POSITIVE
+X precipitate by Y	X cause Y	POSITIVE
+X result from Y	X produce by Y	POSITIVE
+X describe as Y	X be in Y	POSITIVE
+X treat with Y	X correct by Y	POSITIVE
+X contribute to Y	X lead to Y	POSITIVE
+X characterize by Y	X manifest by Y	POSITIVE
+X control Y	X cure with Y	POSITIVE
+X require for Y	X relieve by Y	POSITIVE
+X contain Y	X occur in Y	POSITIVE
+X accompany by Y	X attend with Y	POSITIVE
+X order for Y	X treat with Y	POSITIVE
+X present as Y	X be in Y	POSITIVE
+X give Y	X use in Y	POSITIVE
+X develop from Y	X associate with Y	POSITIVE
+X be from Y	X cause Y	POSITIVE
+X derive from Y	X produce by Y	POSITIVE
+X produce by Y	X manufacture Y	POSITIVE
+X have Y	X receive Y	POSITIVE
+X carry Y	X spread by Y	POSITIVE
+X give before Y	X start before Y	POSITIVE
+X be in Y	X alleviate Y	POSITIVE
+X occur with Y	X associate with Y	POSITIVE
+X define as Y	X refer to Y	POSITIVE
+X treat Y	X treat by Y	POSITIVE
+X characterize by Y	X include Y	POSITIVE
+X provide from Y	X treat with Y	POSITIVE
+X result from Y	X cause Y	POSITIVE
+X occur from Y	X cause by Y	POSITIVE
+X indicate for Y	X provide Y	POSITIVE
+X combine with Y	X include Y	POSITIVE
+X affect in Y	X involve Y	POSITIVE
+X observe in Y	X occur in Y	POSITIVE
+X release Y	X make Y	POSITIVE
+X mask Y	X relieve by Y	POSITIVE
+X attend with Y	X accompany by Y	POSITIVE
+X carry by Y	X transmit Y	POSITIVE
+X relieve Y	X prescribe for Y	POSITIVE
+X produce Y	X bring Y	POSITIVE
+X use for Y	X relieve by Y	POSITIVE
+X associate with Y	X occur in Y	POSITIVE
+X prepare from Y	X base on Y	POSITIVE
+X confuse with Y	X distinguish from Y	POSITIVE
+X decrease Y	X control Y	POSITIVE
+X control with Y	X relieve with Y	POSITIVE
+X prevent Y	X treat Y	POSITIVE
+X suggest Y	X result in Y	POSITIVE
+X give for Y	X be for Y	POSITIVE
+X reduce Y	X suppress Y	POSITIVE
+X relieve with Y	X control Y	POSITIVE
+X need for Y	X be in Y	POSITIVE
+X carry Y	X find in Y	POSITIVE
+X produce Y	X lead to Y	POSITIVE
+X accompany Y	X follow Y	POSITIVE
+X succeed to Y	X follow by Y	POSITIVE
+X present with Y	X indicate Y	POSITIVE
+X decrease Y	X control with Y	POSITIVE
+X stimulate Y	X produce Y	POSITIVE
+X convert to Y	X form from Y	POSITIVE
+X metabolize to Y	X reduce to Y	POSITIVE
+X convert by Y	X metabolize by Y	POSITIVE
+X induce Y	X provide Y	POSITIVE
+X mask Y	X control Y	POSITIVE
+X complicate Y	X complicate by Y	POSITIVE
+X follow Y	X suggest Y	POSITIVE
+X control Y	X decrease Y	POSITIVE
+X relieve by Y	X take for Y	POSITIVE
+X afford Y	X offer Y	POSITIVE
+X recommend for Y	X indicate for Y	POSITIVE
+X indicate in Y	X indicate for Y	POSITIVE
+X control by Y	X need for Y	POSITIVE
+X be for Y	X recommend for Y	POSITIVE
+X require Y	X treat by Y	POSITIVE
+X use as Y	X consist of Y	POSITIVE
+X associate with Y	X result in Y	POSITIVE
+X associate with Y	X see with Y	POSITIVE
+X join with Y	X unite with Y	POSITIVE
+X give Y	X associate with Y	POSITIVE
+X relieve Y	X relieve with Y	POSITIVE
+X cause by Y	X occur in Y	POSITIVE
+X indicate for Y	X recommend for Y	POSITIVE
+X inject into Y	X fertilize by Y	POSITIVE
+X order for Y	X treat by Y	POSITIVE
+X alternate with Y	X give to Y	POSITIVE
+X refer to Y	X cause by Y	POSITIVE
+X correct by Y	X correct Y	POSITIVE
+X mask Y	X control by Y	POSITIVE
+X require for Y	X need for Y	POSITIVE
+X cause Y	X develop with Y	POSITIVE
+X make from Y	X compose of Y	POSITIVE
+X spread through Y	X transmit by Y	POSITIVE
+X isolate from Y	X derive from Y	POSITIVE
+X give for Y	X prescribe for Y	POSITIVE
+X affect Y	X develop in Y	POSITIVE
+X manage with Y	X mask Y	POSITIVE
+X predispose to Y	X lead to Y	POSITIVE
+X transmit Y	X transmit by Y	POSITIVE
+X transmit by Y	X find in Y	POSITIVE
+X occur with Y	X cause Y	POSITIVE
+X infect with Y	X have Y	POSITIVE
+X indicate for Y	X achieve with Y	POSITIVE
+X associate with Y	X accompany with Y	POSITIVE
+X use for Y	X administer for Y	POSITIVE
+X relate to Y	X result in Y	POSITIVE
+X develop with Y	X accompany Y	POSITIVE
+X relieve Y	X treat with Y	POSITIVE
+X be in Y	X present as Y	POSITIVE
+X provide Y	X recommend for Y	POSITIVE
+X use in Y	X give to Y	POSITIVE
+X enter Y	X penetrate by Y	POSITIVE
+X use Y	X have Y	POSITIVE
+X control by Y	X overcome by Y	POSITIVE
+X produce Y	X find Y	POSITIVE
+X afford Y	X prescribe for Y	POSITIVE
+X use for Y	X order for Y	POSITIVE
+X use for Y	X correct with Y	POSITIVE
+X treat with Y	X provide from Y	POSITIVE
+X convert by Y	X convert Y	POSITIVE
+X present with Y	X associate with Y	POSITIVE
+X find in Y	X appear in Y	POSITIVE
+X afford by Y	X offer Y	POSITIVE
+X follow by Y	X complicate by Y	POSITIVE
+X produce Y	X precede by Y	POSITIVE
+X begin with Y	X present with Y	POSITIVE
+X require Y	X correct by Y	POSITIVE
+X carry by Y	X infect with Y	POSITIVE
+X correct with Y	X correct by Y	POSITIVE
+X transmit by Y	X spread by Y	POSITIVE
+X lead to Y	X present as Y	POSITIVE
+X overcome by Y	X control by Y	POSITIVE
+X cause Y	X trigger Y	POSITIVE
+X achieve with Y	X prescribe for Y	POSITIVE
+X cause Y	X mean Y	POSITIVE
+X unite with Y	X encounter Y	POSITIVE
+X occur in Y	X suggest Y	POSITIVE
+X cause by Y	X define as Y	POSITIVE
+X contract Y	X develop Y	POSITIVE
+X treat with Y	X cure with Y	POSITIVE
+X achieve with Y	X give Y	POSITIVE
+X destroy Y	X attack Y	POSITIVE
+X produce in Y	X produce by Y	POSITIVE
+X be during Y	X be in Y	POSITIVE
+X prescribe for Y	X relieve with Y	POSITIVE
+X be in Y	X relieve by Y	POSITIVE
+X alleviate Y	X relieve by Y	POSITIVE
+X affect by Y	X treat with Y	POSITIVE
+X be in Y	X develop in Y	POSITIVE
+X complicate Y	X begin as Y	POSITIVE
+X reduce Y	X give for Y	POSITIVE
+X treat by Y	X relieve by Y	POSITIVE
+X give Y	X treat with Y	POSITIVE
+X come with Y	X associate with Y	POSITIVE
+X suggest Y	X see in Y	POSITIVE
+X relieve Y	X need for Y	POSITIVE
+X suggest Y	X follow Y	POSITIVE
+X correct Y	X relieve by Y	POSITIVE
+X accompany Y	X accompany Y	POSITIVE
+X contain Y	X compose of Y	POSITIVE
+X involve Y	X associate with Y	POSITIVE
+X promote Y	X stimulate Y	POSITIVE
+X relieve Y	X reduce Y	POSITIVE
+X associate with Y	X develop Y	POSITIVE
+X occur in Y	X cause Y	POSITIVE
+X complicate Y	X result from Y	POSITIVE
+X afford Y	X provide Y	POSITIVE
+X cure Y	X control Y	POSITIVE
+X reduce to Y	X metabolize to Y	POSITIVE
+X break Y	X convert Y	POSITIVE
+X fertilize Y	X penetrate Y	POSITIVE
+X follow Y	X associate with Y	POSITIVE
+X relieve Y	X help Y	POSITIVE
+X treat Y	X control with Y	POSITIVE
+X kill Y	X affect by Y	POSITIVE
+X include Y	X use for Y	POSITIVE
+X eliminate Y	X treat by Y	POSITIVE
+X obtain with Y	X give Y	POSITIVE
+X produce Y	X induce Y	POSITIVE
+X occur with Y	X follow Y	POSITIVE
+X treat with Y	X prescribe for Y	POSITIVE
+X relieve by Y	X need for Y	POSITIVE
+X produce Y	X introduce Y	POSITIVE
+X decrease Y	X relieve by Y	POSITIVE
+X present with Y	X see in Y	POSITIVE
+X use for Y	X manage with Y	POSITIVE
+X relate to Y	X produce Y	POSITIVE
+X enter Y	X release into Y	POSITIVE
+X make of Y	X make from Y	POSITIVE
+X prescribe for Y	X give for Y	POSITIVE
+X be against Y	X treat by Y	POSITIVE
+X relieve Y	X provide from Y	POSITIVE
+X relieve by Y	X relieve with Y	POSITIVE
+X manage with Y	X treat by Y	POSITIVE
+X cause Y	X characterize by Y	POSITIVE
+X eradicate Y	X use against Y	POSITIVE
+X be for Y	X provide Y	POSITIVE
+X mistake for Y	X confound with Y	POSITIVE
+X administer for Y	X be for Y	POSITIVE
+X kill by Y	X be against Y	POSITIVE
+X associate with Y	X give to Y	POSITIVE
+X control with Y	X cure Y	POSITIVE
+X give Y	X obtain with Y	POSITIVE
+X occur after Y	X result in Y	POSITIVE
+X help Y	X use for Y	POSITIVE
+X occur after Y	X result from Y	POSITIVE
+X mask Y	X help Y	POSITIVE
+X develop from Y	X produce Y	POSITIVE
+X cause by Y	X result from Y	POSITIVE
+X develop from Y	X result in Y	POSITIVE
+X progress to Y	X develop into Y	POSITIVE
+X occur during Y	X occur in Y	POSITIVE
+X give for Y	X relieve Y	POSITIVE
+X occur in Y	X produce Y	POSITIVE
+X prepare from Y	X make from Y	POSITIVE
+X need for Y	X order for Y	POSITIVE
+X be in Y	X administer to Y	POSITIVE
+X occur after Y	X lead to Y	POSITIVE
+X respond to Y	X reduce Y	POSITIVE
+X cure Y	X cure with Y	POSITIVE
+X be in Y	X relieve with Y	POSITIVE
+X decrease Y	X use for Y	POSITIVE
+X develop after Y	X follow by Y	POSITIVE
+X control Y	X reduce Y	POSITIVE
+X give Y	X recommend for Y	POSITIVE
+X carry Y	X occur in Y	POSITIVE
+X suggest Y	X manifest by Y	POSITIVE
+X unite with Y	X encounter Y	POSITIVE
+X give Y	X cause by Y	POSITIVE
+X eliminate Y	X cure by Y	POSITIVE
+X help Y	X relieve with Y	POSITIVE
+X confuse with Y	X differentiate from Y	POSITIVE
+X relieve by Y	X be in Y	POSITIVE
+X provide Y	X be for Y	POSITIVE
+X produce by Y	X cause Y	POSITIVE
+X use for Y	X give with Y	POSITIVE
+X cause by Y	X accompany by Y	POSITIVE
+X kill Y	X reduce Y	POSITIVE
+X give for Y	X reduce Y	POSITIVE
+X associate with Y	X attribute to Y	POSITIVE
+X control with Y	X kill Y	POSITIVE
+X penetrate Y	X fertilize by Y	POSITIVE
+X affect Y	X infect Y	POSITIVE
+X give to Y	X follow by Y	POSITIVE
+X manage with Y	X reduce Y	POSITIVE
+X treat with Y	X treat by Y	POSITIVE
+X obtain from Y	X produce by Y	POSITIVE
+X bring Y	X be for Y	POSITIVE
+X cure with Y	X cure Y	POSITIVE
+X relieve Y	X relieve by Y	POSITIVE
+X metabolize in Y	X metabolize by Y	POSITIVE
+X inject into Y	X enter Y	POSITIVE
+X require for Y	X recommend for Y	POSITIVE
+X cause Y	X start with Y	POSITIVE
+X help Y	X mask Y	POSITIVE
+X give for Y	X need for Y	POSITIVE
+X manifest by Y	X characterize by Y	POSITIVE
+X complicate Y	X precede by Y	POSITIVE
+X characterize by Y	X be in Y	POSITIVE
+X result from Y	X characterize by Y	POSITIVE
+X turn into Y	X develop into Y	POSITIVE
+X treat by Y	X correct with Y	POSITIVE
+X suggest Y	X associate with Y	POSITIVE
+X manifest by Y	X see in Y	POSITIVE
+X obtain from Y	X isolate from Y	POSITIVE
+X characterize by Y	X start with Y	POSITIVE
+X occur in Y	X observe in Y	POSITIVE
+X present with Y	X cause by Y	POSITIVE
+X obtain with Y	X achieve with Y	POSITIVE
+X introduce Y	X make Y	POSITIVE
+X accompany Y	X cause by Y	POSITIVE
+X find in Y	X characterize by Y	POSITIVE
+X produce by Y	X isolate from Y	POSITIVE
+X prescribe for Y	X relieve by Y	POSITIVE
+X suggest Y	X occur in Y	POSITIVE
+X result in Y	X present as Y	POSITIVE
+X follow by Y	X associate with Y	POSITIVE
+X include Y	X produce by Y	POSITIVE
+X introduce Y	X produce Y	POSITIVE
+X involve Y	X associate with Y	POSITIVE
+X use in Y	X administer for Y	POSITIVE
+X occur with Y	X associate with Y	POSITIVE
+X begin with Y	X indicate Y	POSITIVE
+X occur in Y	X associate with Y	POSITIVE
+X recommend for Y	X achieve with Y	POSITIVE
+X present as Y	X present with Y	POSITIVE
+X present with Y	X begin with Y	POSITIVE
+X encounter Y	X join with Y	POSITIVE
+X provide from Y	X control by Y	POSITIVE
+X secrete by Y	X secrete Y	POSITIVE
+X see in Y	X associate with Y	POSITIVE
+X control Y	X relieve with Y	POSITIVE
+X cause Y	X occur in Y	POSITIVE
+X protect from Y	X protect against Y	POSITIVE
+X reduce Y	X decrease Y	POSITIVE
+X mean Y	X associate with Y	POSITIVE
+X lead to Y	X turn into Y	POSITIVE
+X accompany by Y	X mean Y	POSITIVE
+X recommend for Y	X provide by Y	POSITIVE
+X terminate in Y	X follow Y	POSITIVE
+X spread by Y	X carry Y	POSITIVE
+X transmit Y	X carry Y	POSITIVE
+X be for Y	X require for Y	POSITIVE
+X suffer from Y	X attack with Y	POSITIVE
+X be in Y	X require for Y	POSITIVE
+X destroy Y	X affect by Y	POSITIVE
+X need for Y	X use for Y	POSITIVE
+X accompany by Y	X follow by Y	POSITIVE
+X control by Y	X eradicate Y	POSITIVE
+X provide by Y	X offer Y	POSITIVE
+X treat by Y	X prescribe for Y	POSITIVE
+X prevent Y	X respond to Y	POSITIVE
+X include Y	X refer to Y	POSITIVE
+X cause by Y	X result in Y	POSITIVE
+X have Y	X find in Y	POSITIVE
+X lead to Y	X produce Y	POSITIVE
+X give with Y	X use for Y	POSITIVE
+X provide from Y	X control Y	POSITIVE
+X characterize by Y	X present with Y	POSITIVE
+X lead to Y	X develop from Y	POSITIVE
+X control Y	X cure Y	POSITIVE
+X increase Y	X produce Y	POSITIVE
+X develop Y	X suffer from Y	POSITIVE
+X accompany Y	X mean Y	POSITIVE
+X find in Y	X infect with Y	POSITIVE
+X follow by Y	X alternate with Y	POSITIVE
+X present with Y	X cause Y	POSITIVE
+X use for Y	X provide from Y	POSITIVE
+X prepare from Y	X compose of Y	POSITIVE
+X confound with Y	X mistake for Y	POSITIVE
+X control by Y	X prevent by Y	POSITIVE
+X relieve by Y	X treat with Y	POSITIVE
+X treat with Y	X eradicate Y	POSITIVE
+X cause Y	X suggest Y	POSITIVE
+X control Y	X help Y	POSITIVE
+X cause by Y	X occur with Y	POSITIVE
+X lead to Y	X progress to Y	POSITIVE
+X affect Y	X be in Y	POSITIVE
+X be in Y	X be with Y	POSITIVE
+X produce Y	X manifest as Y	POSITIVE
+X have Y	X get Y	POSITIVE
+X recommend for Y	X treat with Y	POSITIVE
+X administer to Y	X give to Y	POSITIVE
+X find in Y	X see in Y	POSITIVE
+X result from Y	X be in Y	POSITIVE
+X develop into Y	X associate with Y	POSITIVE
+X control with Y	X treat with Y	POSITIVE
+X give for Y	X require for Y	POSITIVE
+X inject into Y	X get into Y	POSITIVE
+X confound with Y	X resemble Y	POSITIVE
+X control by Y	X alleviate Y	POSITIVE
+X complicate by Y	X complicate Y	POSITIVE
+X prevent by Y	X control by Y	POSITIVE
+X prescribe for Y	X order for Y	POSITIVE
+X control with Y	X prescribe for Y	POSITIVE
+X use for Y	X provide by Y	POSITIVE
+X occur in Y	X be during Y	POSITIVE
+X occur after Y	X associate with Y	POSITIVE
+X treat by Y	X order for Y	POSITIVE
+X suggest Y	X present as Y	POSITIVE
+X require for Y	X use for Y	POSITIVE
+X carry Y	X contain Y	POSITIVE
+X cause by Y	X mean Y	POSITIVE
+X confuse with Y	X distinguish from Y	POSITIVE
+X order for Y	X control with Y	POSITIVE
+X associate with Y	X come with Y	POSITIVE
+X achieve with Y	X obtain with Y	POSITIVE
+X relieve by Y	X correct by Y	POSITIVE
+X imply Y	X mean Y	POSITIVE
+X wipe Y	X be against Y	POSITIVE
+X lead to Y	X prevent by Y	POSITIVE
+X lead to Y	X relate to Y	POSITIVE
+X provide from Y	X control with Y	POSITIVE
+X develop into Y	X suggest Y	POSITIVE
+X manifest by Y	X result in Y	POSITIVE
+X find in Y	X contain Y	POSITIVE
+X result from Y	X complicate by Y	POSITIVE
+X use Y	X use for Y	POSITIVE
+X use for Y	X give to Y	POSITIVE
+X use in Y	X recommend for Y	POSITIVE
+X relieve Y	X correct by Y	POSITIVE
+X prescribe for Y	X obtain with Y	POSITIVE
+X prescribe for Y	X administer for Y	POSITIVE
+X cure with Y	X treat with Y	POSITIVE
+X occur with Y	X occur in Y	POSITIVE
+X occur from Y	X associate with Y	POSITIVE
+X follow by Y	X cause Y	POSITIVE
+X treat by Y	X cure with Y	POSITIVE
+X be in Y	X need for Y	POSITIVE
+X administer for Y	X use for Y	POSITIVE
+X afford Y	X be for Y	POSITIVE
+X use for Y	X afford by Y	POSITIVE
+X refer to Y	X include Y	POSITIVE
+X alleviate Y	X give for Y	POSITIVE
+X order for Y	X relieve Y	POSITIVE
+X use as Y	X give as Y	POSITIVE
+X contain Y	X provide Y	POSITIVE
+X give Y	X use for Y	POSITIVE
+X associate with Y	X accompany with Y	POSITIVE
+X prevent Y	X correct by Y	POSITIVE
+X respond to Y	X help Y	POSITIVE
+X suggest Y	X cause by Y	POSITIVE
+X cause Y	X develop after Y	POSITIVE
+X occur during Y	X be in Y	POSITIVE
+X control Y	X control by Y	POSITIVE
+X respond to Y	X relieve Y	POSITIVE
+X enter Y	X fertilize Y	POSITIVE
+X control by Y	X manage with Y	POSITIVE
+X use in Y	X be with Y	POSITIVE
+X reduce Y	X control with Y	POSITIVE
+X produce Y	X obtain with Y	POSITIVE
+X hydrolyze Y	X digest Y	POSITIVE
+X correct by Y	X prevent Y	POSITIVE
+X obtain from Y	X provide Y	POSITIVE
+X infect Y	X affect Y	POSITIVE
+X take for Y	X relieve Y	POSITIVE
+X occur in Y	X precede by Y	POSITIVE
+X be for Y	X license for Y	POSITIVE
+X attack Y	X affect by Y	POSITIVE
+X order for Y	X be for Y	POSITIVE
+X convert to Y	X metabolize to Y	POSITIVE
+X result from Y	X occur from Y	POSITIVE
+X die of Y	X have Y	POSITIVE
+X accompany Y	X accompany by Y	POSITIVE
+X control with Y	X control Y	POSITIVE
+X lead to Y	X cause by Y	POSITIVE
+X characterize by Y	X indicate Y	POSITIVE
+X relate to Y	X suggest Y	POSITIVE
+X develop in Y	X occur in Y	POSITIVE
+X result from Y	X cause by Y	POSITIVE
+X use for Y	X alleviate Y	POSITIVE
+X give to Y	X alternate with Y	POSITIVE
+X precede by Y	X occur in Y	POSITIVE
+X see with Y	X associate with Y	POSITIVE
+X refer to Y	X involve Y	POSITIVE
+X present Y	X find in Y	POSITIVE
+X increase Y	X associate with Y	POSITIVE
+X require for Y	X treat with Y	POSITIVE
+X be for Y	X administer for Y	POSITIVE
+X know as Y	X include Y	POSITIVE
+X contain Y	X obtain from Y	POSITIVE
+X prescribe for Y	X alleviate Y	POSITIVE
+X see in Y	X associate with Y	POSITIVE
+X break Y	X hydrolyze Y	POSITIVE
+X occur in Y	X associate with Y	POSITIVE
+X develop Y	X transmit Y	POSITIVE
+X accompany by Y	X occur with Y	POSITIVE
+X use during Y	X give during Y	POSITIVE
+X invent Y	X discover Y	POSITIVE
+X decrease Y	X relieve Y	POSITIVE
+X transmit Y	X find in Y	POSITIVE
+X cure with Y	X control by Y	POSITIVE
+X treat with Y	X reduce Y	POSITIVE
+X receive Y	X be in Y	POSITIVE
+X relieve with Y	X manage with Y	POSITIVE
+X respond to Y	X relieve with Y	POSITIVE
+X provide from Y	X give for Y	POSITIVE
+X fertilize by Y	X penetrate by Y	POSITIVE
+X appear in Y	X find in Y	POSITIVE
+X fertilize Y	X inject into Y	POSITIVE
+X kill Y	X be for Y	POSITIVE
+X treat by Y	X control by Y	POSITIVE
+X respond to Y	X be against Y	POSITIVE
+X precede Y	X complicate Y	POSITIVE
+X cause Y	X precipitate Y	POSITIVE
+X produce Y	X contribute to Y	POSITIVE
+X indicate Y	X occur with Y	POSITIVE
+X lead to Y	X result from Y	POSITIVE
+X start with Y	X suggest Y	POSITIVE
+X associate with Y	X involve Y	POSITIVE
+X control with Y	X indicate for Y	POSITIVE
+X digest Y	X break Y	POSITIVE
+X be against Y	X wipe Y	POSITIVE
+X use during Y	X use in Y	POSITIVE
+X accompany Y	X cause Y	POSITIVE
+X precipitate Y	X lead to Y	POSITIVE
+X treat Y	X respond to Y	POSITIVE
+X lead to Y	X occur with Y	POSITIVE
+X require for Y	X order for Y	POSITIVE
+X use for Y	X respond to Y	POSITIVE
+X encounter Y	X meet Y	POSITIVE
+X license for Y	X use in Y	POSITIVE
+X present as Y	X associate with Y	POSITIVE
+X mean Y	X cause Y	POSITIVE
+X control by Y	X prevent Y	POSITIVE
+X differ from Y	X distinguish from Y	POSITIVE
+X require for Y	X administer for Y	POSITIVE
+X need for Y	X administer for Y	POSITIVE
+X develop for Y	X recommend for Y	POSITIVE
+X characterize by Y	X occur in Y	POSITIVE
+X transmit Y	X be in Y	POSITIVE
+X give for Y	X relieve with Y	POSITIVE
+X infect with Y	X transmit by Y	POSITIVE
+X associate with Y	X begin as Y	POSITIVE
+X treat with Y	X need for Y	POSITIVE
+X die of Y	X kill Y	POSITIVE
+X produce by Y	X secrete by Y	POSITIVE
+X kill Y	X control with Y	POSITIVE
+X unite with Y	X join with Y	POSITIVE
+X precipitate Y	X trigger Y	POSITIVE
+X prescribe for Y	X respond to Y	POSITIVE
+X use for Y	X license for Y	POSITIVE
+X occur after Y	X follow by Y	POSITIVE
+X produce Y	X occur from Y	POSITIVE
+X induce Y	X cause Y	POSITIVE
+X transmit Y	X have Y	POSITIVE
+X involve Y	X cause by Y	POSITIVE
+X eliminate Y	X kill Y	POSITIVE
+X precede Y	X follow Y	POSITIVE
+X encounter Y	X combine with Y	POSITIVE
+X recommend for Y	X use in Y	POSITIVE
+X prevent by Y	X treat with Y	POSITIVE
+X contain Y	X use in Y	POSITIVE
+X have Y	X carry Y	POSITIVE
+X manage with Y	X treat with Y	POSITIVE
+X make Y	X introduce by Y	POSITIVE
+X form from Y	X convert to Y	POSITIVE
+X treat with Y	X treat Y	POSITIVE
+X meet Y	X meet Y	POSITIVE
+X correct with Y	X correct Y	POSITIVE
+X differ from Y	X distinguish from Y	POSITIVE
+X give to Y	X characterize by Y	POSITIVE
+X associate with Y	X involve Y	POSITIVE
+X occur with Y	X follow by Y	POSITIVE
+X produce Y	X ejaculate Y	POSITIVE
+X treat Y	X control Y	POSITIVE
+X cause by Y	X manifest by Y	POSITIVE
+X need for Y	X manage with Y	POSITIVE
+X be against Y	X eradicate Y	POSITIVE
+X be during Y	X occur in Y	POSITIVE
+X find Y	X invent Y	POSITIVE
+X need for Y	X relieve by Y	POSITIVE
+X characterize by Y	X present as Y	POSITIVE
+X attribute to Y	X follow Y	POSITIVE
+X administer for Y	X prescribe for Y	POSITIVE
+X be in Y	X recommend for Y	POSITIVE
+X offer Y	X afford by Y	POSITIVE
+X lead to Y	X result in Y	POSITIVE
+X suggest Y	X result from Y	POSITIVE
+X accompany by Y	X cause by Y	POSITIVE
+X cause Y	X bring Y	POSITIVE
+X produce Y	X occur after Y	POSITIVE
+X be in Y	X affect by Y	POSITIVE
+X introduce by Y	X make Y	POSITIVE
+X cure by Y	X be in Y	POSITIVE
+X manage with Y	X relieve by Y	POSITIVE
+X involve Y	X affect by Y	POSITIVE
+X be for Y	X prescribe for Y	POSITIVE
+X die from Y	X kill Y	POSITIVE
+X associate with Y	X indicate Y	POSITIVE
+X be in Y	X find in Y	POSITIVE
+X convert Y	X hydrolyze Y	POSITIVE
+X prevent by Y	X prevent Y	POSITIVE
+X help Y	X control Y	POSITIVE
+X eliminate Y	X treat with Y	POSITIVE
+X produce Y	X create Y	POSITIVE
+X produce Y	X occur in Y	POSITIVE
+X treat by Y	X reserve for Y	POSITIVE
+X find in Y	X include Y	POSITIVE
+X present with Y	X produce Y	POSITIVE
+X produce Y	X isolate from Y	POSITIVE
+X give for Y	X relieve by Y	POSITIVE
+X administer for Y	X help Y	POSITIVE
+X result from Y	X lead to Y	POSITIVE
+X afford Y	X achieve with Y	POSITIVE
+X manifest by Y	X cause Y	POSITIVE
+X be for Y	X afford Y	POSITIVE
+X affect by Y	X respond to Y	POSITIVE
+X result from Y	X indicate Y	POSITIVE
+X lead to Y	X suggest Y	POSITIVE
+X see in Y	X suggest Y	POSITIVE
+X wipe Y	X control with Y	POSITIVE
+X cause Y	X contribute to Y	POSITIVE
+X occur in Y	X cause by Y	POSITIVE
+X control with Y	X cure with Y	POSITIVE
+X provide Y	X provide by Y	POSITIVE
+X reduce Y	X alleviate Y	POSITIVE
+X follow Y	X occur after Y	POSITIVE
+X substitute for Y	X substitute for Y	POSITIVE
+X offer Y	X be for Y	POSITIVE
+X form from Y	X convert into Y	POSITIVE
+X characterize by Y	X cause by Y	POSITIVE
+X consist of Y	X compose of Y	POSITIVE
+X require Y	X cure Y	POSITIVE
+X be with Y	X begin with Y	POSITIVE
+X relieve with Y	X be in Y	POSITIVE
+X associate with Y	X present with Y	POSITIVE
+X treat with Y	X give to Y	POSITIVE
+X release Y	X produce Y	POSITIVE
+X treat by Y	X require Y	POSITIVE
+X distinguish from Y	X distinguish from Y	POSITIVE
+X suggest Y	X involve Y	POSITIVE
+X cause Y	X result from Y	POSITIVE
+X use in Y	X require Y	POSITIVE
+X encounter Y	X unite with Y	POSITIVE
+X obtain from Y	X contain Y	POSITIVE
+X give Y	X afford by Y	POSITIVE
+X give Y	X afford Y	POSITIVE
+X recommend for Y	X give Y	POSITIVE
+X control with Y	X need for Y	POSITIVE
+X present as Y	X lead to Y	POSITIVE
+X begin with Y	X cause by Y	POSITIVE
+X follow by Y	X occur after Y	POSITIVE
+X come with Y	X associate with Y	POSITIVE
+X indicate for Y	X control by Y	POSITIVE
+X cure by Y	X eliminate Y	POSITIVE
+X associate with Y	X accompany Y	POSITIVE
+X promote Y	X produce Y	POSITIVE
+X accompany by Y	X follow by Y	POSITIVE
+X characterize by Y	X relate to Y	POSITIVE
+X bring Y	X produce Y	POSITIVE
+X have Y	X contain Y	POSITIVE
+X offer Y	X give Y	POSITIVE
+X need for Y	X require Y	POSITIVE
+X respond to Y	X give for Y	POSITIVE
+X develop into Y	X turn to Y	POSITIVE
+X follow Y	X accompany by Y	POSITIVE
+X follow Y	X terminate in Y	POSITIVE
+X affect Y	X transmit to Y	POSITIVE
+X associate with Y	X occur after Y	POSITIVE
+X associate with Y	X contribute to Y	POSITIVE
+X treat by Y	X cure by Y	POSITIVE
+X cause by Y	X develop Y	POSITIVE
+X begin with Y	X consist of Y	POSITIVE
+X require Y	X use in Y	POSITIVE
+X give Y	X provide Y	POSITIVE
+X be in Y	X attribute to Y	POSITIVE
+X help Y	X be in Y	POSITIVE
+X reduce Y	X be in Y	POSITIVE
+X prevent Y	X affect by Y	POSITIVE
+X administer for Y	X use in Y	POSITIVE
+X characterize by Y	X result in Y	POSITIVE
+X use for Y	X administer to Y	POSITIVE
+X occur with Y	X indicate Y	POSITIVE
+X afford by Y	X use for Y	POSITIVE
+X manifest by Y	X suggest Y	POSITIVE
+X occur in Y	X affect with Y	POSITIVE
+X manage with Y	X be in Y	POSITIVE
+X follow Y	X accompany by Y	POSITIVE
+X respond to Y	X need for Y	POSITIVE
+X suggest Y	X follow Y	POSITIVE
+X observe in Y	X be in Y	POSITIVE
+X correct Y	X correct by Y	POSITIVE
+X order for Y	X administer for Y	POSITIVE
+X occur in Y	X show Y	POSITIVE
+X relieve Y	X give for Y	POSITIVE
+X use against Y	X eradicate Y	POSITIVE
+X mistake for Y	X distinguish from Y	POSITIVE
+X fertilize by Y	X enter Y	POSITIVE
+X affect by Y	X eliminate Y	POSITIVE
+X obtain with Y	X be for Y	POSITIVE
+X associate with Y	X develop with Y	POSITIVE
+X result in Y	X follow Y	POSITIVE
+X result from Y	X develop from Y	POSITIVE
+X accompany Y	X produce Y	POSITIVE
+X see in Y	X be in Y	POSITIVE
+X transmit Y	X transmit through Y	POSITIVE
+X develop into Y	X turn into Y	POSITIVE
+X give to Y	X treat with Y	POSITIVE
+X control by Y	X relieve with Y	POSITIVE
+X provide by Y	X be for Y	POSITIVE
+X follow Y	X present as Y	POSITIVE
+X indicate for Y	X license for Y	POSITIVE
+X require for Y	X prescribe for Y	POSITIVE
+X relieve by Y	X manage with Y	POSITIVE
+X hydrolyze Y	X convert Y	POSITIVE
+X contain Y	X receive Y	POSITIVE
+X respond to Y	X decrease Y	POSITIVE
+X combine with Y	X join with Y	POSITIVE
+X require Y	X treat with Y	POSITIVE
+X precede by Y	X produce Y	POSITIVE
+X accompany by Y	X associate with Y	POSITIVE
+X associate with Y	X complicate with Y	POSITIVE
+X contain Y	X make from Y	POSITIVE
+X begin with Y	X be with Y	POSITIVE
+X control with Y	X wipe Y	POSITIVE
+X present with Y	X be in Y	POSITIVE
+X lead to Y	X suggest Y	POSITIVE
+X mean Y	X involve Y	POSITIVE
+X lead to Y	X cause Y	POSITIVE
+X form from Y	X derive from Y	POSITIVE
+X reduce Y	X prescribe for Y	POSITIVE
+X begin as Y	X associate with Y	POSITIVE
+X accompany Y	X associate with Y	POSITIVE
+X indicate Y	X suggest Y	POSITIVE
+X afford Y	X give Y	POSITIVE
+X order for Y	X require for Y	POSITIVE
+X indicate Y	X present with Y	POSITIVE
+X occur with Y	X cause by Y	POSITIVE
+X spread by Y	X transmit by Y	POSITIVE
+X be for Y	X achieve with Y	POSITIVE
+X be in Y	X receive Y	POSITIVE
+X produce by Y	X produce Y	POSITIVE
+X manufacture Y	X release Y	POSITIVE
+X characterize by Y	X find in Y	POSITIVE
+X give for Y	X respond to Y	POSITIVE
+X produce Y	X induce by Y	POSITIVE
+X alleviate Y	X help Y	POSITIVE
+X present with Y	X characterize by Y	POSITIVE
+X prescribe for Y	X treat with Y	POSITIVE
+X treat by Y	X prevent by Y	POSITIVE
+X develop Y	X contract Y	POSITIVE
+X result in Y	X manifest by Y	POSITIVE
+X inject into Y	X penetrate Y	POSITIVE
+X give Y	X lead to Y	POSITIVE
+X take Y	X give to Y	POSITIVE
+X respond to Y	X kill Y	POSITIVE
+X take for Y	X use for Y	POSITIVE
+X cause Y	X follow Y	POSITIVE
+X be against Y	X treat with Y	POSITIVE
+X prescribe for Y	X control with Y	POSITIVE
+X occur after Y	X cause Y	POSITIVE
+X relieve by Y	X control by Y	POSITIVE
+X spread Y	X carry Y	POSITIVE
+X manage with Y	X need for Y	POSITIVE
+X contribute to Y	X associate with Y	POSITIVE
+X associate with Y	X present with Y	POSITIVE
+X cause Y	X produce by Y	POSITIVE
+X meet Y	X combine with Y	POSITIVE
+X induce by Y	X lead to Y	POSITIVE
+X recommend for Y	X be in Y	POSITIVE
+X be against Y	X kill by Y	POSITIVE
+X require Y	X use for Y	POSITIVE
+X mean Y	X imply Y	POSITIVE
+X produce Y	X derive from Y	POSITIVE
+X correct by Y	X relieve Y	POSITIVE
+X accompany Y	X cause Y	POSITIVE
+X relieve with Y	X alleviate Y	POSITIVE
+X control Y	X relieve Y	POSITIVE
+X administer during Y	X use during Y	POSITIVE
+X treat by Y	X treat with Y	POSITIVE
+X develop from Y	X cause Y	POSITIVE
+X respond to Y	X treat Y	POSITIVE
+X confound with Y	X confuse with Y	POSITIVE
+X occur in Y	X be in Y	POSITIVE
+X mask Y	X respond to Y	POSITIVE
+X be for Y	X take for Y	POSITIVE
+X indicate Y	X occur in Y	POSITIVE
+X attribute to Y	X produce Y	POSITIVE
+X manage with Y	X relieve with Y	POSITIVE
+X develop in Y	X affect with Y	POSITIVE
+X be in Y	X use Y	POSITIVE
+X cause Y	X occur during Y	POSITIVE
+X treat by Y	X require for Y	POSITIVE
+X treat with Y	X relieve Y	POSITIVE
+X provide from Y	X prescribe for Y	POSITIVE
+X result from Y	X produce Y	POSITIVE
+X use Y	X be in Y	POSITIVE
+X require Y	X require for Y	POSITIVE
+X accompany with Y	X accompany Y	POSITIVE
+X follow by Y	X complicate Y	POSITIVE
+X cause Y	X imply Y	POSITIVE
+X produce Y	X produce in Y	POSITIVE
+X associate with Y	X accompany Y	POSITIVE
+X use in Y	X develop for Y	POSITIVE
+X isolate from Y	X find in Y	POSITIVE
+X recommend for Y	X require for Y	POSITIVE
+X cause Y	X aggravate Y	POSITIVE
+X complicate by Y	X lead to Y	POSITIVE
+X be with Y	X characterize by Y	POSITIVE
+X prescribe for Y	X require for Y	POSITIVE
+X characterize by Y	X begin with Y	POSITIVE
+X associate with Y	X progress to Y	POSITIVE
+X characterize by Y	X give to Y	POSITIVE
+X require Y	X treat Y	POSITIVE
+X accompany by Y	X accompany Y	POSITIVE
+X indicate for Y	X develop for Y	POSITIVE
+X turn into Y	X lead to Y	POSITIVE
+X contain Y	X combine with Y	POSITIVE
+X follow Y	X complicate by Y	POSITIVE
+X involve Y	X characterize by Y	POSITIVE
+X correct by Y	X use for Y	POSITIVE
+X transmit through Y	X transmit by Y	POSITIVE
+X occur with Y	X occur in Y	POSITIVE
+X find in Y	X carry Y	POSITIVE
+X present with Y	X occur with Y	POSITIVE
+X decrease Y	X respond to Y	POSITIVE
+X derive from Y	X convert into Y	POSITIVE
+X accompany by Y	X develop with Y	POSITIVE
+X be in Y	X suggest Y	POSITIVE
+X convert Y	X digest Y	POSITIVE
+X produce Y	X suggest Y	POSITIVE
+X confuse with Y	X mistake for Y	POSITIVE
+X achieve with Y	X be for Y	POSITIVE
+X require Y	X control with Y	POSITIVE
+X use as Y	X use for Y	POSITIVE
+X produce by Y	X secrete Y	POSITIVE
+X indicate for Y	X control Y	POSITIVE
+X offer Y	X use for Y	POSITIVE
+X contain Y	X use as Y	POSITIVE
+X affect by Y	X kill Y	POSITIVE
+X prevent by Y	X cure by Y	POSITIVE
+X control with Y	X decrease Y	POSITIVE
+X convert into Y	X convert to Y	POSITIVE
+X give Y	X prescribe for Y	POSITIVE
+X cause Y	X give to Y	POSITIVE
+X result from Y	X attribute to Y	POSITIVE
+X produce Y	X suggest Y	POSITIVE
+X attribute to Y	X cause Y	POSITIVE
+X develop after Y	X follow Y	POSITIVE
+X transmit by Y	X transmit through Y	POSITIVE
+X prescribe for Y	X help Y	POSITIVE
+X confound with Y	X differ from Y	POSITIVE
+X cure Y	X control with Y	POSITIVE
+X order for Y	X indicate for Y	POSITIVE
+X eliminate Y	X control with Y	POSITIVE
+X cover Y	X be against Y	POSITIVE
+X cause by Y	X relate to Y	POSITIVE
+X produce Y	X make Y	POSITIVE
+X reduce Y	X prevent Y	POSITIVE
+X suggest Y	X begin with Y	POSITIVE
+X associate with Y	X develop into Y	POSITIVE
+X mistake for Y	X confuse with Y	POSITIVE
+X accompany by Y	X present with Y	POSITIVE
+X result in Y	X occur from Y	POSITIVE
+X control Y	X treat with Y	POSITIVE
+X manifest as Y	X associate with Y	POSITIVE
+X cause Y	X induce Y	POSITIVE
+X suggest Y	X cause by Y	POSITIVE
+X respond with Y	X treat with Y	POSITIVE
+X license for Y	X recommend for Y	POSITIVE
+X indicate Y	X cause by Y	POSITIVE
+X reserve for Y	X require Y	POSITIVE
+X lead to Y	X precipitate Y	POSITIVE
+X give to Y	X give Y	POSITIVE
+X eliminate Y	X eradicate Y	POSITIVE
+X present as Y	X indicate Y	POSITIVE
+X suggest Y	X occur with Y	POSITIVE
+X isolate from Y	X obtain from Y	POSITIVE
+X result in Y	X cause Y	POSITIVE
+X complicate with Y	X associate with Y	POSITIVE
+X contain Y	X prepare from Y	POSITIVE
+X produce Y	X aggravate Y	POSITIVE
+X require for Y	X manage with Y	POSITIVE
+X alleviate Y	X manage with Y	POSITIVE
+X complicate Y	X accompany Y	POSITIVE
+X die of Y	X expose to Y	POSITIVE
+X treat with Y	X decrease Y	POSITIVE
+X relieve by Y	X control Y	POSITIVE
+X cure by Y	X treat with Y	POSITIVE
+X suggest Y	X lead to Y	POSITIVE
+X eradicate Y	X control with Y	POSITIVE
+X confuse with Y	X differ from Y	POSITIVE
+X combine with Y	X unite with Y	POSITIVE
+X contribute to Y	X result in Y	POSITIVE
+X indicate Y	X manifest by Y	POSITIVE
+X be in Y	X cure by Y	POSITIVE
+X control Y	X order for Y	POSITIVE
+X involve Y	X confine to Y	POSITIVE
+X kill Y	X eliminate Y	POSITIVE
+X cause Y	X accompany by Y	POSITIVE
+X meet Y	X encounter Y	POSITIVE
+X meet Y	X encounter Y	POSITIVE
+X occur with Y	X complicate Y	POSITIVE
+X result from Y	X occur after Y	POSITIVE
+X follow by Y	X succeed to Y	POSITIVE
+X accompany Y	X follow by Y	POSITIVE
+X make Y	X release Y	POSITIVE
+X complicate Y	X lead to Y	POSITIVE
+X result in Y	X accompany Y	POSITIVE
+X take for Y	X relieve by Y	POSITIVE
+X reserve for Y	X treat with Y	POSITIVE
+X follow Y	X complicate by Y	POSITIVE
+X transmit to Y	X affect Y	POSITIVE
+X result in Y	X give to Y	POSITIVE
+X present as Y	X associate with Y	POSITIVE
+X relate to Y	X lead to Y	POSITIVE
+X affect with Y	X occur in Y	POSITIVE
+X associate with Y	X accompany by Y	POSITIVE
+X administer to Y	X be in Y	POSITIVE
+X use for Y	X use during Y	POSITIVE
+X include Y	X contain Y	POSITIVE
+X be for Y	X use in Y	POSITIVE
+X see in Y	X cause Y	POSITIVE
+X treat with Y	X give Y	POSITIVE
+X associate with Y	X occur with Y	POSITIVE
+X compose of Y	X base on Y	POSITIVE
+X eliminate Y	X prevent by Y	POSITIVE
+X prescribe for Y	X be for Y	POSITIVE
+X license for Y	X indicate for Y	POSITIVE
+X use in Y	X use as Y	POSITIVE
+X cause by Y	X characterize by Y	POSITIVE
+X cause by Y	X indicate Y	POSITIVE
+X lead to Y	X follow by Y	POSITIVE
+X be in Y	X consist of Y	POSITIVE
+X indicate Y	X associate with Y	POSITIVE
+X achieve with Y	X require for Y	POSITIVE
+X infect with Y	X carry Y	POSITIVE
+X invent Y	X find Y	POSITIVE
+X correct with Y	X treat with Y	POSITIVE
+X associate with Y	X cause by Y	POSITIVE
+X control Y	X treat Y	POSITIVE
+X require for Y	X achieve with Y	POSITIVE
+X imply Y	X cause Y	POSITIVE
+X alternate with Y	X follow by Y	POSITIVE
+X see in Y	X present with Y	POSITIVE
+X accompany with Y	X associate with Y	POSITIVE
+X produce Y	X see in Y	POSITIVE
+X be in Y	X transmit Y	POSITIVE
+X manifest by Y	X present with Y	POSITIVE
+X alleviate Y	X use for Y	POSITIVE
+X control by Y	X provide from Y	POSITIVE
+X correct Y	X treat with Y	POSITIVE
+X give to Y	X follow Y	POSITIVE
+X associate with Y	X occur with Y	POSITIVE
+X mean Y	X refer to Y	POSITIVE
+X develop from Y	X lead to Y	POSITIVE
+X include Y	X characterize by Y	POSITIVE
+X precipitate Y	X cause Y	POSITIVE
+X characterize by Y	X involve Y	POSITIVE
+X relieve with Y	X prescribe for Y	POSITIVE
+X suffer from Y	X have Y	POSITIVE
+X derive from Y	X form from Y	POSITIVE
+X confine to Y	X involve Y	POSITIVE
+X administer during Y	X use in Y	POSITIVE
+X prescribe for Y	X afford Y	POSITIVE
+X relieve with Y	X control with Y	POSITIVE
+X control Y	X provide from Y	POSITIVE
+X indicate for Y	X reduce Y	POSITIVE
+X relieve with Y	X respond to Y	POSITIVE
+X give Y	X provide by Y	POSITIVE
+X join with Y	X meet Y	POSITIVE
+X provide Y	X indicate for Y	POSITIVE
+X cause by Y	X contribute to Y	POSITIVE
+X associate with Y	X present as Y	POSITIVE
+X discharge Y	X produce Y	POSITIVE
+X be for Y	X help Y	POSITIVE
+X respond to Y	X be for Y	POSITIVE
+X use Y	X recommend for Y	POSITIVE
+X die of Y	X get Y	POSITIVE
+X contain Y	X carry Y	POSITIVE
+X affect Y	X occur in Y	POSITIVE
+X lead to Y	X complicate Y	POSITIVE
+X lead to Y	X occur from Y	POSITIVE
+X unite with Y	X meet Y	POSITIVE
+X control with Y	X be in Y	POSITIVE
+X result from Y	X present as Y	POSITIVE
+X be against Y	X destroy Y	POSITIVE
+X characterize by Y	X appear as Y	POSITIVE
+X achieve with Y	X be in Y	POSITIVE
+X provide from Y	X reduce Y	POSITIVE
+X transmit by Y	X be in Y	POSITIVE
+X compose of Y	X consist of Y	POSITIVE
+X present as Y	X characterize by Y	POSITIVE
+X manage with Y	X respond to Y	POSITIVE
+X give to Y	X cause Y	POSITIVE
+X cause Y	X accompany with Y	POSITIVE
+X employ as Y	X use as Y	POSITIVE
+X correct by Y	X require Y	POSITIVE
+X follow Y	X be in Y	POSITIVE
+X prescribe for Y	X use for Y	POSITIVE
+X involve Y	X suggest Y	POSITIVE
+X occur from Y	X follow Y	POSITIVE
+X give to Y	X result from Y	POSITIVE
+X be with Y	X be for Y	POSITIVE
+X protect from Y	X prevent Y	POSITIVE
+X use as Y	X compose of Y	POSITIVE
+X give for Y	X order for Y	POSITIVE
+X relieve Y	X order for Y	POSITIVE
+X affect Y	X have Y	POSITIVE
+X occur with Y	X present with Y	POSITIVE
+X alleviate Y	X control Y	POSITIVE
+X treat Y	X prevent Y	POSITIVE
+X eradicate Y	X affect by Y	POSITIVE
+X give for Y	X manage with Y	POSITIVE
+X cause by Y	X occur from Y	POSITIVE
+X be for Y	X obtain with Y	POSITIVE
+X result in Y	X occur after Y	POSITIVE
+X convert Y	X convert by Y	POSITIVE
+X indicate Y	X begin with Y	POSITIVE
+X result in Y	X relate to Y	POSITIVE
+X enter Y	X penetrate Y	POSITIVE
+X suggest Y	X relate to Y	POSITIVE
+X relieve Y	X prevent Y	POSITIVE
+X help Y	X control with Y	POSITIVE
+X use for Y	X be with Y	POSITIVE
+X isolate from Y	X produce Y	POSITIVE
+X cure Y	X prescribe for Y	POSITIVE
+X prescribe for Y	X relieve Y	POSITIVE
+X cause Y	X precede by Y	POSITIVE
+X treat by Y	X control with Y	POSITIVE
+X mean Y	X accompany by Y	POSITIVE
+X relieve by Y	X correct Y	POSITIVE
+X occur with Y	X suggest Y	POSITIVE
+X be in Y	X observe in Y	POSITIVE
+X give for Y	X use for Y	POSITIVE
+X prescribe for Y	X treat by Y	POSITIVE
+X be against Y	X control with Y	POSITIVE
+X take Y	X treat with Y	POSITIVE
+X cause by Y	X suggest Y	POSITIVE
+X associate with Y	X manifest as Y	POSITIVE
+X induce by Y	X cause Y	POSITIVE
+X mean Y	X cause by Y	POSITIVE
+X release Y	X manufacture Y	POSITIVE
+X produce Y	X develop from Y	POSITIVE
+X respond to Y	X prevent Y	POSITIVE
+X order for Y	X control Y	POSITIVE
+X contribute to Y	X characterize by Y	POSITIVE
+X enter Y	X fertilize by Y	POSITIVE
+X unite with Y	X unite with Y	POSITIVE
+X complicate by Y	X follow Y	POSITIVE
+X encounter Y	X unite with Y	POSITIVE
+X prepare from Y	X use as Y	POSITIVE
+X relate to Y	X contribute to Y	POSITIVE
+X secrete into Y	X release into Y	POSITIVE
+X produce Y	X attribute to Y	POSITIVE
+X find in Y	X transmit by Y	POSITIVE
+X digest Y	X hydrolyze Y	POSITIVE
+X mean Y	X define as Y	POSITIVE
+X transmit by Y	X carry by Y	POSITIVE
+X prescribe for Y	X use in Y	POSITIVE
+X result from Y	X manifest as Y	POSITIVE
+X control Y	X need for Y	POSITIVE
+X cover Y	X kill Y	POSITIVE
+X relieve by Y	X help Y	POSITIVE
+X develop into Y	X cause by Y	POSITIVE
+X attack with Y	X suffer from Y	POSITIVE
+X characterize by Y	X consist of Y	POSITIVE
+X cause Y	X begin as Y	POSITIVE
+X relieve by Y	X give for Y	POSITIVE
+X affect by Y	X prevent Y	POSITIVE
+X affect Y	X affect by Y	POSITIVE
+X provide from Y	X use for Y	POSITIVE
+X be in Y	X enter Y	POSITIVE
+X use with Y	X combine with Y	POSITIVE
+X complicate with Y	X associate with Y	POSITIVE
+X relieve with Y	X be for Y	POSITIVE
+X mean Y	X accompany Y	POSITIVE
+X treat Y	X require Y	POSITIVE
+X relieve by Y	X improve Y	POSITIVE
+X manufacture Y	X produce Y	POSITIVE
+X produce in Y	X make Y	POSITIVE
+X eliminate Y	X respond to Y	POSITIVE
+X metabolize by Y	X convert by Y	POSITIVE
+X attack Y	X affect Y	POSITIVE
+X suggest Y	X cause Y	POSITIVE
+X develop with Y	X associate with Y	POSITIVE
+X be in Y	X follow Y	POSITIVE
+X affect in Y	X affect Y	POSITIVE
+X join with Y	X combine with Y	POSITIVE
+X define as Y	X involve Y	POSITIVE
+X involve Y	X affect in Y	POSITIVE
+X follow by Y	X give to Y	POSITIVE
+X use in Y	X be against Y	POSITIVE
+X develop with Y	X associate with Y	POSITIVE
+X provide Y	X afford Y	POSITIVE
+X have Y	X characterize by Y	POSITIVE
+X recommend for Y	X license for Y	POSITIVE
+X need for Y	X reduce Y	POSITIVE
+X achieve with Y	X afford Y	POSITIVE
+X digest Y	X convert Y	POSITIVE
+X occur in Y	X occur during Y	POSITIVE
+X cause Y	X result in Y	POSITIVE
+X relieve Y	X alleviate Y	POSITIVE
+X treat with Y	X help Y	POSITIVE
+X produce by Y	X derive from Y	POSITIVE
+X characterize by Y	X see in Y	POSITIVE
+X follow Y	X follow by Y	POSITIVE
+X produce Y	X achieve with Y	POSITIVE
+X infect Y	X infect with Y	POSITIVE
+X manifest as Y	X cause by Y	POSITIVE
+X result from Y	X cause Y	POSITIVE
+X follow Y	X result in Y	POSITIVE
+X respond to Y	X affect by Y	POSITIVE
+X administer for Y	X be in Y	POSITIVE
+X afford Y	X indicate for Y	POSITIVE
+X help Y	X give for Y	POSITIVE
+X include Y	X combine with Y	POSITIVE
+X indicate for Y	X order for Y	POSITIVE
+X correct Y	X correct with Y	POSITIVE
+X transmit through Y	X spread by Y	POSITIVE
+X confound with Y	X mistake for Y	POSITIVE
+X use against Y	X kill Y	POSITIVE
+X cause by Y	X suggest Y	POSITIVE
+X occur with Y	X produce Y	POSITIVE
+X control with Y	X relieve Y	POSITIVE
+X relate to Y	X associate with Y	POSITIVE
+X respond to Y	X cure by Y	POSITIVE
+X aggravate Y	X cause by Y	POSITIVE
+X use for Y	X have Y	POSITIVE
+X be against Y	X use against Y	POSITIVE
+X produce by Y	X result from Y	POSITIVE
+X characterize by Y	X precede Y	POSITIVE
+X occur in Y	X give Y	POSITIVE
+X ejaculate Y	X produce Y	POSITIVE
+X confound with Y	X confound with Y	POSITIVE
+X give for Y	X alleviate Y	POSITIVE
+X lead to Y	X occur after Y	POSITIVE
+X bring Y	X provide Y	POSITIVE
+X cause by Y	X produce Y	POSITIVE
+X produce Y	X offer Y	POSITIVE
+X use for Y	X require Y	POSITIVE
+X follow by Y	X follow by Y	POSITIVE
+X occur from Y	X result from Y	POSITIVE
+X find in Y	X enter Y	POSITIVE
+X prevent by Y	X lead to Y	POSITIVE
+X be in Y	X develop Y	POSITIVE
+X obtain from Y	X produce Y	POSITIVE
+X accompany by Y	X accompany Y	POSITIVE
+X infect with Y	X carry by Y	POSITIVE
+X relieve with Y	X use for Y	POSITIVE
+X induce Y	X cause by Y	POSITIVE
+X synthesize from Y	X derive from Y	POSITIVE
+X follow Y	X be after Y	POSITIVE
+X control with Y	X alleviate Y	POSITIVE
+X reduce Y	X be for Y	POSITIVE
+X relieve Y	X cure by Y	POSITIVE
+X give before Y	X administer before Y	POSITIVE
+X prescribe for Y	X manage with Y	POSITIVE
+X manifest as Y	X produce Y	POSITIVE
+X carry Y	X have Y	POSITIVE
+X correct by Y	X relieve by Y	POSITIVE
+X produce Y	X be in Y	POSITIVE
+X infect with Y	X be in Y	POSITIVE
+X hydrolyze Y	X hydrolyze by Y	POSITIVE
+X die from Y	X get Y	POSITIVE
+X require Y	X reserve for Y	POSITIVE
+X produce Y	X promote Y	POSITIVE
+X use during Y	X administer during Y	POSITIVE
+X associate with Y	X present as Y	POSITIVE
+X associate with Y	X increase Y	POSITIVE
+X produce Y	X present with Y	POSITIVE
+X alleviate Y	X be in Y	POSITIVE
+X require Y	X correct Y	POSITIVE
+X occur from Y	X cause Y	POSITIVE
+X complicate Y	X follow Y	POSITIVE
+X bring Y	X use for Y	POSITIVE
+X manage with Y	X help Y	POSITIVE
+X cause by Y	X be in Y	POSITIVE
+X transmit Y	X develop Y	POSITIVE
+X be against Y	X cover Y	POSITIVE
+X transmit through Y	X transmit via Y	POSITIVE
+X produce Y	X follow Y	POSITIVE
+X control with Y	X use against Y	POSITIVE
+X occur with Y	X cause by Y	POSITIVE
+X kill by Y	X affect by Y	POSITIVE
+X use during Y	X use for Y	POSITIVE
+X enter Y	X get into Y	POSITIVE
+X associate with Y	X follow Y	POSITIVE
+X be in Y	X be during Y	POSITIVE
+X prescribe for Y	X control by Y	POSITIVE
+X cause Y	X cause by Y	POSITIVE
+X follow Y	X cause Y	POSITIVE
+X treat with Y	X prevent by Y	POSITIVE
+X prevent Y	X eliminate Y	POSITIVE
+X control Y	X control with Y	POSITIVE
+X accompany with Y	X accompany by Y	POSITIVE
+X associate Y	X cause Y	POSITIVE
+X develop Y	X associate with Y	POSITIVE
+X combine with Y	X encounter Y	POSITIVE
+X carry by Y	X transmit by Y	POSITIVE
+X secrete by Y	X produce Y	POSITIVE
+X attribute to Y	X result from Y	POSITIVE
+X affect by Y	X attack Y	POSITIVE
+X inject into Y	X penetrate by Y	POSITIVE
+X present as Y	X result in Y	POSITIVE
+X accompany by Y	X produce Y	POSITIVE
+X present with Y	X associate with Y	POSITIVE
+X be against Y	X affect by Y	POSITIVE
+X associate with Y	X imply Y	POSITIVE
+X relieve with Y	X reduce Y	POSITIVE
+X mask Y	X treat with Y	POSITIVE
+X produce Y	X obtain from Y	POSITIVE
+X alternate with Y	X alternate with Y	POSITIVE
+X imply Y	X define as Y	POSITIVE
+X need for Y	X require for Y	POSITIVE
+X secrete Y	X secrete by Y	POSITIVE
+X make Y	X produce Y	POSITIVE
+X use in Y	X be for Y	POSITIVE
+X penetrate Y	X penetrate by Y	POSITIVE
+X receive Y	X have Y	POSITIVE
+X accompany Y	X accompany with Y	POSITIVE
+X order for Y	X give for Y	POSITIVE
+X mistake for Y	X confound with Y	POSITIVE
+X mask Y	X alleviate Y	POSITIVE
+X consist of Y	X have Y	POSITIVE
+X kill Y	X cover Y	POSITIVE
+X treat with Y	X correct Y	POSITIVE
+X manufacture Y	X make Y	POSITIVE
+X prevent Y	X prevent by Y	POSITIVE
+X develop with Y	X accompany by Y	POSITIVE
+X treat with Y	X relieve by Y	POSITIVE
+X relieve with Y	X relieve Y	POSITIVE
+X relieve Y	X improve Y	POSITIVE
+X see in Y	X indicate Y	POSITIVE
+X have Y	X consist of Y	POSITIVE
+X carry Y	X carry by Y	POSITIVE
+X correct with Y	X use for Y	POSITIVE
+X relate to Y	X result from Y	POSITIVE
+X see in Y	X occur in Y	POSITIVE
+X administer to Y	X use for Y	POSITIVE
+X take for Y	X relieve with Y	POSITIVE
+X follow Y	X follow Y	POSITIVE
+X predispose to Y	X cause Y	POSITIVE
+X follow by Y	X accompany by Y	POSITIVE
+X carry Y	X transmit by Y	POSITIVE
+X contribute to Y	X cause Y	POSITIVE
+X accompany Y	X result in Y	POSITIVE
+X produce Y	X make by Y	POSITIVE
+X progress to Y	X cause by Y	POSITIVE
+X develop from Y	X cause by Y	POSITIVE
+X be in Y	X have Y	POSITIVE
+X complicate by Y	X cause by Y	POSITIVE
+X use in Y	X reduce Y	POSITIVE
+X occur in Y	X obtain from Y	POSITIVE
+X accompany Y	X occur in Y	POSITIVE
+X associate with Y	X begin as Y	POSITIVE
+X require for Y	X require Y	POSITIVE
+X afford Y	X recommend for Y	POSITIVE
+X recommend for Y	X be for Y	POSITIVE
+X lead to Y	X indicate Y	POSITIVE
+X complicate by Y	X result from Y	POSITIVE
+X occur in Y	X cause by Y	POSITIVE
+X cause Y	X accompany Y	POSITIVE
+X treat by Y	X mask Y	POSITIVE
+X use Y	X use in Y	POSITIVE
+X complicate by Y	X follow Y	POSITIVE
+X provide from Y	X relieve Y	POSITIVE
+X help Y	X be for Y	POSITIVE
+X be in Y	X occur during Y	POSITIVE
+X suggest Y	X result from Y	POSITIVE
+X kill Y	X destroy Y	POSITIVE
+X characterize by Y	X occur during Y	POSITIVE
+X reduce Y	X mask Y	POSITIVE
+X relieve Y	X respond to Y	POSITIVE
+X manifest by Y	X result from Y	POSITIVE
+X recommend for Y	X develop for Y	POSITIVE
+X make from Y	X make of Y	POSITIVE
+X suggest Y	X be in Y	POSITIVE
+X develop Y	X cause Y	POSITIVE
+X attend with Y	X associate with Y	POSITIVE
+X require Y	X administer for Y	POSITIVE
+X develop for Y	X be for Y	POSITIVE
+X lead to Y	X give Y	POSITIVE
+X manage with Y	X give for Y	POSITIVE
+X accompany Y	X occur with Y	POSITIVE
+X present with Y	X result in Y	POSITIVE
+X confine to Y	X affect Y	POSITIVE
+X use as Y	X use in Y	POSITIVE
+X follow Y	X occur with Y	POSITIVE
+X occur with Y	X accompany Y	POSITIVE
+X cure with Y	X treat by Y	POSITIVE
+X trigger Y	X cause Y	POSITIVE
+X have Y	X transmit Y	POSITIVE
+X accompany by Y	X see in Y	POSITIVE
+X afford Y	X use for Y	POSITIVE
+X indicate for Y	X control with Y	POSITIVE
+X associate with Y	X develop with Y	POSITIVE
+X be in Y	X carry Y	POSITIVE
+X precede Y	X follow by Y	POSITIVE
+X indicate for Y	X give Y	POSITIVE
+X produce Y	X result from Y	POSITIVE
+X be for Y	X kill Y	POSITIVE
+X obtain from Y	X find in Y	POSITIVE
+X contain Y	X include Y	POSITIVE
+X present as Y	X produce Y	POSITIVE
+X prescribe for Y	X need for Y	POSITIVE
+X produce Y	X accompany Y	POSITIVE
+X treat with Y	X reserve for Y	POSITIVE
+X relieve by Y	X respond to Y	POSITIVE
+X give Y	X offer Y	POSITIVE
+X confound with Y	X distinguish from Y	POSITIVE
+X cause Y	X result in Y	POSITIVE
+X treat with Y	X cure Y	POSITIVE
+X cause Y	X result from Y	POSITIVE
+X complicate Y	X precede Y	POSITIVE
+X mean Y	X associate with Y	POSITIVE
+X manage with Y	X require for Y	POSITIVE
+X be after Y	X follow by Y	POSITIVE
+X be for Y	X bring Y	POSITIVE
+X occur during Y	X cause Y	POSITIVE
+X associate with Y	X relate to Y	POSITIVE
+X need for Y	X help Y	POSITIVE
+X treat by Y	X treat Y	POSITIVE
+X be in Y	X transmit by Y	POSITIVE
+X correct Y	X treat by Y	POSITIVE
+X result from Y	X result in Y	POSITIVE
+X occur in Y	X indicate Y	POSITIVE
+X treat by Y	X manage with Y	POSITIVE
+X use for Y	X afford Y	POSITIVE
+X convert to Y	X convert into Y	POSITIVE
+X join with Y	X meet Y	POSITIVE
+X use against Y	X prevent Y	POSITIVE
+X hydrolyze Y	X break Y	POSITIVE
+X control Y	X mask Y	POSITIVE
+X reduce Y	X protect from Y	POSITIVE
+X alleviate Y	X reduce Y	POSITIVE
+X help Y	X control by Y	POSITIVE
+X relieve by Y	X decrease Y	POSITIVE
+X relate to Y	X attribute to Y	POSITIVE
+X produce by Y	X cause by Y	POSITIVE
+X relieve by Y	X be for Y	POSITIVE
+X result in Y	X suggest Y	POSITIVE
+X combine with Y	X use as Y	POSITIVE
+X use for Y	X relieve with Y	POSITIVE
+X find in Y	X present Y	POSITIVE
+X lead to Y	X follow Y	POSITIVE
+X provide Y	X achieve with Y	POSITIVE
+X attack Y	X occur in Y	POSITIVE
+X derive from Y	X make from Y	POSITIVE
+X find in Y	X transmit Y	POSITIVE
+X mask Y	X use for Y	POSITIVE
+X treat by Y	X be against Y	POSITIVE
+X respond to Y	X use in Y	POSITIVE
+X inhibit by Y	X inhibit Y	POSITIVE
+X be in Y	X control Y	POSITIVE
+X treat with Y	X overcome by Y	POSITIVE
+X give for Y	X recommend for Y	POSITIVE
+X occur during Y	X associate with Y	POSITIVE
+X indicate Y	X characterize by Y	POSITIVE
+X act as Y	X include Y	POSITIVE
+X derive from Y	X produce Y	POSITIVE
+X bring Y	X afford Y	POSITIVE
+X alternate with Y	X follow by Y	POSITIVE
+X follow by Y	X occur with Y	POSITIVE
+X treat with Y	X cover Y	POSITIVE
+X cause Y	X follow by Y	POSITIVE
+X refer to Y	X imply Y	POSITIVE
+X find in Y	X associate with Y	POSITIVE
+X pass through Y	X enter Y	POSITIVE
+X use as Y	X combine with Y	POSITIVE
+X be for Y	X relieve by Y	POSITIVE
+X control Y	X alleviate Y	POSITIVE
+X resemble Y	X simulate Y	POSITIVE
+X indicate Y	X be in Y	POSITIVE
+X get into Y	X inject into Y	POSITIVE
+X accompany Y	X accompany by Y	POSITIVE
+X prescribe for Y	X take for Y	POSITIVE
+X be in Y	X result from Y	POSITIVE
+X result from Y	Y manifest by X	POSITIVE
+X accompany Y	X suggest Y	POSITIVE
+X include Y	X find in Y	POSITIVE
+X treat by Y	X control Y	POSITIVE
+X result from Y	X mean Y	POSITIVE
+X involve Y	X refer to Y	POSITIVE
+X have Y	X develop Y	POSITIVE
+X treat by Y	X eliminate Y	POSITIVE
+X develop after Y	X cause by Y	POSITIVE
+X adminster with Y	X combine with Y	POSITIVE
+X occur in Y	X present as Y	POSITIVE
+X manifest by Y	X associate with Y	POSITIVE
+X use for Y	X prescribe for Y	POSITIVE
+X control with Y	X require Y	POSITIVE
+X ejaculate Y	X have Y	POSITIVE
+X help Y	X relieve Y	POSITIVE
+X associate with Y	X mean Y	POSITIVE
+X control Y	X relieve by Y	POSITIVE
+X eradicate Y	X treat with Y	POSITIVE
+X kill by Y	X destroy Y	POSITIVE
+X respond to Y	X adminster for Y	POSITIVE
+X use in Y	X contain Y	POSITIVE
+X combine with Y	X meet Y	POSITIVE
+X associate with Y	X occur from Y	POSITIVE
+X decrease Y	X help Y	POSITIVE
+X control with Y	X reduce Y	POSITIVE
+X lead to Y	X produce by Y	POSITIVE
+X produce by Y	X associate with Y	POSITIVE
+X cure by Y	X respond to Y	POSITIVE
+X kill by Y	X kill Y	POSITIVE
+X require Y	X correct with Y	POSITIVE
+X correct Y	X require Y	POSITIVE
+X convert into Y	X metabolize to Y	POSITIVE
+X receive Y	X contain Y	POSITIVE
+X alleviate Y	X mask Y	POSITIVE
+X imply Y	X refer to Y	POSITIVE
+X follow by Y	X follow Y	POSITIVE
+X associate with Y	X attribute to Y	POSITIVE
+X occur after Y	X produce Y	POSITIVE
+X lead to Y	X induce by Y	POSITIVE
+X meet Y	X join with Y	POSITIVE
+X obtain from Y	X have Y	POSITIVE
+X distinguish from Y	X differ from Y	POSITIVE
+X compose of Y	X make from Y	POSITIVE
+X carry by Y	X carry Y	POSITIVE
+X confound with Y	X simulate Y	POSITIVE
+X treat by Y	X correct by Y	POSITIVE
+X die of Y	X die from Y	POSITIVE
+X require for Y	X treat by Y	POSITIVE
+X lead to Y	X precede by Y	POSITIVE
+X prescribe for Y	X bring Y	POSITIVE
+X mean Y	X result from Y	POSITIVE
+X use for Y	X use Y	POSITIVE
+X penetrate by Y	X penetrate Y	POSITIVE
+X penetrate by Y	X enter Y	POSITIVE
+X control by Y	X indicate for Y	POSITIVE
+X achieve with Y	X use for Y	POSITIVE
+X produce Y	X produce by Y	POSITIVE
+X use for Y	X reserve for Y	POSITIVE
+X treat by Y	X overcome by Y	POSITIVE
+X relieve Y	X mask Y	POSITIVE
+X alternate with Y	X give to Y	POSITIVE
+X relieve Y	X help with Y	POSITIVE
+X adminster for Y	X respond to Y	POSITIVE
+X adminster during Y	X use for Y	POSITIVE
+X bring Y	X prescribe for Y	POSITIVE
+X be against Y	X use for Y	POSITIVE
+X eradicate Y	X kill Y	POSITIVE
+X cause Y	X attend with Y	POSITIVE
+X follow Y	X attribute to Y	POSITIVE
+X offer Y	X achieve with Y	POSITIVE
+X require Y	X need for Y	POSITIVE
+X cause by Y	X develop into Y	POSITIVE
+X cause Y	X develop Y	POSITIVE
+X treat with Y	X suppress Y	POSITIVE
+X control with Y	X take for Y	POSITIVE
+X combine with Y	X encounter Y	POSITIVE
+X overcome by Y	X relieve Y	POSITIVE
+X result in Y	X occur with Y	POSITIVE
+X control by Y	X prescribe for Y	POSITIVE
+X manage with Y	X alleviate Y	POSITIVE
+X occur with Y	X present with Y	POSITIVE
+X start before Y	X give before Y	POSITIVE
+X obtain with Y	X provide Y	POSITIVE
+X contract Y	X have Y	POSITIVE
+X suggest Y	X result in Y	POSITIVE
+X provide Y	X induce Y	POSITIVE
+X associate with Y	X find in Y	POSITIVE
+X attack with Y	X have Y	POSITIVE
+X define as Y	X imply Y	POSITIVE
+X give for Y	X administer for Y	POSITIVE
+X give for Y	X correct by Y	POSITIVE
+X contribute to Y	X produce Y	POSITIVE
+X eliminate Y	X affect by Y	POSITIVE
+X control Y	X prescribe for Y	POSITIVE
+X prescribe for Y	X provide Y	POSITIVE
+X produce by Y	X include Y	POSITIVE
+X characterize by Y	X contribute to Y	POSITIVE
+X refer to Y	X define as Y	POSITIVE
+X order for Y	X relieve by Y	POSITIVE
+X require Y	X relieve Y	POSITIVE
+X relieve Y	X require for Y	POSITIVE
+X be of Y	X have Y	POSITIVE
+X produce by Y	X give Y	POSITIVE
+X mask Y	X reduce Y	POSITIVE
+X present with Y	X occur with Y	POSITIVE
+X get Y	X have Y	POSITIVE
+X occur in Y	X develop Y	POSITIVE
+X contribute to Y	X result from Y	POSITIVE
+X complicate Y	X cause Y	POSITIVE
+X progress to Y	X lead to Y	POSITIVE
+X associate with Y	X manifest by Y	POSITIVE
+X administer for Y	X require Y	POSITIVE
+X be against Y	X eliminate Y	POSITIVE
+X suggest Y	X characterize by Y	POSITIVE
+X prevent Y	X control with Y	POSITIVE
+X transmit Y	X infect with Y	POSITIVE
+X be in Y	X indicate Y	POSITIVE
+X see in Y	X find in Y	POSITIVE
+X compose of Y	X contain Y	POSITIVE
+X prescribe for Y	X give Y	POSITIVE
+X need for Y	X use in Y	POSITIVE
+X help Y	X take for Y	POSITIVE
+X offer Y	X provide by Y	POSITIVE
+X provide by Y	X use for Y	POSITIVE
+X be with Y	X use in Y	POSITIVE
+X cure by Y	X prevent by Y	POSITIVE
+X cause by Y	X follow Y	POSITIVE
+X follow by Y	X precede Y	POSITIVE
+X be for Y	X relieve with Y	POSITIVE
+X offer Y	X obtain with Y	POSITIVE
+X use in Y	X respond to Y	POSITIVE
+X provide Y	X obtain from Y	POSITIVE
+X occur in Y	X suggest Y	POSITIVE
+X occur in Y	X infect with Y	POSITIVE
+X give Y	X achieve with Y	POSITIVE
+X indicate for Y	X provide by Y	POSITIVE
+X give to Y	X follow by Y	POSITIVE
+X use for Y	X bring Y	POSITIVE
+X cause by Y	X refer to Y	POSITIVE
+X expose to Y	X give Y	POSITIVE
+X reserve for Y	X use for Y	POSITIVE
+X use in Y	X give Y	POSITIVE
+X kill Y	X get Y	POSITIVE
+X alleviate Y	X treat with Y	POSITIVE
+X be for Y	X order for Y	POSITIVE
+X use as Y	X make from Y	POSITIVE
+X produce Y	X result in Y	POSITIVE
+X precede by Y	X lead to Y	POSITIVE
+X have Y	X be in Y	POSITIVE
+X predispose to Y	X cause by Y	POSITIVE
+X spread by Y	X transmit through Y	POSITIVE
+X occur after Y	X follow Y	POSITIVE
+X relieve Y	X treat by Y	POSITIVE
+X affect Y	X affect in Y	POSITIVE
+X attribute to Y	X relate to Y	POSITIVE
+X carry Y	X be in Y	POSITIVE
+X give to Y	X alternate with Y	POSITIVE
+X treat with Y	X cure by Y	POSITIVE
+X develop into Y	X lead to Y	POSITIVE
+X cause by Y	X produce by Y	POSITIVE
+X derive from Y	X prepare from Y	POSITIVE
+X alleviate Y	X treat by Y	POSITIVE
+X have Y	X ejaculate Y	POSITIVE
+X need for Y	X respond to Y	POSITIVE
+X use against Y	X be against Y	POSITIVE
+X control with Y	X help Y	POSITIVE
+X produce in Y	X produce Y	POSITIVE
+X use as Y	X contain Y	POSITIVE
+X find Y	X produce Y	POSITIVE
+X affect Y	X develop Y	POSITIVE
+X relieve Y	X control with Y	POSITIVE
+X contain Y	X consist of Y	POSITIVE
+X use for Y	X offer Y	POSITIVE
+X follow Y	X accompany Y	POSITIVE
+X refer to Y	X associate with Y	POSITIVE
+X come from Y	X produce Y	POSITIVE
+X give to Y	X result in Y	POSITIVE
+X produce by Y	X make Y	POSITIVE
+X treat by Y	X correct Y	POSITIVE
+X prepare from Y	X contain Y	POSITIVE
+X prescribe for Y	X recommend for Y	POSITIVE
+X treat with Y	X manage with Y	POSITIVE
+X be for Y	X offer Y	POSITIVE
+X result from Y	X relate to Y	POSITIVE
+X cause by Y	X begin with Y	POSITIVE
+X administer for Y	X recommend for Y	POSITIVE
+X decrease Y	X alleviate Y	POSITIVE
+X contribute to Y	X associate with Y	POSITIVE
+X meet Y	X unite with Y	POSITIVE
+X indicate Y	X associate with Y	POSITIVE
+X relieve Y	X administer for Y	POSITIVE
+X cure by Y	X treat by Y	POSITIVE
+X occur in Y	X carry Y	POSITIVE
+X cause Y	X accompany Y	POSITIVE
+X complicate Y	X cause by Y	POSITIVE
+X present with Y	X manifest by Y	POSITIVE
+X get into Y	X enter Y	POSITIVE
+X characterize by Y	X have Y	POSITIVE
+X indicate for Y	X prescribe for Y	POSITIVE
+X suggest Y	X produce Y	POSITIVE
+X come with Y	X accompany by Y	POSITIVE
+X take Y	X use in Y	POSITIVE
+X distinguish from Y	X differ from Y	POSITIVE
+X complicate with Y	X be in Y	POSITIVE
+X result from Y	X follow Y	POSITIVE
+X present as Y	X result from Y	POSITIVE
+X indicate for Y	X be for Y	POSITIVE
+X bring Y	X give Y	POSITIVE
+X respond to Y	X mask Y	POSITIVE
+X fertilize Y	X fertilize by Y	POSITIVE
+X make from Y	X use as Y	POSITIVE
+X replace Y	X substitute for Y	POSITIVE
+X begin as Y	X associate with Y	POSITIVE
+X prevent Y	X fight Y	POSITIVE
+X eliminate Y	X use against Y	POSITIVE
+X use for Y	X administer during Y	POSITIVE
+X use for Y	X be for Y	POSITIVE
+X have Y	X occur in Y	POSITIVE
+X present with Y	X accompany by Y	POSITIVE
+X mistake for Y	X differ from Y	POSITIVE
+X associate with Y	X suggest Y	POSITIVE
+X spread by Y	X carry by Y	POSITIVE
+X afford by Y	X give Y	POSITIVE
+X see in Y	X manifest by Y	POSITIVE
+X reduce Y	X kill Y	POSITIVE
+X obtain with Y	X afford Y	POSITIVE
+X affect with Y	X affect Y	POSITIVE
+X join with Y	X combine with Y	POSITIVE
+X enter Y	X pass through Y	POSITIVE
+X treat with Y	X control by Y	POSITIVE
+X be for Y	X give Y	POSITIVE
+X trigger Y	X precipitate Y	POSITIVE
+X use in Y	X administer during Y	POSITIVE
+X manage with Y	X control with Y	POSITIVE
+X cause Y	X produce Y	POSITIVE
+X obtain with Y	X use for Y	POSITIVE
+X associate with Y	X accompany by Y	POSITIVE
+X have Y	X be of Y	POSITIVE
+X make Y	X introduce Y	POSITIVE
+X hydrolyze by Y	X hydrolyze Y	POSITIVE
+X control by Y	X cure Y	POSITIVE
+X give to Y	X present with Y	POSITIVE
+X be for Y	X need for Y	POSITIVE
+X contribute to Y	X relate to Y	POSITIVE
+X follow Y	X associate with Y	POSITIVE
+X enter Y	X find in Y	POSITIVE
+X achieve with Y	X produce Y	POSITIVE
+X provide by Y	X afford by Y	POSITIVE
+X cure Y	X treat with Y	POSITIVE
+X relate to Y	X characterize by Y	POSITIVE
+X control Y	X require Y	POSITIVE
+X result in Y	X follow by Y	POSITIVE
+X associate with Y	X contribute to Y	POSITIVE
+X associate with Y	X occur in Y	POSITIVE
+X consist of Y	X contain Y	POSITIVE
+X occur in Y	X accompany Y	POSITIVE
+X control by Y	X require Y	POSITIVE
+X combine with Y	X unite with Y	POSITIVE
+X result from Y	X complicate Y	POSITIVE
+X associate with Y	X relate to Y	POSITIVE
+X require Y	X control Y	POSITIVE
+X protect against Y	X prevent by Y	POSITIVE
+X make by Y	X produce Y	POSITIVE
+X combine with Y	X use with Y	POSITIVE
+X produce Y	X stimulate Y	POSITIVE
+X derive from Y	X obtain from Y	POSITIVE
+X have Y	X obtain from Y	POSITIVE
+X destroy Y	X kill by Y	POSITIVE
+X produce Y	X develop with Y	POSITIVE
+X develop for Y	X indicate for Y	POSITIVE
+X treat with Y	X eliminate Y	POSITIVE
+X penetrate by Y	X fertilize Y	POSITIVE
+X have Y	X affect Y	POSITIVE
+X result from Y	X see in Y	POSITIVE
+X occur with Y	X accompany Y	POSITIVE
+X cause Y	X give Y	POSITIVE
+X present with Y	X present as Y	POSITIVE
+X occur in Y	X see in Y	POSITIVE
+X need for Y	X be for Y	POSITIVE
+X accompany Y	X produce Y	POSITIVE
+X confound with Y	X simulate Y	POSITIVE
+X use in Y	X use during Y	POSITIVE
+X treat with Y	X take for Y	POSITIVE
+X substitute for Y	X replace Y	POSITIVE
+X consist of Y	X prepare from Y	POSITIVE
+X reduce Y	X provide from Y	POSITIVE
+X use for Y	X provide Y	POSITIVE
+X cause by Y	X attribute to Y	POSITIVE
+X follow by Y	X result in Y	POSITIVE
+X confuse with Y	X differ from Y	POSITIVE
+X relieve by Y	X mask Y	POSITIVE
+X include Y	X act as Y	POSITIVE
+X offer Y	X afford Y	POSITIVE
+X suffer from Y	X occur in Y	POSITIVE
+X treat with Y	X require Y	POSITIVE
+X be for Y	X relieve Y	POSITIVE
+X fertilize by Y	X fertilize Y	POSITIVE
+X mask Y	X treat by Y	POSITIVE
+X involve Y	X mean Y	POSITIVE
+X unite with Y	X join with Y	POSITIVE
+X be with Y	X use for Y	POSITIVE
+X suppress Y	X treat with Y	POSITIVE
+X use for Y	X obtain with Y	POSITIVE
+X begin with Y	X suggest Y	POSITIVE
+X prepare from Y	X derive from Y	POSITIVE
+X relieve by Y	X cure Y	POSITIVE
+X prescribe for Y	X prevent Y	POSITIVE
+X indicate Y	X lead to Y	POSITIVE
+X decrease Y	X treat with Y	POSITIVE
+X give Y	X produce by Y	POSITIVE
+X control with Y	X relieve by Y	POSITIVE
+X prevent Y	X control Y	POSITIVE
+X reduce Y	X use for Y	POSITIVE
+X reduce Y	X respond to Y	POSITIVE
+X manifest as Y	X cause Y	POSITIVE
+X follow by Y	X accompany Y	POSITIVE
+X reduce to Y	X convert into Y	POSITIVE
+X require for Y	X give for Y	POSITIVE
+X relieve Y	X take for Y	POSITIVE
+X cause Y	X relate to Y	POSITIVE
+X occur with Y	X accompany by Y	POSITIVE
+X mask Y	X relieve with Y	POSITIVE
+X die of Y	X suffer from Y	POSITIVE
+X meet Y	X join with Y	POSITIVE
+X relieve Y	X be for Y	POSITIVE
+X follow by Y	X accompany by Y	POSITIVE
+X result from Y	X characterize by Y	POSITIVE
+X start with Y	X cause Y	POSITIVE
+X cause by Y	X complicate by Y	POSITIVE
+X manage with Y	X control Y	POSITIVE
+X secrete Y	X produce by Y	POSITIVE
+X indicate Y	X result from Y	POSITIVE
+X provide Y	X produce Y	POSITIVE
+X manage with Y	X use for Y	POSITIVE
+X accompany by Y	X follow Y	POSITIVE
+X result in Y	X associate with Y	POSITIVE
+X occur in Y	X find in Y	POSITIVE
+X produce Y	X introduce by Y	POSITIVE
+X cause Y	X occur from Y	POSITIVE
+X cause by Y	X occur after Y	POSITIVE
+X use in Y	X prescribe for Y	POSITIVE
+X adminster for Y	X reduce Y	POSITIVE
+X be for Y	X indicate for Y	POSITIVE
+X find in Y	X occur in Y	POSITIVE
+X associate with Y	X complicate with Y	POSITIVE
+X kill Y	X be against Y	POSITIVE
+X occur with Y	X cause Y	POSITIVE
+X control by Y	X reduce Y	POSITIVE
+X provide by Y	X indicate for Y	POSITIVE
+X kill Y	X eradicate Y	POSITIVE
+X be against Y	X respond to Y	POSITIVE
+X have Y	X infect with Y	POSITIVE
+X find in Y	X obtain from Y	POSITIVE
+X be for Y	X develop for Y	POSITIVE
+X be in Y	X see in Y	POSITIVE
+X adminster for Y	X require for Y	POSITIVE
+X characterize by Y	X occur in Y	POSITIVE
+X associate with Y	X see in Y	POSITIVE
+X show Y	X occur in Y	POSITIVE
+X be for Y	X reduce Y	POSITIVE
+X use in Y	X license for Y	POSITIVE
+X obtain with Y	X produce Y	POSITIVE
+X attack Y	X involve Y	POSITIVE
+X refer to Y	X mean Y	POSITIVE
+X be for Y	X respond to Y	POSITIVE
+X mask Y	X relieve Y	POSITIVE
+X take for Y	X control with Y	POSITIVE
+X correct with Y	X require Y	POSITIVE
+X associate with Y	X occur from Y	POSITIVE
+X follow Y	X develop from Y	POSITIVE
+X form from Y	X metabolize to Y	POSITIVE
+X result in Y	X develop from Y	POSITIVE
+X alleviate Y	X control with Y	POSITIVE
+X relieve Y	X decrease Y	POSITIVE
+X be in Y	X characterize by Y	POSITIVE
+X need for Y	X control by Y	POSITIVE
+X find in Y	X have Y	POSITIVE
+X associate with Y	X manifest by Y	POSITIVE
+X adminster for Y	X relieve Y	POSITIVE
+X transmit Y	X carry by Y	POSITIVE
+X cause Y	X present with Y	POSITIVE
+X suggest Y	X develop into Y	POSITIVE
+X follow Y	X suggest Y	POSITIVE
+X treat with Y	X require for Y	POSITIVE
+X protect against Y	X prevent Y	POSITIVE
+X give Y	X obtain from Y	POSITIVE
+X associate with Y	X define as Y	POSITIVE
+X occur with Y	X produce Y	POSITIVE
+X aggravate Y	X produce Y	POSITIVE
+X control with Y	X order for Y	POSITIVE
+X cause Y	X see in Y	POSITIVE
+X protect from Y	X reduce Y	POSITIVE
+X result in Y	X lead to Y	POSITIVE
+X define as Y	X mean Y	POSITIVE
+X afford Y	X produce Y	POSITIVE
+X result in Y	X present with Y	POSITIVE
+X manage with Y	X relieve Y	POSITIVE
+X suggest Y	X produce Y	POSITIVE
+X carry Y	X infect with Y	POSITIVE
+X use for Y	X mask Y	POSITIVE
+X give for Y	X help Y	POSITIVE
+X be for Y	X be against Y	POSITIVE
+X be in Y	X infect with Y	POSITIVE
+X alleviate Y	X relieve Y	POSITIVE
+X give to Y	X adminster to Y	POSITIVE
+X adminster for Y	X need for Y	POSITIVE
+X compose of Y	X use as Y	POSITIVE
+X precede by Y	X herald by Y	POSITIVE
+X occur during Y	X characterize by Y	POSITIVE
+X be in Y	X occur in Y	POSITIVE
+X present with Y	X occur in Y	POSITIVE
+X prescribe for Y	X reduce Y	POSITIVE
+X reduce Y	X control Y	POSITIVE
+X accompany by Y	X associate with Y	POSITIVE
+X use for Y	X use in Y	POSITIVE
+X cause by Y	X cause Y	POSITIVE
+X manage with Y	X be for Y	POSITIVE
+X cause Y	X complicate Y	POSITIVE
+X be in Y	X affect Y	POSITIVE
+X make Y	X produce in Y	POSITIVE
+X follow by Y	X give to Y	POSITIVE
+X improve Y	X relieve Y	POSITIVE
+X give for Y	X provide from Y	POSITIVE
+X follow Y	X occur from Y	POSITIVE
+X associate with Y	X mean Y	POSITIVE
+X treat with Y	X control Y	POSITIVE
+X cause by Y	X induce Y	POSITIVE
+X use in Y	X require for Y	POSITIVE
+X take for Y	X be for Y	POSITIVE
+X unite with Y	X combine with Y	POSITIVE
+X manufacture Y	X produce by Y	POSITIVE
+X be in Y	X contain Y	POSITIVE
+X accompany with Y	X associate with Y	POSITIVE
+X imply Y	X associate with Y	POSITIVE
+X prevent Y	X reduce Y	POSITIVE
+X present with Y	X give to Y	POSITIVE
+X give Y	X give to Y	POSITIVE
+X produce Y	X occur with Y	POSITIVE
+X be with Y	X indicate for Y	POSITIVE
+X achieve with Y	X provide Y	POSITIVE
+X occur in Y	X characterize by Y	POSITIVE
+X cure by Y	X cure Y	POSITIVE
+X mean Y	X characterize by Y	POSITIVE
+X cause Y	X develop from Y	POSITIVE
+X cause Y	X associate Y	POSITIVE
+X control by Y	X cure with Y	POSITIVE
+X characterize by Y	X be with Y	POSITIVE
+X mistake for Y	X mistake for Y	POSITIVE
+X base on Y	X contain Y	POSITIVE
+X consist of Y	X be in Y	POSITIVE
+X result in Y	X cause Y	POSITIVE
+X occur after Y	X associate with Y	POSITIVE
+X predispose to Y	X associate with Y	POSITIVE
+X result from Y	X give to Y	POSITIVE
+X control by Y	X control Y	POSITIVE
+X accompany Y	X occur with Y	POSITIVE
+X give with Y	X treat with Y	POSITIVE
+X cause by Y	X present with Y	POSITIVE
+X associate with Y	X see in Y	POSITIVE
+X treat Y	X use for Y	POSITIVE
+X metabolize to Y	X form from Y	POSITIVE
+X aggravate Y	X cause Y	POSITIVE
+X be for Y	X give for Y	POSITIVE
+X overcome by Y	X relieve by Y	POSITIVE
+X be in Y	X control by Y	POSITIVE
+X take for Y	X treat with Y	POSITIVE
+X help Y	X administer for Y	POSITIVE
+X encounter Y	X combine with Y	POSITIVE
+X produce Y	X cause Y	POSITIVE
+X indicate Y	X see in Y	POSITIVE
+X help Y	X respond to Y	POSITIVE
+X combine with Y	X administer with Y	POSITIVE
+X help Y	X treat with Y	POSITIVE
+X reduce Y	X use in Y	POSITIVE
+X relate to Y	X associate with Y	POSITIVE
+X herald by Y	X associate with Y	POSITIVE
+X administer for Y	X order for Y	POSITIVE
+X provide Y	X offer Y	POSITIVE
+X control with Y	X manage with Y	POSITIVE
+X occur in Y	X occur with Y	POSITIVE
+X prescribe for Y	X achieve with Y	POSITIVE
+X complicate by Y	X progress to Y	POSITIVE
+X give during Y	X use during Y	POSITIVE
+X affect with Y	X develop in Y	POSITIVE
+X help with Y	X relieve Y	POSITIVE
+X use for Y	X reduce Y	POSITIVE
+X treat with Y	X control with Y	POSITIVE
+X occur in Y	X develop in Y	POSITIVE
+X respond to Y	X require for Y	POSITIVE
+X derive from Y	X isolate from Y	POSITIVE
+X follow Y	X cause by Y	POSITIVE
+X inject into Y	X fertilize Y	POSITIVE
+X eradicate Y	X treat by Y	POSITIVE
+X cause Y	X occur with Y	POSITIVE
+X complicate Y	X follow by Y	POSITIVE
+X be for Y	X manage with Y	POSITIVE
+X be for Y	X provide by Y	POSITIVE
+X produce Y	X accompany Y	POSITIVE
+X respond to Y	X relieve by Y	POSITIVE
+X produce Y	X accompany by Y	POSITIVE
+X see in Y	X result from Y	POSITIVE
+X follow by Y	X associate with Y	POSITIVE
+X cause by Y	X develop after Y	POSITIVE
+X penetrate Y	X enter Y	POSITIVE
+X use for Y	X decrease Y	POSITIVE
+X associate with Y	X come with Y	POSITIVE
+X develop in Y	X be in Y	POSITIVE
+X develop for Y	X use in Y	POSITIVE
+X cause Y	X predispose to Y	POSITIVE
+X cause by Y	X accompany Y	POSITIVE
+X control Y	X treat by Y	POSITIVE
+X result from Y	X suggest Y	POSITIVE
+X cause by Y	X develop from Y	POSITIVE
+X reduce Y	X adminster for Y	POSITIVE
+X prevent Y	X control by Y	POSITIVE
+X use for Y	X achieve with Y	POSITIVE
+X protect against Y	X protect from Y	POSITIVE
+X provide Y	X use for Y	POSITIVE
+X cause by Y	X follow by Y	POSITIVE
+X expose to Y	X develop Y	POSITIVE
+X recommend for Y	X give for Y	POSITIVE
+X define as Y	X cause by Y	POSITIVE
+X relieve by Y	X require for Y	POSITIVE
+X confuse with Y	X resemble Y	POSITIVE
+X develop for Y	X use for Y	POSITIVE
+X respond to Y	X use for Y	POSITIVE
+X obtain from Y	X give Y	POSITIVE
+X associate with Y	X give to Y	POSITIVE
+X accompany by Y	X accompany with Y	POSITIVE
+X be against Y	X be for Y	POSITIVE
+X develop Y	X produce Y	POSITIVE
+X metabolize by Y	X metabolize in Y	POSITIVE
+X treat with Y	X relieve with Y	POSITIVE
+X obtain with Y	X bring Y	POSITIVE
+X produce Y	X present as Y	POSITIVE
+X penetrate by Y	X inject into Y	POSITIVE
+X relieve with Y	X control by Y	POSITIVE
+X consist of Y	X make from Y	POSITIVE
+X relieve Y	X be in Y	POSITIVE
+X have Y	X provide Y	POSITIVE
+X suggest Y	X consist of Y	POSITIVE
+X join with Y	X encounter Y	POSITIVE
+X suggest Y	X associate with Y	POSITIVE
+X prepare from Y	X consist of Y	POSITIVE
+X result in Y	X characterize by Y	POSITIVE
+X prevent Y	X protect against Y	POSITIVE
+X cause Y	X manifest as Y	POSITIVE
+X treat by Y	X relieve Y	POSITIVE
+X control with Y	X mask Y	POSITIVE
+X associate with Y	X result from Y	POSITIVE
+X use as Y	X prepare from Y	POSITIVE
+X inhibit Y	X inhibit by Y	POSITIVE
+X kill Y	X respond to Y	POSITIVE
+X prevent Y	X relieve Y	POSITIVE
+X relieve by Y	X adminster for Y	POSITIVE
+X introduce Y	X introduce by Y	POSITIVE
+X follow by Y	X lead to Y	POSITIVE
+X produce by Y	X obtain from Y	POSITIVE
+X produce by Y	X produce in Y	POSITIVE
+X relieve with Y	X relieve by Y	POSITIVE
+X achieve with Y	X bring Y	POSITIVE
+X metabolize to Y	X convert into Y	POSITIVE
+X release into Y	X enter Y	POSITIVE
+X use with Y	X combine with Y	POSITIVE
+X offer Y	X produce Y	POSITIVE
+X secrete Y	X produce Y	POSITIVE
+X consist of Y	X characterize by Y	POSITIVE
+X metabolize to Y	X convert to Y	POSITIVE
+X be in Y	X help Y	POSITIVE
+X inhibit Y	X prevent Y	POSITIVE
+X lead to Y	X predispose to Y	POSITIVE
+X occur in Y	X attack Y	POSITIVE
+X manage with Y	X control by Y	POSITIVE
+X discover Y	X find Y	POSITIVE
+X control by Y	X treat with Y	POSITIVE
+X transmit through Y	X transmit Y	POSITIVE
+X characterize by Y	X be with Y	POSITIVE
+X occur with Y	X accompany by Y	POSITIVE
+X reach Y	X enter Y	POSITIVE
+X be for Y	X use for Y	POSITIVE
+X be for Y	X be with Y	POSITIVE
+X suffer from Y	X be in Y	POSITIVE
+X manifest by Y	X lead to Y	POSITIVE
+X relieve by Y	X use for Y	POSITIVE
+X take for Y	X reduce Y	POSITIVE
+X reduce Y	X take for Y	POSITIVE
+X afford by Y	X provide Y	POSITIVE
+X cause Y	X be in Y	POSITIVE
+X simulate Y	X resemble Y	POSITIVE
+X transmit by Y	X carry Y	POSITIVE
+X suggest Y	X have Y	POSITIVE
+X be in Y	X complicate with Y	POSITIVE
+X produce Y	X manufacture Y	POSITIVE
+X fight Y	X prevent Y	POSITIVE
+X produce by Y	X lead to Y	POSITIVE
+X use for Y	X need for Y	POSITIVE
+X associate with Y	X occur during Y	POSITIVE
+X order for Y	X prescribe for Y	POSITIVE
+X treat with Y	X alleviate Y	POSITIVE
+X manifest by Y	X produce Y	POSITIVE
+X associate with Y	X herald by Y	POSITIVE
+X prescribe for Y	X require Y	POSITIVE
+X use for Y	X correct by Y	POSITIVE
+X indicate for Y	X indicate in Y	POSITIVE
+X give Y	X be for Y	POSITIVE
+X herald by Y	X precede by Y	POSITIVE
+X combine with Y	X contain Y	POSITIVE
+X produce Y	X follow by Y	POSITIVE
+X cause Y	X induce by Y	POSITIVE
+X use in Y	X give for Y	POSITIVE
+X provide by Y	X give Y	POSITIVE
+X affect by Y	X be against Y	POSITIVE
+X prevent by Y	X eliminate Y	POSITIVE
+X relieve Y	X control by Y	POSITIVE
+X complicate by Y	X follow by Y	POSITIVE
+X use as Y	X have Y	POSITIVE
+X recommend for Y	X use for Y	POSITIVE
+X transmit by Y	X infect with Y	POSITIVE
+X accompany by Y	X cause by Y	POSITIVE
+X use for Y	X correct Y	POSITIVE
+X find in Y	X develop Y	POSITIVE
+X mistake for Y	X distinguish from Y	POSITIVE
+X result from Y	X suggest Y	POSITIVE
+X help Y	X need for Y	POSITIVE
+X reduce Y	X manage with Y	POSITIVE
+X relate to Y	X cause by Y	POSITIVE
+X treat with Y	X give with Y	POSITIVE
+X control by Y	X help Y	POSITIVE
+X relieve by Y	X overcome by Y	POSITIVE
+X cause Y	X manifest by Y	POSITIVE
+X use for Y	X relieve Y	POSITIVE
+X die of Y	X develop Y	POSITIVE
+X improve Y	X treat with Y	POSITIVE
+X result in Y	X cause by Y	POSITIVE
+X require Y	X control by Y	POSITIVE
+X control by Y	X be against Y	POSITIVE
+X result in Y	X suggest Y	POSITIVE
+X present as Y	X occur in Y	POSITIVE
+X suggest Y	X accompany Y	POSITIVE
+X follow Y	X lead to Y	POSITIVE
+X result in Y	X result from Y	POSITIVE
+X cause Y	X affect Y	POSITIVE
+X result in Y	X indicate Y	POSITIVE
+X prescribe for Y	X indicate for Y	POSITIVE
+X mask Y	X manage with Y	POSITIVE
+X recommend for Y	X provide Y	POSITIVE
+X help Y	X relieve by Y	POSITIVE
+X relieve with Y	X treat with Y	POSITIVE
+X cause by Y	X complicate Y	POSITIVE
+X cause Y	X occur after Y	POSITIVE
+X be in Y	X achieve with Y	POSITIVE
+X relieve by Y	X order for Y	POSITIVE
+X indicate Y	X accompany by Y	POSITIVE
+X induce Y	X produce Y	POSITIVE
+X relieve by Y	X reduce Y	POSITIVE
+X occur from Y	X lead to Y	POSITIVE
+X use for Y	X use as Y	POSITIVE
+X use for Y	X develop for Y	POSITIVE
+X occur in Y	X involve Y	POSITIVE
+X develop Y	X find in Y	POSITIVE
+X correct by Y	X give for Y	POSITIVE
+X suggest Y	X indicate Y	POSITIVE
+X use against Y	X eliminate Y	POSITIVE
+X respond to Y	X require Y	POSITIVE
+X contain Y	X base on Y	POSITIVE
+X recommend for Y	X afford Y	POSITIVE
+X accompany by Y	X accompany by Y	POSITIVE
+X give to Y	X associate with Y	POSITIVE
+X transmit by Y	X transmit Y	POSITIVE
+X follow Y	X give to Y	POSITIVE
+X result from Y	X contribute to Y	POSITIVE
+X develop in Y	X affect Y	POSITIVE
+X involve Y	X attack Y	POSITIVE
+X complicate Y	X complicate with Y	POSITIVE
+X cure with Y	X control Y	POSITIVE
+X correct by Y	X treat by Y	POSITIVE
+X administer before Y	X give before Y	POSITIVE
+X use as Y	X employ as Y	POSITIVE
+X develop after Y	X cause Y	POSITIVE
+X require Y	X cure by Y	POSITIVE
+X be against Y	X kill Y	POSITIVE
+X spread by Y	X transmit Y	POSITIVE
+X provide Y	X bring Y	POSITIVE
+X control with Y	X provide from Y	POSITIVE
+X cause Y	X involve Y	POSITIVE
+X reduce Y	X treat with Y	POSITIVE
+X manifest by Y	X indicate Y	POSITIVE
+X cure Y	X treat by Y	POSITIVE
+X control with Y	X treat Y	POSITIVE
+X require Y	X relieve by Y	POSITIVE
+X control Y	X indicate for Y	POSITIVE
+X prescribe for Y	X cure Y	POSITIVE
+X obtain from Y	X occur in Y	POSITIVE
+X cause by Y	X characterize by Y	POSITIVE
+X use in Y	X use Y	POSITIVE
+X relieve Y	X control Y	POSITIVE
+X find in Y	X isolate from Y	POSITIVE
+X be in Y	X manage with Y	POSITIVE
+X treat with Y	X improve Y	POSITIVE
+X be in Y	X suggest Y	POSITIVE
+X alleviate Y	X control by Y	POSITIVE
+X accompany by Y	X follow Y	POSITIVE
+X cause Y	X attribute to Y	POSITIVE
+X control by Y	X be in Y	POSITIVE
+X give to Y	X associate with Y	POSITIVE
+X turn to Y	X develop into Y	POSITIVE
+X combine with Y	X combine with Y	POSITIVE
+X transmit via Y	X transmit through Y	POSITIVE
+X suggest Y	X start with Y	POSITIVE
+X reduce Y	X help Y	POSITIVE
+X lead to Y	X manifest by Y	POSITIVE
+X control Y	X prevent Y	POSITIVE
+X cause Y	X exacerbate Y	POSITIVE
+X occur in Y	X characterize by Y	POSITIVE
+X bring Y	X obtain with Y	POSITIVE
+X indicate Y	X present as Y	POSITIVE
+X begin as Y	X cause Y	POSITIVE
+X provide Y	X have Y	POSITIVE
+X obtain with Y	X prescribe for Y	POSITIVE
+X produce Y	X afford Y	POSITIVE
+X manifest as Y	X result from Y	POSITIVE
+X make Y	X manufacture Y	POSITIVE
+X carry Y	X transmit Y	POSITIVE
+X relieve with Y	X help Y	POSITIVE
+X occur after Y	X cause by Y	POSITIVE
+X suppress Y	X reduce Y	POSITIVE
+X produce Y	X accompany by Y	POSITIVE
+X achieve with Y	X recommend for Y	POSITIVE
+X begin with Y	X characterize by Y	POSITIVE
+X transmit from Y	X have Y	POSITIVE
+X suggest Y	X cause Y	POSITIVE
+X cure by Y	X relieve Y	POSITIVE
+X convert into Y	X derive from Y	POSITIVE
+X afford Y	X bring Y	POSITIVE
+X manifest by Y	X associate with Y	POSITIVE
+X reduce Y	X order for Y	POSITIVE
+X give for Y	X require Y	POSITIVE
+X cure with Y	X control with Y	POSITIVE
+X indicate for Y	X be with Y	POSITIVE
+X control Y	X manage with Y	POSITIVE
+X control by Y	X treat by Y	POSITIVE
+X require Y	X prevent Y	POSITIVE
+X complicate by Y	X develop into Y	POSITIVE
+X alleviate Y	X relieve with Y	POSITIVE
+X use as Y	X use as Y	POSITIVE
+X use in Y	X administer to Y	POSITIVE
+X affect by Y	X be in Y	POSITIVE
+X be with Y	X affect Y	POSITIVE
+X require Y	X give for Y	POSITIVE
+X respond to Y	X manage with Y	POSITIVE
+X result in Y	X associate with Y	POSITIVE
+X fertilize Y	X penetrate by Y	POSITIVE
+X fertilize by Y	X penetrate Y	POSITIVE
+X cause Y	X occur with Y	POSITIVE
+X produce Y	X come from Y	POSITIVE
+X need for Y	X control with Y	POSITIVE
+X cause by Y	X lead to Y	POSITIVE
+X make from Y	X contain Y	POSITIVE
+X control by Y	X relieve Y	POSITIVE
+X produce Y	X discharge Y	POSITIVE
+X relieve Y	X overcome by Y	POSITIVE
+X attribute to Y	X associate with Y	POSITIVE
+X follow Y	X produce Y	POSITIVE
+X order for Y	X need for Y	POSITIVE
+X involve Y	X affect Y	POSITIVE
+X follow Y	X accompany Y	POSITIVE
+X produce Y	X provide Y	POSITIVE
+X affect by Y	X kill by Y	POSITIVE
+X order for Y	X use for Y	POSITIVE
+X provide Y	X prescribe for Y	POSITIVE
+X use for Y	X include Y	POSITIVE
+X cure Y	X require Y	POSITIVE
+X control by Y	X mask Y	POSITIVE
+X follow Y	X result from Y	POSITIVE
+X follow Y	X complicate Y	POSITIVE
+X prevent Y	X inhibit Y	POSITIVE
+X produce Y	X manifest by Y	POSITIVE
+X include Y	X know as Y	POSITIVE
+X be in Y	X suffer from Y	POSITIVE
+X recommend for Y	X use Y	POSITIVE
+X base on Y	X compose of Y	POSITIVE
+X lead to Y	X characterize by Y	POSITIVE
+X bring Y	X achieve with Y	POSITIVE
+X occur from Y	X associate with Y	POSITIVE
+X cover Y	X treat with Y	POSITIVE
+X produce by Y	X release Y	POSITIVE
+X occur from Y	X result in Y	POSITIVE
+X associate with Y	X follow by Y	POSITIVE
+X eliminate Y	X be against Y	POSITIVE
+X require for Y	X be for Y	POSITIVE
+X develop Y	X cause by Y	POSITIVE
+X correct with Y	X treat by Y	POSITIVE
+X result in Y	X contribute to Y	POSITIVE
+X relieve Y	X manage with Y	POSITIVE
+X cause by Y	X accompany by Y	POSITIVE
+X cause by Y	X see in Y	POSITIVE
+X cause by Y	X predispose to Y	POSITIVE
+X meet Y	X combine with Y	POSITIVE
+X affect Y	X affect with Y	POSITIVE
+X respond to Y	X eliminate Y	POSITIVE
+X cure Y	X relieve by Y	POSITIVE
+X kill Y	X die of Y	POSITIVE
+X develop from Y	X follow Y	POSITIVE
+X progress to Y	X complicate by Y	POSITIVE
+X mean Y	X cause Y	POSITIVE
+X overcome by Y	X treat with Y	POSITIVE
+X accompany by Y	X complicate Y	POSITIVE
+X transmit by Y	X spread through Y	POSITIVE
+X introduce by Y	X produce Y	POSITIVE
+X achieve with Y	X indicate for Y	POSITIVE
+X break Y	X digest Y	POSITIVE
+X be during Y	X occur during Y	POSITIVE
+X be with Y	X characterize by Y	POSITIVE
+X penetrate by Y	X fertilize by Y	POSITIVE
+X prevent Y	X require Y	POSITIVE
+X relieve by Y	X control with Y	POSITIVE
+X treat by Y	X alleviate Y	POSITIVE
+X cure Y	X control by Y	POSITIVE
+X treat by Y	X cure Y	POSITIVE
+X help Y	X alleviate Y	POSITIVE
+X develop Y	X expose to Y	POSITIVE
+X infect with Y	X transmit Y	POSITIVE
+X characterize by Y	X cause by Y	POSITIVE
+X accompany Y	X follow Y	POSITIVE
+X attribute to Y	X cause by Y	POSITIVE
+X occur in Y	X transmit Y	POSITIVE
+X follow by Y	X cause by Y	POSITIVE
+X exacerbate Y	X cause Y	POSITIVE
+X treat with Y	X recommend for Y	POSITIVE
+X involve Y	X cause Y	POSITIVE
+X develop Y	X have Y	POSITIVE
+X convert into Y	X form from Y	POSITIVE
+X reduce to Y	X convert to Y	POSITIVE
+X discover Y	X invent Y	POSITIVE
+X suggest Y	X occur in Y	POSITIVE
+X see in Y	X produce Y	POSITIVE
+X follow by Y	X alternate with Y	POSITIVE
+X be in Y	X relieve Y	POSITIVE
+X require Y	X respond to Y	POSITIVE
+X infect with Y	X find in Y	POSITIVE
+X transmit Y	X occur in Y	POSITIVE
+X control with Y	X control by Y	POSITIVE
+X use for Y	X treat Y	POSITIVE
+X cause by Y	X associate with Y	POSITIVE
+X follow Y	X precede Y	POSITIVE
+X unite with Y	X combine with Y	POSITIVE

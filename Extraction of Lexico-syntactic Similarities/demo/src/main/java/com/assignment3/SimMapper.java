@@ -8,21 +8,24 @@ import org.apache.hadoop.mapreduce.Mapper;
 public class SimMapper extends Mapper<LongWritable, Text, Text, Text> {
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        // Input: Head \t Path \t Word \t MI \t TotalPathMI
-        String[] parts = value.toString().split("\t");
+        String[] parts = value.toString().split("\t"); 
+        // פורמט מצופה משלב 2: Head, Path, Word, MI, SumMI_Per_Slot
         if (parts.length < 5) return;
+        
+        String path = parts[1].toLowerCase();
+        String slot;
 
-        String head = parts[0];
-        String path = parts[1];
-        String word = parts[2];
-        String mi = parts[3];
-        String totalMi = parts[4];
-
-        // Join context: The dependency slot (e.g. nsubj) and the word
-        String outKey = path + "\t" + word; 
-        // Data: The verb head, its MI for this word, and its total MI sum
-        String outValue = head + "\t" + mi + "\t" + totalMi;
-
-        context.write(new Text(outKey), new Text(outValue));
+        // מיפוי יחסים לסלוטים (DIRT Specification)
+        if (path.contains("subj") || path.contains("agent")) {
+            slot = "SlotX";
+        } else if (path.contains("obj") || path.contains("pobj")) {
+            slot = "SlotY";
+        } else {
+            return; // התעלמות מיחסים שאינם X או Y
+        }
+        
+        // מפתח: סלוט + מילה (למשל: SlotX\tapple)
+        // ערך: פועל + MI + SumMI של הפועל בסלוט
+        context.write(new Text(slot + "\t" + parts[2]), new Text(parts[0] + "\t" + parts[3] + "\t" + parts[4]));
     }
 }

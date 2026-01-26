@@ -1,64 +1,86 @@
 package com.assignment3;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
 public class SimReducer extends Reducer<Text, Text, Text, Text> {
-    private Map<String, String> testPairsMap = new HashMap<>();
+    private Map<String, String> goldStandard = new HashMap<>();
 
     @Override
-    protected void setup(Context context) throws IOException, InterruptedException {
-        Configuration conf = context.getConfiguration();
-        String testSetPath = conf.get("dirt.testset.path");
-        if (testSetPath != null) {
-            Path path = new Path(testSetPath);
-            FileSystem fs = path.getFileSystem(conf);
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(fs.open(path)))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    String[] phrases = line.trim().split("\t");
-                    if (phrases.length >= 2) {
-                        String v1 = Stemmer.stem(phrases[0].split("\\s+")[0]);
-                        String v2 = Stemmer.stem(phrases[1].split("\\s+")[0]);
-                        testPairsMap.put(v1 + "\t" + v2, phrases[0] + "\t" + phrases[1]);
-                        testPairsMap.put(v2 + "\t" + v1, phrases[1] + "\t" + phrases[0]);
-                    }
+    protected void setup(Context context) throws IOException {
+        URI[] cacheFiles = context.getCacheFiles();
+        if (cacheFiles == null || cacheFiles.length == 0) return;
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(cacheFiles[0].getPath()).getName()))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] p = line.trim().split("\t");
+                if (p.length >= 3) {
+                    String v1 = cleanAndStem(p[0]);
+                    String v2 = cleanAndStem(p[1]);
+                    // מפתח משולב לחיפוש מהיר
+                    goldStandard.put(v1 + "###" + v2, p[0] + "\t" + p[1] + "\t" + p[2]);
                 }
-            } catch (Exception e) {}
+            }
         }
+    }
+
+    private String cleanAndStem(String raw) {
+        if (raw == null || raw.isEmpty()) return "";
+        String verbOnly = raw.replaceAll("\\b[XY]\\b", "").trim().split("\\s+")[0];
+        return Stemmer.stem(verbOnly.toLowerCase());
     }
 
     @Override
     protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
-        List<String> verbs = new ArrayList<>();
-        List<Double> mis = new ArrayList<>();
-        List<Double> pathTotals = new ArrayList<>();
+        String slot = key.toString().split("\t")[0];
+        
+        // 1. Deduplication: שמירת ה-MI הטוב ביותר לכל פועל עבור המילה הזו
+        Map<String, double[]> bestVerbs = new HashMap<>(); // verb -> {mi, sumMI}
 
         for (Text v : values) {
             String[] p = v.toString().split("\t");
             if (p.length < 3) continue;
-            verbs.add(p[0]); mis.add(Double.parseDouble(p[1])); pathTotals.add(Double.parseDouble(p[2]));
+            try {
+                String verb = p[0];
+                double mi = Double.parseDouble(p[1]);
+                double sumMI = Double.parseDouble(p[2]);
+                
+                if (!bestVerbs.containsKey(verb) || mi > bestVerbs.get(verb)[0]) {
+                    bestVerbs.put(verb, new double[]{mi, sumMI});
+                }
+            } catch (NumberFormatException e) { continue; }
         }
 
-        for (int i = 0; i < verbs.size(); i++) {
-            for (int j = i + 1; j < verbs.size(); j++) {
-                String pairKey = verbs.get(i) + "\t" + verbs.get(j);
-                if (testPairsMap.containsKey(pairKey)) {
-                    // DIRT Formula 3: Shared Information / Total Information
-                    double numerator = mis.get(i) + mis.get(j);
-                    double denominator = pathTotals.get(i) + pathTotals.get(j);
-                    double partialSim = (denominator == 0) ? 0 : numerator / denominator;
-                    context.write(new Text(testPairsMap.get(pairKey)), new Text(String.valueOf(partialSim)));
+        // 2. יצירת צמדים והשוואה ל-Gold Standard
+        List<String> verbList = new ArrayList<>(bestVerbs.keySet());
+        for (int i = 0; i < verbList.size(); i++) {
+            for (int j = i + 1; j < verbList.size(); j++) {
+                String vName1 = verbList.get(i);
+                String vName2 = verbList.get(j);
+
+                String lookup = goldStandard.get(cleanAndStem(vName1) + "###" + cleanAndStem(vName2));
+                if (lookup == null) lookup = goldStandard.get(cleanAndStem(vName2) + "###" + cleanAndStem(vName1));
+
+                if (lookup != null) {
+                    double mi1 = bestVerbs.get(vName1)[0];
+                    double mi2 = bestVerbs.get(vName2)[0];
+                    double den1 = bestVerbs.get(vName1)[1];
+                    double den2 = bestVerbs.get(vName2)[1];
+
+                    double numeratorPart = Math.min(mi1, mi2);
+                    double pairDenominator = den1 + den2; 
+                    
+                    context.write(new Text(lookup), new Text(slot + ":" + numeratorPart + ":" + pairDenominator));
                 }
             }
         }

@@ -38,7 +38,7 @@ public class EmrRunner {
                 .withActionOnFailure("TERMINATE_JOB_FLOW");
 
         JobFlowInstancesConfig instances = new JobFlowInstancesConfig()
-                .withInstanceCount(5)
+                .withInstanceCount(9)
                 .withMasterInstanceType("m5.xlarge")
                 .withSlaveInstanceType("m5.xlarge")
                 .withEc2KeyName("vockey") // וודא שזה השם ב-AWS Console -> EC2 -> Key Pairs
